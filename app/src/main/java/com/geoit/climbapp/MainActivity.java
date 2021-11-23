@@ -14,15 +14,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.mapbox.api.directions.v5.DirectionsCriteria;
+import com.mapbox.api.directions.v5.models.DirectionsRoute;
+import com.mapbox.api.directions.v5.models.RouteOptions;
+import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
+//import com.mapbox.services.android.navigation.v5.navigation.MapboxNavigation;
+import com.mapbox.navigation.base.options.NavigationOptions;
+import com.mapbox.navigation.base.route.RouterCallback;
+import com.mapbox.navigation.base.route.RouterFailure;
+import com.mapbox.navigation.base.route.RouterOrigin;
+import com.mapbox.navigation.core.MapboxNavigation;
+import com.mapbox.navigation.core.MapboxNavigationProvider;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
 
     LocationManager locManager;
+
+    MapboxNavigation navigation;
 
 
     View layout;
@@ -63,7 +79,55 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         });
 
 
+        if(MapboxNavigationProvider.isCreated()){
+            navigation=MapboxNavigationProvider.retrieve();
+        }else{
+            navigation=MapboxNavigationProvider.create(new NavigationOptions.Builder(this).accessToken(getString(R.string.mapbox_access_token)).build());
+        }
+
+        Point a=Point.fromLngLat(13.25,52.3);
+        Point b=Point.fromLngLat(15.75,52);
+
+        ArrayList<Point>list=new ArrayList<>();
+        list.add(a);
+        list.add(b);
+
+
+        RouteOptions options= RouteOptions.builder().coordinatesList(list).profile(DirectionsCriteria.PROFILE_DRIVING).alternatives(false).build();
+
+        navigation.requestRoutes(options, new RouterCallback() {
+            @Override
+            public void onRoutesReady(@NonNull List<? extends DirectionsRoute> list, @NonNull RouterOrigin routerOrigin) {
+                System.out.println("ready");
+                System.out.println(routerOrigin.toString());
+                System.out.println(list.toString());
+
+            }
+
+            @Override
+            public void onFailure(@NonNull List<RouterFailure> list, @NonNull RouteOptions routeOptions) {
+                System.out.println("failure");
+                System.out.println(routeOptions.toString());
+                System.out.println(list.toString());
+
+            }
+
+            @Override
+            public void onCanceled(@NonNull RouteOptions routeOptions, @NonNull RouterOrigin routerOrigin) {
+                System.out.println("canceled");
+                System.out.println(routerOrigin.toString());
+                System.out.println(list.toString());
+            }
+        });
+
+
+
+
+
+
         requestPermission();
+
+
 
 
     }
@@ -249,6 +313,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     protected void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
+        navigation.onDestroy();
     }
 
 }
