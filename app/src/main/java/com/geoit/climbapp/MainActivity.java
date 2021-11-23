@@ -189,6 +189,26 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         System.out.println("location changed: " + location.toString());
     }
 
+    /**
+     * Called when the provider is enabled by the user.
+     *
+     * @param provider the name of the location provider that has become enabled
+     */
+    @Override
+    public void onProviderEnabled(@NonNull String provider) {
+
+    }
+    /**
+     * Called when the provider is disabled by the user. If requestLocationUpdates
+     * is called on an already disabled provider, this method is called
+     * immediately.
+     *
+     * @param provider the name of the location provider that has become disabled
+     */
+    @Override
+    public void onProviderDisabled(@NonNull String provider) {
+
+    }
     @Override
     protected void onStart() {
         super.onStart();
