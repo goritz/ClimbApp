@@ -8,24 +8,24 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
 
-import com.google.android.material.snackbar.Snackbar;
-
 public class MainActivity extends AppCompatActivity implements LocationListener {
 
     LocationManager locManager;
 
 
-   View layout;
+    View layout;
     private static final int PERMISSION_REQUEST_CODE = 1234;
     private static final String[] PERMISSIONS = {Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION};
 
@@ -39,11 +39,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
 
         setContentView(R.layout.activity_main);
-      
-              layout=findViewById(R.id.main_layout);
-      
-      
-      mapView = (MapView) findViewById(R.id.mapView);
+
+        layout = findViewById(R.id.main_layout);
+
+
+        mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
@@ -56,19 +56,16 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                         // Map is set up and the style has loaded. Now you can add data or make other map adjustments
 
 
-
-
                     }
                 });
 
             }
         });
-      
-
-      requestPermission();
 
 
-        
+        requestPermission();
+
+
     }
 
 
@@ -79,13 +76,13 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
      */
     private boolean hasPermissions() {
 
-     boolean p0=ActivityCompat.checkSelfPermission(this,PERMISSIONS[0]) == PackageManager.PERMISSION_GRANTED;
-        boolean p1=ActivityCompat.checkSelfPermission(this,PERMISSIONS[1]) == PackageManager.PERMISSION_GRANTED;
+        boolean p0 = ActivityCompat.checkSelfPermission(this, PERMISSIONS[0]) == PackageManager.PERMISSION_GRANTED;
+        boolean p1 = ActivityCompat.checkSelfPermission(this, PERMISSIONS[1]) == PackageManager.PERMISSION_GRANTED;
 
-        System.out.println(PERMISSIONS[0]+" "+ p0);
-        System.out.println(PERMISSIONS[1]+" "+ p1);
+        System.out.println(PERMISSIONS[0] + " " + p0);
+        System.out.println(PERMISSIONS[1] + " " + p1);
 
-        return (p0&&p1);
+        return (p0 && p1);
 
 
 //        return (ActivityCompat.checkSelfPermission(this, PERMISSIONS[0]) == PackageManager.PERMISSION_GRANTED &&
@@ -113,6 +110,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             }).show();
 
 
+        }else{
+            initLocator();
         }
 
 
@@ -130,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public void onRequestPermissionsResult(int requestCode, @NonNull final String[] permissions,
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == PERMISSION_REQUEST_CODE && grantResults.length==2) {
+        if (requestCode == PERMISSION_REQUEST_CODE && grantResults.length == 2) {
             // Request for location permission.
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 // Permission has been granted. Start location Activity.
@@ -160,9 +159,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                         10.0f, this);
                 Location location = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 //                updateLocation(location);
-                if(location!=null){
+                if (location != null) {
                     System.out.println("last known location: " + location.toString());
-                }else{
+                } else {
                     System.out.println("no last known location found!");
                 }
 
@@ -188,7 +187,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     @Override
     public void onLocationChanged(@NonNull Location location) {
         System.out.println("location changed: " + location.toString());
-
     }
 
     @Override
