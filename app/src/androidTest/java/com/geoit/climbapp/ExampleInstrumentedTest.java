@@ -32,29 +32,6 @@ public class ExampleInstrumentedTest {
         assertEquals("com.geoit.climbapp", appContext.getPackageName());
 
 
-//        File file=new File(appContext.getApplicationInfo().dataDir,"testabfrage2.xml");
-//        System.out.println("root path: "+file.getAbsolutePath());
-
-        testLocalXML(appContext,"testabfrage2.xml");
-        testLocalXML(appContext,"australia.xml");
-        testLocalXML(appContext,"pyranaen.xml");
-        testLocalXML(appContext,"portugal.xml");
-
-        testLocalXML(appContext,"southamerica.xml");
-
-
-
-    }
-
-    private void testLocalXML(Context context,String filename){
-        try {
-            System.out.println("TESTING XML: "+filename);
-            Document doc=XMLUtils.loadDocument(context.getAssets().open(filename));
-            Overpasser.parseResponse(doc);
-
-        } catch (IOException | SAXException | ParserConfigurationException e) {
-            e.printStackTrace();
-        }
 
     }
 }

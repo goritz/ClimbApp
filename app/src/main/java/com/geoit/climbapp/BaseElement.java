@@ -18,7 +18,7 @@ public class BaseElement {
 //<way id="998135237" version="1" timestamp="2021-11-01T11:48:03Z" changeset="113232327" uid="114161" user="Polarbear">
 
         try {
-            id = Integer.parseInt(osmNode.getAttribute("id"));
+            id = Long.parseLong(osmNode.getAttribute("id"));
 //            version=Integer.parseInt(osmElement.getAttribute("version"));
 //            timeStamp=Instant.parse(osmElement.getAttribute("timeStamp"));
 

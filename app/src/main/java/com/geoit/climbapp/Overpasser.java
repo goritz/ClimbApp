@@ -1,5 +1,7 @@
 package com.geoit.climbapp;
 
+import android.util.Log;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -10,6 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.xml.parsers.ParserConfigurationException;
+
+import timber.log.Timber;
 
 public class Overpasser {
 

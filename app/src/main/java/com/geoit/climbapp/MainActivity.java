@@ -31,8 +31,14 @@ import com.mapbox.navigation.base.route.RouterOrigin;
 import com.mapbox.navigation.core.MapboxNavigation;
 import com.mapbox.navigation.core.MapboxNavigationProvider;
 
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.parsers.ParserConfigurationException;
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
 
@@ -128,10 +134,30 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         requestPermission();
 
 
+        testLocalXML(this.getApplicationContext(),"testabfrage2.xml");
+        testLocalXML(this.getApplicationContext(),"australia.xml");
+        testLocalXML(this.getApplicationContext(),"pyrenaen.xml");
+        testLocalXML(this.getApplicationContext(),"portugal.xml");
+
+        testLocalXML(this.getApplicationContext(),"southamerica.xml");
 
 
     }
 
+
+
+
+    private void testLocalXML(Context context,String filename){
+        try {
+            System.out.println("TESTING XML: "+filename);
+            Document doc=XMLUtils.loadDocument(context.getAssets().open(filename));
+            Overpasser.parseResponse(doc);
+
+        } catch (IOException | SAXException | ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     /**
      * checks whether or not the app has all permissions granted to be fully functional
