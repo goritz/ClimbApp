@@ -1,4 +1,4 @@
-package com.geoit.climbapp;
+package com.geoit.climbapp.overpass;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -6,12 +6,14 @@ import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class Overpasser {
 
 
+    @Deprecated
     public static void parseResponse(Document document) {
-        ArrayList<ClimbingElement> nodeElements=new ArrayList<>();
-        ArrayList<ClimbingElement> wayElements=new ArrayList<>();
+        ArrayList<TaggedElement> nodeElements=new ArrayList<>();
+        ArrayList<TaggedElement> wayElements=new ArrayList<>();
 
 
 
@@ -22,8 +24,8 @@ public class Overpasser {
 
             Element n = (Element) nodeList.item(i);
             try {
-                ClimbingElement climbingElement=new ClimbingElement(n);
-                nodeElements.add(climbingElement);
+                TaggedElement taggedElement =new TaggedElement(0, ElementType.UNKNOWN,n);
+                nodeElements.add(taggedElement);
             } catch (OverpassException e) {
                 e.printStackTrace();
             }
@@ -35,8 +37,8 @@ public class Overpasser {
 
             Element w = (Element) wayList.item(i);
             try {
-                ClimbingElement climbingElement=new ClimbingElement(w);
-                wayElements.add(climbingElement);
+                TaggedElement taggedElement =new TaggedElement(0, ElementType.UNKNOWN,w);
+                wayElements.add(taggedElement);
             } catch (OverpassException e) {
                 e.printStackTrace();
             }
@@ -47,10 +49,10 @@ public class Overpasser {
         System.out.println(nodeElements.size()+" node elements!");
         System.out.println(wayElements.size()+" way elements!");
 
-        for(ClimbingElement el:nodeElements){
+        for(TaggedElement el:nodeElements){
             System.out.println(el.toString());
         }
-        for(ClimbingElement el:wayElements){
+        for(TaggedElement el:wayElements){
             System.out.println(el.toString());
         }
 

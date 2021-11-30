@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.geoit.climbapp.overpass.ElementFactory;
+import com.geoit.climbapp.overpass.OverpassException;
 import com.google.android.material.snackbar.Snackbar;
 import com.mapbox.api.directions.v5.DirectionsCriteria;
 import com.mapbox.api.directions.v5.models.DirectionsRoute;
@@ -150,9 +152,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         try {
             System.out.println("TESTING XML: "+filename);
             Document doc=XMLUtils.loadDocument(context.getAssets().open(filename));
-            Overpasser.parseResponse(doc);
+//            Overpasser.parseResponse(doc);
+            ElementFactory.parseResponse(doc);
 
-        } catch (IOException | SAXException | ParserConfigurationException e) {
+        } catch (IOException | SAXException | ParserConfigurationException | OverpassException e) {
             e.printStackTrace();
         }
 

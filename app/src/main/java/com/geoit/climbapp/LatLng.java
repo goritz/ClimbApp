@@ -1,5 +1,6 @@
 package com.geoit.climbapp;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class LatLng {
@@ -35,6 +36,18 @@ public class LatLng {
 //        return Double.compare(latLng.latitude, latitude) == 0 && Double.compare(latLng.longitude, longitude) == 0;
     }
 
+
+    public static LatLng calcCentroid(ArrayList<LatLng> latLngs){
+        double latSum=0.0;
+        double lngSum=0.0;
+
+        for(LatLng l:latLngs){
+            latSum+=l.getLatitude();
+            lngSum+=l.getLongitude();
+        }
+        return new LatLng(latSum/latLngs.size(),lngSum/ latLngs.size());
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(latitude, longitude);
@@ -47,4 +60,5 @@ public class LatLng {
                 ", longitude=" + longitude +
                 '}';
     }
+
 }
