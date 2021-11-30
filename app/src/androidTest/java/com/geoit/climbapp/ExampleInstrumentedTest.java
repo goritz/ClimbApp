@@ -1,14 +1,22 @@
 package com.geoit.climbapp;
 
 import android.content.Context;
+import android.net.Uri;
 
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 import static org.junit.Assert.*;
+
+import java.io.File;
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -22,5 +30,20 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("com.geoit.climbapp", appContext.getPackageName());
+
+
+//        File file=new File(appContext.getApplicationInfo().dataDir,"testabfrage2.xml");
+//        System.out.println("root path: "+file.getAbsolutePath());
+        try {
+
+
+            Document doc=XMLUtils.loadDocument(appContext.getAssets().open("testabfrage2.xml"));
+
+            Overpasser.parseResponse(doc);
+
+        } catch (IOException | SAXException | ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+
     }
 }
