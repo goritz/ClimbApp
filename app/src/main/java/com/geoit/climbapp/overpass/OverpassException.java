@@ -1,4 +1,4 @@
-package com.geoit.climbapp;
+package com.geoit.climbapp.overpass;
 
 public class OverpassException extends Exception {
 
