@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API 0.7.57.1 74a55df1">
+<note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+<meta osm_base="2021-11-30T18:31:42Z"/>
+
+  <node id="310397868" lat="-34.6096005" lon="-58.4247495">
+    <tag k="addr:housenumber" v="238"/>
+    <tag k="addr:street" v="Gascón"/>
+    <tag k="name" v="Fugate"/>
+    <tag k="shop" v="outdoor"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="601478077" lat="-37.6074894" lon="-59.4162550">
+    <tag k="name" v="Cuchilla del Aguila"/>
+    <tag k="natural" v="peak"/>
+    <tag k="source" v="local_knowledge"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="630543018" lat="-29.3580863" lon="-49.7350028">
+    <tag k="source" v="survey"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="2071869495" lat="-35.9684859" lon="-70.5527814">
+    <tag k="climbing" v="route"/>
+    <tag k="climbing:rock" v="basalt"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="2071869510" lat="-35.9687724" lon="-70.5518909">
+    <tag k="climbing" v="route"/>
+    <tag k="climbing:rock" v="basalt"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="2644588993" lat="-34.8293687" lon="-68.5197390">
+    <tag k="name" v="Canopy Del Lago"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="2862225841" lat="-33.0377808" lon="-71.6032941">
+    <tag k="addr:city" v="Valparaíso"/>
+    <tag k="addr:street" v="Paseo Wheelwright"/>
+    <tag k="email" v="contacto@tornamesavalpo.cl"/>
+    <tag k="leisure" v="pitch"/>
+    <tag k="name" v="Palestra Climbing Tornamesa"/>
+    <tag k="opening_hours" v="Mo-Fr 10:00-14:00, 16:00-22:00; Sa 16:00-22:00"/>
+    <tag k="phone" v="+56 9 846 67636"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="www.tornamesavalpo.cl"/>
+  </node>
+  <node id="2931277674" lat="-23.6167343" lon="-67.8517010">
+    <tag k="name" v="Quebrada de Nacimiento"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="3667170626" lat="-36.8187643" lon="-73.0545439">
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Bio-Boulder"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="3708431660" lat="-23.4208414" lon="-47.1645779">
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="3744910732" lat="-29.4045726" lon="-50.7202492">
+    <tag k="name" v="Pico da Canastra"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="tourism" v="attraction"/>
+  </node>
+  <node id="3889883758" lat="-23.4442483" lon="-48.4148930">
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="name" v="Cachoeira dos Mineiros"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="3960352204" lat="-39.3454944" lon="-71.8680088">
+    <tag k="natural" v="rock"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="4082203307" lat="-34.5700895" lon="-58.4927383">
+    <tag k="addr:city" v="Ciudad Autónoma de Buenos Aires"/>
+    <tag k="addr:housenumber" v="3086"/>
+    <tag k="addr:postcode" v="C1431DUB"/>
+    <tag k="addr:street" v="Rufino"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Rustik"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="http://www.escaladarustik.com.ar/"/>
+  </node>
+  <node id="4507370691" lat="-34.6044220" lon="-58.4627562">
+    <tag k="addr:housenumber" v="1952"/>
+    <tag k="addr:postcode" v="1416"/>
+    <tag k="addr:street" v="Almirante Francisco José Seguí"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="email" v="info@realizationescalada.com"/>
+    <tag k="indoor" v="yes"/>
+    <tag k="internet_access" v="wlan"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Realization"/>
+    <tag k="opening_hours" v="Mo, We, Fr-Sa 17:00-22:00; Tu, Th 11:00-22:00"/>
+    <tag k="phone" v="+54 11 6094-8234"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="https://www.realizationescalada.com/"/>
+  </node>
+  <node id="4546690430" lat="-23.6346552" lon="-46.6595455">
+    <tag k="addr:city" v="São Paulo"/>
+    <tag k="addr:country" v="BR"/>
+    <tag k="addr:housenumber" v="107"/>
+    <tag k="addr:street" v="Avenida João Pedro Cardoso"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="climbing:toprope" v="yes"/>
+    <tag k="fee" v="yes"/>
+    <tag k="indoor" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="90 graus escalada esportiva"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="http://www.90graus.com.br/"/>
+  </node>
+  <node id="5116241694" lat="-34.9206006" lon="-56.1687825">
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="5122775107" lat="-34.9013682" lon="-56.1464337">
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="MBC Montevideo Boulder Club"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="5746095984" lat="-34.4714821" lon="-58.4925625">
+    <tag k="addr:city" v="Acassuso"/>
+    <tag k="addr:housenumber" v="794"/>
+    <tag k="addr:postcode" v="B1641"/>
+    <tag k="addr:street" v="Sebastián Elcano"/>
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="description" v="Iniciación a la escalada, dictado de cursos, escuelita para niños y clases en todos los niveles de aprendizaje."/>
+    <tag k="fee" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Escalando"/>
+    <tag k="phone" v="+54 11 4798-2759"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="http://escalando.com.ar/"/>
+  </node>
+  <node id="5796697742" lat="-37.9445092" lon="-57.7814516">
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="5796697748" lat="-37.9435730" lon="-57.7899830">
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="climbing:toprope" v="yes"/>
+    <tag k="natural" v="stone"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="5908369510" lat="-23.6083688" lon="-46.6547486">
+    <tag k="addr:city" v="São Paulo"/>
+    <tag k="addr:country" v="BR"/>
+    <tag k="addr:housenumber" v="256"/>
+    <tag k="addr:postcode" v="04076-010"/>
+    <tag k="addr:street" v="Alameda dos Guaramomis"/>
+    <tag k="building" v="yes"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="climbing:sport" v="no"/>
+    <tag k="contact:phone" v="+55-11-45632903"/>
+    <tag k="indoor" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Casa de Pedra"/>
+    <tag k="note" v="localização não 100% exacta"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="http://www.casadepedra.com.br/"/>
+  </node>
+  <node id="6063531012" lat="-23.4182240" lon="-47.6626376">
+    <tag k="climbing" v="boulder"/>
+    <tag k="climbing:rock" v="sandstone"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="IpeRocks"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="http://iperocks.com/"/>
+  </node>
+  <node id="6389719652" lat="-37.3607859" lon="-59.0867489">
+    <tag k="fee" v="no"/>
+    <tag k="name" v="Onania"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="6594976485" lat="-32.9865900" lon="-70.7174778">
+    <tag k="name" v="Zona Porno"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="6637146697" lat="-28.1507093" lon="-48.9423913">
+    <tag k="natural" v="stone"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="6754145759" lat="-33.4682847" lon="-70.6099660">
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Muro escalada"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="6935846420" lat="-33.3582533" lon="-70.5601210">
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="7028532740" lat="-33.8072663" lon="-70.0228150">
+    <tag k="name" v="Escalada"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="7359900086" lat="-33.6471183" lon="-70.9451829">
+    <tag k="name" v="Escalada"/>
+    <tag k="natural" v="rock"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="7725465985" lat="-33.6310406" lon="-71.6349426">
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Sector Escalada, Rocas de Santo Domingo"/>
+    <tag k="name:en" v="Boulder climbing area"/>
+    <tag k="opening_hours" v="24/7"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="http://Wikiloc.com"/>
+  </node>
+  <node id="7778413985" lat="-33.6472505" lon="-70.9459076">
+    <tag k="name" v="Rutas escalada deportiva"/>
+    <tag k="natural" v="rock"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="7872677408" lat="-23.5828619" lon="-46.6740581">
+    <tag k="addr:city" v="São Paulo"/>
+    <tag k="addr:housenumber" v="484"/>
+    <tag k="addr:street" v="Rua Doutor Renato Paes de Barros"/>
+    <tag k="addr:suburb" v="Itaim Bibi"/>
+    <tag k="building" v="yes"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="fee" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Fabrica Escalada (Unidade Itaim)"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="https://fabricaescalada.com/"/>
+  </node>
+  <node id="7872677409" lat="-23.6277608" lon="-46.7054657">
+    <tag k="addr:city" v="São Paulo"/>
+    <tag k="addr:housenumber" v="347"/>
+    <tag k="addr:street" v="Rua Joaquim de Andrade"/>
+    <tag k="addr:suburb" v="Chácara Santo Antônio (Zona Sul)"/>
+    <tag k="building" v="yes"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="fee" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Fabrica Escalada (Unidade Chacara)"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="https://fabricaescalada.com/"/>
+  </node>
+  <node id="7955829485" lat="-33.6461942" lon="-70.9376678">
+    <tag k="name" v="Escalada deportiva"/>
+    <tag k="natural" v="rock"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="8025465685" lat="-33.5554922" lon="-70.3789009">
+    <tag k="name" v="Torrecillas, escalada multi largos"/>
+    <tag k="name:en" v="Torrecillas Multi pitch climbing"/>
+    <tag k="natural" v="rock"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="8047907288" lat="-31.3633867" lon="-64.2436082">
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Rocódromo"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="8197407917" lat="-32.7778998" lon="-70.9567583">
+    <tag k="name" v="Bloque boulder escalada"/>
+    <tag k="natural" v="rock"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="8225590326" lat="-36.8220112" lon="-73.0157231">
+    <tag k="climbing" v="boulder"/>
+    <tag k="leisure" v="pitch"/>
+    <tag k="name" v="Muro de Escalada RAUBB"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="8297657718" lat="-32.5037382" lon="-70.7798337">
+    <tag k="name" v="Zona Roja , Escalada"/>
+    <tag k="natural" v="rock"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="8378226217" lat="-32.5044654" lon="-70.7872334">
+    <tag k="name" v="Estero de Los Ángeles, escalada"/>
+    <tag k="name:en" v="Rock climbing Petorca"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="8458352869" lat="-37.3572585" lon="-59.0854874">
+    <tag k="name" v="La Calma"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="8511849920" lat="-39.3427237" lon="-71.8672273">
+    <tag k="name" v="Escalada El Cerduo"/>
+    <tag k="natural" v="rock"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="8538143478" lat="-33.4148634" lon="-70.6150758">
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="8984794344" lat="-33.4102426" lon="-70.6752454">
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Muros de Escalada"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="8987100710" lat="-33.5822128" lon="-70.3793090">
+    <tag k="ele" v="1240"/>
+    <tag k="name" v="Los Manyos"/>
+    <tag k="natural" v="rock"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="8994418439" lat="-37.3137700" lon="-59.1638287">
+    <tag k="fee" v="no"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="9021004005" lat="-34.2424506" lon="-70.3695238">
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="9099460181" lat="-32.9853254" lon="-70.7170579">
+    <tag k="ele" v="900"/>
+    <tag k="name" v="Zona de Mármol"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="9107755624" lat="-36.5237849" lon="-72.9611994">
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Bienvenido a Coliumo"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="9107798706" lat="-36.5232179" lon="-72.9620559">
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Zona de escalada"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="9108161552" lat="-32.9818398" lon="-70.7156826">
+    <tag k="ele" v="900"/>
+    <tag k="height" v="25"/>
+    <tag k="name" v="Zona Multilargos"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="9108161553" lat="-32.9859493" lon="-70.7173297">
+    <tag k="name" v="Zona Piola"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="9136414921" lat="-33.3067496" lon="-70.5766955">
+    <tag k="ele" v="1130"/>
+    <tag k="height" v="5"/>
+    <tag k="name" v="Jurassic Park - Boulder"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <way id="156894813">
+    <nd ref="1259007958"/>
+    <nd ref="1691357234"/>
+    <nd ref="8785292133"/>
+    <nd ref="1259007960"/>
+    <nd ref="1259007958"/>
+    <tag k="building" v="roof"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="289825623">
+    <nd ref="2933606301"/>
+    <nd ref="2933605602"/>
+    <tag k="barrier" v="wall"/>
+    <tag k="name" v="Palestra Nacional de Andinismo"/>
+    <tag k="operator" v="Club Andino de Buenos Aires (CABA)"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="352665948">
+    <nd ref="3584200288"/>
+    <nd ref="3584200285"/>
+    <nd ref="3584200286"/>
+    <nd ref="3584200287"/>
+    <nd ref="3584200288"/>
+    <tag k="addr:city" v="São Paulo"/>
+    <tag k="addr:housenumber" v="31"/>
+    <tag k="addr:postcode" v="05024-030"/>
+    <tag k="addr:street" v="Rua Venâncio Aires"/>
+    <tag k="addr:suburb" v="Água Branca"/>
+    <tag k="building" v="commercial"/>
+    <tag k="building:levels" v="2"/>
+    <tag k="height" v="18.16"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Casa de Pedra"/>
+    <tag k="opening_hours" v="Mo-Fr 09:00-23:00, Sa,PH Su 14:00-20:00"/>
+    <tag k="phone" v="+55 11 3875-1521"/>
+    <tag k="source" v="pmsp"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="http://www.escaladaindoor.com.br"/>
+    <tag k="wheelchair" v="limited"/>
+  </way>
+  <way id="373919294">
+    <nd ref="3773498097"/>
+    <nd ref="3773498095"/>
+    <nd ref="3773498084"/>
+    <nd ref="3773498099"/>
+    <nd ref="3773498098"/>
+    <nd ref="3773498102"/>
+    <nd ref="3773498103"/>
+    <nd ref="3773498101"/>
+    <nd ref="3773498087"/>
+    <nd ref="3773498100"/>
+    <nd ref="3773498088"/>
+    <nd ref="3773498089"/>
+    <nd ref="3773498090"/>
+    <nd ref="3773498086"/>
+    <nd ref="3773498085"/>
+    <nd ref="3773498091"/>
+    <nd ref="3773498093"/>
+    <nd ref="3773498092"/>
+    <nd ref="3773498096"/>
+    <nd ref="3773498094"/>
+    <nd ref="3773498097"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="379436274">
+    <nd ref="3827347756"/>
+    <nd ref="3827347757"/>
+    <nd ref="3827347758"/>
+    <nd ref="3827347759"/>
+    <nd ref="3827347756"/>
+    <tag k="addr:city" v="Las Condes"/>
+    <tag k="addr:country" v="CL"/>
+    <tag k="addr:housenumber" v="1647"/>
+    <tag k="addr:street" v="Avenida Américo Vespucio Sur"/>
+    <tag k="building" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="El Muro"/>
+    <tag k="phone" v="+5624752851"/>
+    <tag k="source" v="Reconocimiento cartográfico 2016 por KG"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="https://gimnasioelmuro.cl/"/>
+  </way>
+  <way id="398926715">
+    <nd ref="4016639287"/>
+    <nd ref="4016639284"/>
+    <nd ref="4016639389"/>
+    <nd ref="5272783867"/>
+    <nd ref="4016639394"/>
+    <nd ref="4016639398"/>
+    <nd ref="4016639395"/>
+    <nd ref="4016639397"/>
+    <nd ref="4016639393"/>
+    <nd ref="4016639392"/>
+    <nd ref="4016639287"/>
+    <tag k="addr:city" v="Vespasiano Correa"/>
+    <tag k="addr:country" v="BR"/>
+    <tag k="addr:place" v="Linha Lucano Conedera"/>
+    <tag k="addr:state" v="Rio Grande do Sul"/>
+    <tag k="building" v="yes"/>
+    <tag k="height" v="5"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Refúgio Explorer"/>
+    <tag k="operator" v="Sílvio Zonatto"/>
+    <tag k="phone" v="+55 51 98262-2575"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="tourism" v="hostel"/>
+    <tag k="website" v="http://www.refugioexplorer.com.br/"/>
+  </way>
+  <way id="464824207">
+    <nd ref="4598943631"/>
+    <nd ref="4598943632"/>
+    <nd ref="4598943633"/>
+    <tag k="name" v="Costão"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="602680947">
+    <nd ref="5723675697"/>
+    <nd ref="5723675698"/>
+    <nd ref="5723675699"/>
+    <nd ref="5723675700"/>
+    <nd ref="5723675697"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Muro de escalada"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="648515539">
+    <nd ref="4843093457"/>
+    <nd ref="6114319073"/>
+    <nd ref="6088051956"/>
+    <nd ref="4843093456"/>
+    <nd ref="4843093455"/>
+    <tag k="name" v="escalada deportiva Punta de Parra"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="704932462">
+    <nd ref="6620833448"/>
+    <nd ref="6620833449"/>
+    <nd ref="6620833450"/>
+    <nd ref="6620833452"/>
+    <nd ref="6620833453"/>
+    <nd ref="6620833454"/>
+    <nd ref="6418988789"/>
+    <nd ref="6620833448"/>
+    <tag k="landuse" v="quarry"/>
+    <tag k="name" v="Mar de Lucas"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="735004879">
+    <nd ref="6883722945"/>
+    <nd ref="6883722946"/>
+    <nd ref="6883722947"/>
+    <nd ref="6883722949"/>
+    <nd ref="6883722945"/>
+    <tag k="addr:city" v="Puente Alto"/>
+    <tag k="addr:street" v="Avenida Ejército Libertador"/>
+    <tag k="image" v="https://i.imgur.com/nsHlsmM.jpg"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="747827447">
+    <nd ref="6996589059"/>
+    <nd ref="6996589060"/>
+    <nd ref="6996589061"/>
+    <nd ref="6996589062"/>
+    <nd ref="6996589063"/>
+    <nd ref="6996589064"/>
+    <nd ref="6996589065"/>
+    <nd ref="6996589066"/>
+    <nd ref="6996589067"/>
+    <nd ref="6996589068"/>
+    <tag k="name" v="Acantilados Punta de Parra"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="747827448">
+    <nd ref="6996589069"/>
+    <nd ref="6996589070"/>
+    <nd ref="6996589071"/>
+    <nd ref="6996589072"/>
+    <nd ref="6996589073"/>
+    <nd ref="6996589074"/>
+    <nd ref="6996589075"/>
+    <nd ref="6996589076"/>
+    <nd ref="6996589077"/>
+    <nd ref="6996589078"/>
+    <nd ref="6996589079"/>
+    <nd ref="6996589080"/>
+    <nd ref="6996589081"/>
+    <nd ref="6996589082"/>
+    <tag k="name" v="Acantilados Coliumo"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="779439196">
+    <nd ref="7278464189"/>
+    <nd ref="7278464190"/>
+    <nd ref="7278464191"/>
+    <nd ref="7278464196"/>
+    <nd ref="7278464192"/>
+    <nd ref="7278464193"/>
+    <nd ref="7278464194"/>
+    <nd ref="7278464195"/>
+    <nd ref="7278464189"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="863847795">
+    <nd ref="8047907289"/>
+    <nd ref="8047907290"/>
+    <nd ref="8047907291"/>
+    <nd ref="8047907292"/>
+    <nd ref="8047907293"/>
+    <nd ref="8047907294"/>
+    <nd ref="8047907295"/>
+    <nd ref="8047907296"/>
+    <nd ref="8047907289"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Muro de Escalada"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="905486032">
+    <nd ref="8408932265"/>
+    <nd ref="8408932266"/>
+    <nd ref="8408932267"/>
+    <nd ref="8408932268"/>
+    <nd ref="8408932269"/>
+    <nd ref="8408932270"/>
+    <nd ref="8408932265"/>
+    <tag k="addr:city" v="Pirque"/>
+    <tag k="addr:street" v="Alcalde Hernán Prieto"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Muro Pirque"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="921469365">
+    <nd ref="8555034514"/>
+    <nd ref="8555034515"/>
+    <nd ref="9027561164"/>
+    <nd ref="9027561163"/>
+    <nd ref="8555034516"/>
+    <nd ref="8555034517"/>
+    <nd ref="8555034514"/>
+    <tag k="access" v="customers"/>
+    <tag k="addr:city" v="Providencia"/>
+    <tag k="addr:housenumber" v="875"/>
+    <tag k="addr:street" v="Avenida Italia"/>
+    <tag k="building" v="house"/>
+    <tag k="fee" v="yes"/>
+    <tag k="image" v="https://i.imgur.com/En1f3W3.jpg"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Casa Boulder Escalada"/>
+    <tag k="name:en" v="Casa Boulder Climbing"/>
+    <tag k="name:fr" v="Casa Boulder Bloc Escalade"/>
+    <tag k="payment:cash" v="yes"/>
+    <tag k="payment:debit_cards" v="yes"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <node id="6418988789" lat="-37.3450855" lon="-59.0873650"/>
+  <node id="6620833448" lat="-37.3450375" lon="-59.0874424"/>
+  <node id="6620833449" lat="-37.3450828" lon="-59.0876241"/>
+  <node id="6620833450" lat="-37.3451628" lon="-59.0876132"/>
+  <node id="6620833452" lat="-37.3452687" lon="-59.0875027"/>
+  <node id="6620833453" lat="-37.3452588" lon="-59.0874107"/>
+  <node id="6620833454" lat="-37.3451856" lon="-59.0873251"/>
+  <node id="4843093455" lat="-36.6707677" lon="-72.9836322"/>
+  <node id="4843093456" lat="-36.6707058" lon="-72.9836932"/>
+  <node id="6088051956" lat="-36.6706863" lon="-72.9836937"/>
+  <node id="6114319073" lat="-36.6706592" lon="-72.9836945"/>
+  <node id="6996589059" lat="-36.6706887" lon="-72.9836993"/>
+  <node id="6996589060" lat="-36.6707076" lon="-72.9836969"/>
+  <node id="6996589061" lat="-36.6707163" lon="-72.9836904"/>
+  <node id="6996589062" lat="-36.6707341" lon="-72.9836731"/>
+  <node id="6996589063" lat="-36.6707549" lon="-72.9836513"/>
+  <node id="6996589064" lat="-36.6707669" lon="-72.9836380"/>
+  <node id="6996589065" lat="-36.6707808" lon="-72.9836281"/>
+  <node id="6996589066" lat="-36.6707931" lon="-72.9836223"/>
+  <node id="6996589067" lat="-36.6707992" lon="-72.9836155"/>
+  <node id="6996589068" lat="-36.6708013" lon="-72.9836093"/>
+  <node id="4843093457" lat="-36.6706321" lon="-72.9836952"/>
+  <node id="6996589069" lat="-36.5232517" lon="-72.9621396"/>
+  <node id="6996589070" lat="-36.5232835" lon="-72.9621279"/>
+  <node id="6996589071" lat="-36.5233470" lon="-72.9621063"/>
+  <node id="6996589072" lat="-36.5233817" lon="-72.9620848"/>
+  <node id="6996589073" lat="-36.5233955" lon="-72.9620524"/>
+  <node id="6996589074" lat="-36.5233940" lon="-72.9620092"/>
+  <node id="6996589075" lat="-36.5233839" lon="-72.9619778"/>
+  <node id="6996589076" lat="-36.5233608" lon="-72.9619715"/>
+  <node id="6996589077" lat="-36.5233304" lon="-72.9619625"/>
+  <node id="6996589078" lat="-36.5233066" lon="-72.9619571"/>
+  <node id="6996589079" lat="-36.5232835" lon="-72.9619427"/>
+  <node id="6996589080" lat="-36.5233008" lon="-72.9619148"/>
+  <node id="6996589081" lat="-36.5233268" lon="-72.9618932"/>
+  <node id="6996589082" lat="-36.5233348" lon="-72.9618788"/>
+  <node id="5723675697" lat="-35.0032192" lon="-71.2301835"/>
+  <node id="5723675698" lat="-35.0032621" lon="-71.2301459"/>
+  <node id="5723675699" lat="-35.0032203" lon="-71.2300749"/>
+  <node id="5723675700" lat="-35.0031775" lon="-71.2301125"/>
+  <node id="8408932265" lat="-33.6994393" lon="-70.5624485"/>
+  <node id="8408932266" lat="-33.6994229" lon="-70.5623331"/>
+  <node id="8408932267" lat="-33.6993792" lon="-70.5623134"/>
+  <node id="8408932268" lat="-33.6993509" lon="-70.5623541"/>
+  <node id="8408932269" lat="-33.6993618" lon="-70.5624314"/>
+  <node id="8408932270" lat="-33.6993956" lon="-70.5624734"/>
+  <node id="6883722946" lat="-33.5708396" lon="-70.5977404"/>
+  <node id="6883722947" lat="-33.5708215" lon="-70.5976720"/>
+  <node id="6883722945" lat="-33.5707265" lon="-70.5977571"/>
+  <node id="6883722949" lat="-33.5707335" lon="-70.5976868"/>
+  <node id="1259007958" lat="-33.4408252" lon="-70.6360432"/>
+  <node id="1259007960" lat="-33.4408903" lon="-70.6360118"/>
+  <node id="1691357234" lat="-33.4407576" lon="-70.6358417"/>
+  <node id="8785292133" lat="-33.4408228" lon="-70.6358103"/>
+  <node id="8555034514" lat="-33.4428542" lon="-70.6262670"/>
+  <node id="8555034515" lat="-33.4429692" lon="-70.6262320"/>
+  <node id="8555034516" lat="-33.4430721" lon="-70.6264753"/>
+  <node id="8555034517" lat="-33.4429071" lon="-70.6265257"/>
+  <node id="9027561163" lat="-33.4430414" lon="-70.6263393"/>
+  <node id="9027561164" lat="-33.4429945" lon="-70.6263512"/>
+  <node id="3827347756" lat="-33.4271830" lon="-70.5761271"/>
+  <node id="3827347757" lat="-33.4270930" lon="-70.5762470"/>
+  <node id="3827347758" lat="-33.4271314" lon="-70.5762883"/>
+  <node id="3827347759" lat="-33.4272213" lon="-70.5761684"/>
+  <node id="8047907289" lat="-31.3635115" lon="-64.2436113"/>
+  <node id="8047907290" lat="-31.3634160" lon="-64.2435849"/>
+  <node id="8047907291" lat="-31.3633833" lon="-64.2436525"/>
+  <node id="8047907292" lat="-31.3633859" lon="-64.2437055"/>
+  <node id="8047907293" lat="-31.3634461" lon="-64.2437408"/>
+  <node id="8047907294" lat="-31.3634838" lon="-64.2437496"/>
+  <node id="8047907295" lat="-31.3635064" lon="-64.2437290"/>
+  <node id="8047907296" lat="-31.3635265" lon="-64.2436819"/>
+  <node id="2933606301" lat="-34.5417595" lon="-58.4516924"/>
+  <node id="2933605602" lat="-34.5419675" lon="-58.4514041"/>
+  <node id="4598943631" lat="-29.6505595" lon="-53.8144888"/>
+  <node id="4598943632" lat="-29.6504684" lon="-53.8145048"/>
+  <node id="4598943633" lat="-29.6500288" lon="-53.8149171"/>
+  <node id="4016639284" lat="-29.0385051" lon="-51.9135150"/>
+  <node id="4016639287" lat="-29.0385724" lon="-51.9136136"/>
+  <node id="4016639389" lat="-29.0386418" lon="-51.9134139"/>
+  <node id="4016639392" lat="-29.0387028" lon="-51.9135150"/>
+  <node id="4016639393" lat="-29.0387352" lon="-51.9135529"/>
+  <node id="4016639394" lat="-29.0388105" lon="-51.9131746"/>
+  <node id="4016639395" lat="-29.0387659" lon="-51.9134452"/>
+  <node id="4016639397" lat="-29.0387932" lon="-51.9134789"/>
+  <node id="4016639398" lat="-29.0388940" lon="-51.9132689"/>
+  <node id="5272783867" lat="-29.0387124" lon="-51.9133361"/>
+  <node id="3773498084" lat="-25.4526041" lon="-49.6646665"/>
+  <node id="3773498085" lat="-25.4530061" lon="-49.6649509"/>
+  <node id="3773498086" lat="-25.4529380" lon="-49.6647422"/>
+  <node id="3773498087" lat="-25.4531512" lon="-49.6635030"/>
+  <node id="3773498088" lat="-25.4531560" lon="-49.6638624"/>
+  <node id="3773498089" lat="-25.4531173" lon="-49.6641521"/>
+  <node id="3773498090" lat="-25.4530400" lon="-49.6644681"/>
+  <node id="3773498091" lat="-25.4530884" lon="-49.6651976"/>
+  <node id="3773498092" lat="-25.4531124" lon="-49.6655361"/>
+  <node id="3773498093" lat="-25.4531463" lon="-49.6654181"/>
+  <node id="3773498094" lat="-25.4529334" lon="-49.6655946"/>
+  <node id="3773498095" lat="-25.4527637" lon="-49.6654074"/>
+  <node id="3773498096" lat="-25.4530301" lon="-49.6655790"/>
+  <node id="3773498097" lat="-25.4528605" lon="-49.6656166"/>
+  <node id="3773498098" lat="-25.4525990" lon="-49.6640931"/>
+  <node id="3773498099" lat="-25.4525798" lon="-49.6644037"/>
+  <node id="3773498100" lat="-25.4531560" lon="-49.6635727"/>
+  <node id="3773498101" lat="-25.4530059" lon="-49.6633528"/>
+  <node id="3773498102" lat="-25.4526525" lon="-49.6637224"/>
+  <node id="3773498103" lat="-25.4527881" lon="-49.6634488"/>
+  <node id="7278464189" lat="-24.5019622" lon="-47.8655180"/>
+  <node id="7278464190" lat="-24.5025968" lon="-47.8654751"/>
+  <node id="7278464191" lat="-24.5024528" lon="-47.8652176"/>
+  <node id="7278464192" lat="-24.5023039" lon="-47.8650433"/>
+  <node id="7278464193" lat="-24.5020989" lon="-47.8648743"/>
+  <node id="7278464194" lat="-24.5019842" lon="-47.8648073"/>
+  <node id="7278464195" lat="-24.5019183" lon="-47.8647912"/>
+  <node id="7278464196" lat="-24.5023832" lon="-47.8651251"/>
+  <node id="3584200285" lat="-23.5302949" lon="-46.6784203"/>
+  <node id="3584200286" lat="-23.5305471" lon="-46.6784315"/>
+  <node id="3584200287" lat="-23.5305166" lon="-46.6785664"/>
+  <node id="3584200288" lat="-23.5302671" lon="-46.6785555"/>
+
+</osm>
