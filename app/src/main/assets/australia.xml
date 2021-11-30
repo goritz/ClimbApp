@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API 0.7.57.1 74a55df1">
+<note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+<meta osm_base="2021-11-30T18:32:47Z"/>
+
+  <node id="632214477" lat="-33.7809749" lon="150.6380762">
+    <tag k="direction" v="N-E"/>
+    <tag k="ele" v="142"/>
+    <tag k="name" v="Mount Portal Lookout"/>
+    <tag k="source" v="survey"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="tourism" v="viewpoint"/>
+  </node>
+  <node id="730570831" lat="-32.8845283" lon="151.6219525">
+    <tag k="name" v="Treetops Adventures"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="1190327960" lat="-34.8713638" lon="150.5739447">
+    <tag k="note" v="nodes do not represent actual climbing routes, they are only indicative of the climbing areas"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="1190328563" lat="-34.8736343" lon="150.5742685">
+    <tag k="note" v="nodes do not represent actual climbing routes, they are only indicative of the climbing areas"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="1190328689" lat="-34.8725897" lon="150.5742053">
+    <tag k="note" v="nodes do not represent actual climbing routes, they are only indicative of the climbing areas"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="1190328783" lat="-34.8692302" lon="150.5741802">
+    <tag k="note" v="nodes do not represent actual climbing routes, they are only indicative of the climbing areas"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="1190329630" lat="-34.8747192" lon="150.5737079">
+    <tag k="note" v="nodes do not represent actual climbing routes, they are only indicative of the climbing areas"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="1190329660" lat="-34.8707501" lon="150.5739822">
+    <tag k="note" v="nodes do not represent actual climbing routes, they are only indicative of the climbing areas"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="1190330472" lat="-34.8698775" lon="150.5740598">
+    <tag k="note" v="nodes do not represent actual climbing routes, they are only indicative of the climbing areas"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="1525910742" lat="-34.4041221" lon="150.8536520">
+    <tag k="leisure" v="track"/>
+    <tag k="name" v="Mount Keira South Face"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="1525910745" lat="-34.4026646" lon="150.8540078">
+    <tag k="leisure" v="track"/>
+    <tag k="name" v="Mount Keira West Face"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="1957862595" lat="-33.6592859" lon="150.3177025">
+    <tag k="climbing" v="abseil"/>
+    <tag k="source" v="survey"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="3275261798" lat="-33.9103195" lon="151.1741698">
+    <tag k="addr:city" v="St Peters"/>
+    <tag k="addr:housenumber" v="1-7"/>
+    <tag k="addr:postcode" v="2044"/>
+    <tag k="addr:street" v="Unwins Bridge Road"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="climbing:toprope" v="yes"/>
+    <tag k="email" v="sicg2@hotmail.com"/>
+    <tag k="fax" v="+61-2-95163894"/>
+    <tag k="fee" v="yes"/>
+    <tag k="indoor" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="SICG St Peters"/>
+    <tag k="opening_hours" v="Mo-Fr 09:30-22:00; Th 09:30-23:00; Sa,Su 09:30-21:00; PH 09:30-21:00; Dec 25 off; Dec 26 off; Jan 01 off"/>
+    <tag k="phone" v="+61-2-95193325"/>
+    <tag k="source" v="knowledge"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="http://www.indoorclimbing.com.au/st_peters/"/>
+  </node>
+  <node id="3796283443" lat="-33.6274144" lon="150.2689070">
+    <tag k="name" v="Heathcliff"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="3796314259" lat="-33.6729702" lon="150.2736756">
+    <tag k="name" v="Medlow Bath: The Block"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="4115282988" lat="-33.7315635" lon="150.9735322">
+    <tag k="addr:city" v="Castle Hill"/>
+    <tag k="addr:country" v="AU"/>
+    <tag k="addr:housenumber" v="9/10"/>
+    <tag k="addr:postcode" v="2154"/>
+    <tag k="addr:state" v="NSW"/>
+    <tag k="addr:street" v="Hudson Avenue"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="climbing:toprope" v="yes"/>
+    <tag k="fee" v="yes"/>
+    <tag k="indoor" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="The Edge"/>
+    <tag k="opening_hours" v="Mo-Fr 12:00-22:00; Sa,Su 09:00-18:00; SH Mo-Fr 09:00-22:00;PH 09:00-18:00"/>
+    <tag k="phone" v="+61-2-98998228"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="http://www.edgerockclimbing.com.au/"/>
+  </node>
+  <node id="4115291422" lat="-33.8910382" lon="151.1919507">
+    <tag k="addr:city" v="Darlington"/>
+    <tag k="addr:country" v="AU"/>
+    <tag k="addr:housenumber" v="A30"/>
+    <tag k="addr:place" v="The Arena Sports Centre"/>
+    <tag k="addr:postcode" v="2008"/>
+    <tag k="addr:state" v="NSW"/>
+    <tag k="addr:street" v="Western Drive"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="climbing:toprope" v="yes"/>
+    <tag k="fee" v="yes"/>
+    <tag k="indoor" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="SUSF The Ledge"/>
+    <tag k="opening_hours" v="Mo-Fr 12:00-22:00; Sa 11:00-17:00"/>
+    <tag k="phone" v="+61-2-93514960"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="http://www.susf.com.au/the-ledge.html"/>
+  </node>
+  <node id="4115333570" lat="-33.8186050" lon="151.1896832">
+    <tag k="addr:city" v="St Leonards"/>
+    <tag k="addr:country" v="AU"/>
+    <tag k="addr:housenumber" v="12"/>
+    <tag k="addr:postcode" v="2065"/>
+    <tag k="addr:state" v="NSW"/>
+    <tag k="addr:street" v="Frederick Street"/>
+    <tag k="addr:unit" v="4"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="climbing:toprope" v="yes"/>
+    <tag k="email" v="info@climbfit.com.au"/>
+    <tag k="fee" v="yes"/>
+    <tag k="indoor" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Climb Fit"/>
+    <tag k="note:wheelchair" v="wheelchair access is limited, can access the climbing area, but not gym or boldering"/>
+    <tag k="opening_hours" v="Mo,Fr 06:00-22:00; Tu-Th 06:00-23:00; Sa,Su 08:00-20:00"/>
+    <tag k="personal_trainer" v="yes"/>
+    <tag k="phone" v="+61 2 9436 4600"/>
+    <tag k="shoes:rental" v="yes"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="https://www.climbfit.com.au/"/>
+    <tag k="wheelchair" v="limited"/>
+  </node>
+  <node id="4127353279" lat="-33.7646244" lon="151.2777125">
+    <tag k="addr:city" v="Brookvale"/>
+    <tag k="addr:country" v="AU"/>
+    <tag k="addr:housenumber" v="Unit 4E, 9-13"/>
+    <tag k="addr:place" v="Winbourne Estate"/>
+    <tag k="addr:postcode" v="2100"/>
+    <tag k="addr:state" v="NSW"/>
+    <tag k="addr:street" v="Winbourne Road"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="climbing:toprope" v="yes"/>
+    <tag k="email" v="info@rockhouse.com.au"/>
+    <tag k="fax" v="+61-2-99052419"/>
+    <tag k="fee" v="yes"/>
+    <tag k="indoor" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Northern Beaches RockHouse Rock Climbing Centre"/>
+    <tag k="opening_hours" v="Mo 16:00-22:00; Tu-Fr 12:00-22:00; Sa,Su 10:00-21:00"/>
+    <tag k="phone" v="+61-2-99056202"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="http://rockhouse.com.au/"/>
+  </node>
+  <node id="4398864240" lat="-33.4837778" lon="150.2504102">
+    <tag k="description" v="Climbing area, crag"/>
+    <tag k="name" v="Dam Cliffs"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="4636274844" lat="-34.4421229" lon="150.4549560">
+    <tag k="name" v="Mittagong Outdoor Walls"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="4667064346" lat="-35.1400203" lon="148.6671789">
+    <tag k="leisure" v="pitch"/>
+    <tag k="name" v="Abseil Wall"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="surface" v="rock"/>
+  </node>
+  <node id="5344097651" lat="-35.3230872" lon="149.1651303">
+    <tag k="addr:housenumber" v="1"/>
+    <tag k="addr:street" v="Dairy Road"/>
+    <tag k="addr:unit" v="Unit 2 Building 2"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="climbing:deepwater" v="no"/>
+    <tag k="climbing:ice" v="no"/>
+    <tag k="climbing:mixed" v="no"/>
+    <tag k="climbing:multipitch" v="no"/>
+    <tag k="climbing:sport" v="no"/>
+    <tag k="climbing:toprope" v="no"/>
+    <tag k="climbing:trad" v="no"/>
+    <tag k="email" v="boulder@blochaus.com.au"/>
+    <tag k="fee" v="yes"/>
+    <tag k="indoor" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="BlocHaus"/>
+    <tag k="opening_hours" v="Mo-Fr 06:00-22:00; Tu,Th 10:00-22:00; Sa 08:00-22:00; PH 09:00-21:00; Dec 25 off; Jan 01 off"/>
+    <tag k="phone" v="+61-2-62808830"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="https://www.blochauscbr.com.au/"/>
+  </node>
+  <node id="6250590971" lat="-33.6360328" lon="150.2718840">
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="6250591352" lat="-33.6377983" lon="150.2737427">
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="6250592413" lat="-33.6353066" lon="150.2748575">
+    <tag k="name" v="Centennial Glen"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="6499541801" lat="-33.7345518" lon="150.3371970">
+    <tag k="access" v="yes"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:multipitch" v="5"/>
+    <tag k="climbing:trad" v="yes"/>
+    <tag k="fee" v="no"/>
+    <tag k="name" v="Sweet Dreams"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="6745116941" lat="-35.2110195" lon="149.1421562">
+    <tag k="addr:housenumber" v="38-40"/>
+    <tag k="addr:street" v="Essington Street"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="climbing:deepwater" v="no"/>
+    <tag k="climbing:ice" v="no"/>
+    <tag k="climbing:length:max" v="8.5"/>
+    <tag k="climbing:length:min" v="7.5"/>
+    <tag k="climbing:mixed" v="no"/>
+    <tag k="climbing:multipitch" v="no"/>
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="climbing:toprope" v="yes"/>
+    <tag k="climbing:trad" v="no"/>
+    <tag k="fee" v="yes"/>
+    <tag k="indoor" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Canberra Indoor Climbing - North Rocks"/>
+    <tag k="opening_hours" v="Mo 15:00-22:00; Tu-Fr 12:00-22:00; Sa,Su 10:00-20:00"/>
+    <tag k="phone" v="+61-2-62624863"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="https://www.canberrarockclimbing.com.au/"/>
+  </node>
+  <node id="6745139716" lat="-35.3931453" lon="149.1669996">
+    <tag k="addr:housenumber" v="26"/>
+    <tag k="addr:street" v="Raws Crescent"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="climbing:deepwater" v="no"/>
+    <tag k="climbing:ice" v="no"/>
+    <tag k="climbing:length:max" v="7.5"/>
+    <tag k="climbing:length:min" v="6.5"/>
+    <tag k="climbing:mixed" v="no"/>
+    <tag k="climbing:multipitch" v="no"/>
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="climbing:toprope" v="yes"/>
+    <tag k="climbing:trad" v="no"/>
+    <tag k="fee" v="yes"/>
+    <tag k="indoor" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Canberra Indoor Climbing - South Rocks"/>
+    <tag k="opening_hours" v="Mo 15:00-22:00; Tu-Fr 12:00-22:00; Sa,Su 10:00-20:00"/>
+    <tag k="phone" v="+61-2-62601101"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="https://www.canberrarockclimbing.com.au/"/>
+  </node>
+  <node id="6960938256" lat="-33.7646188" lon="151.2776804">
+    <tag k="addr:housenumber" v="9-13"/>
+    <tag k="addr:street" v="Winbourne Road"/>
+    <tag k="addr:unit" v="Unit 4E"/>
+    <tag k="name" v="Northern Beaches Rockhouse"/>
+    <tag k="opening_hours" v="Mo 16:00-22:00; Tu-Fr 12:00-22:00; Sa, Su 10:00-21:00"/>
+    <tag k="phone" v="+61 2 9905 6202"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="www.rockhouse.com.au"/>
+  </node>
+  <node id="8899615378" lat="-33.7055987" lon="150.3060769">
+    <tag k="addr:housenumber" v="102"/>
+    <tag k="addr:street" v="Camp Street"/>
+    <tag k="email" v="info@campstreetclimbing.com"/>
+    <tag k="facebook" v="https://www.facebook.com/campstreetclimbing/"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Camp Street Climbing"/>
+    <tag k="phone" v="+61 490 471 262"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="http://www.campstreetclimbing.com/"/>
+  </node>
+  <node id="9124124418" lat="-33.8293224" lon="151.1596468">
+    <tag k="sport" v="climbing"/>
+  </node>
+  <way id="322452801">
+    <nd ref="3292242150"/>
+    <nd ref="3292242151"/>
+    <nd ref="3592234205"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="climbing:toprope" v="yes"/>
+    <tag k="name" v="Lindfield Rocks"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="source" v="Survey"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="386266934">
+    <nd ref="3895899759"/>
+    <nd ref="7710452757"/>
+    <nd ref="3895898447"/>
+    <nd ref="3895898452"/>
+    <nd ref="3895898449"/>
+    <nd ref="3895898445"/>
+    <nd ref="3895898446"/>
+    <nd ref="3895899758"/>
+    <nd ref="3895899759"/>
+    <tag k="addr:city" v="Villawood"/>
+    <tag k="addr:country" v="AU"/>
+    <tag k="addr:housenumber" v="5/850"/>
+    <tag k="addr:postcode" v="2163"/>
+    <tag k="addr:state" v="NSW"/>
+    <tag k="addr:street" v="Woodville Road"/>
+    <tag k="building" v="yes"/>
+    <tag k="email" v="sicgvillawood@hotmail.com"/>
+    <tag k="fax" v="+61-2-97282726"/>
+    <tag k="fee" v="yes"/>
+    <tag k="indoor" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="SICG Villawood"/>
+    <tag k="opening_hours" v="Mo-Fr 12:00-22:00; Sa 09:30-20:00; Su 09:30-18:00; SH Mo-Fr 09:30-22:00; PH 09:30-18:00"/>
+    <tag k="phone" v="+61-2-97282825"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="http://www.indoorclimbing.com.au/villawood"/>
+  </way>
+  <way id="723285114">
+    <nd ref="6784128536"/>
+    <nd ref="6784128531"/>
+    <nd ref="6784128534"/>
+    <nd ref="6784128533"/>
+    <nd ref="6784128532"/>
+    <nd ref="6784128535"/>
+    <tag k="access" v="yes"/>
+    <tag k="climbing:length:max" v="16"/>
+    <tag k="climbing:length:min" v="10"/>
+    <tag k="climbing:mixed" v="4"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:routes" v="12"/>
+    <tag k="climbing:trad" v="8"/>
+    <tag k="fee" v="no"/>
+    <tag k="name" v="Wickerslack Crag"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="outdoor" v="yes"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="https://www.thecrag.com/climbing/australia/river-crags/wickerslack-crag"/>
+  </way>
+  <way id="786391114">
+    <nd ref="689957760"/>
+    <nd ref="689957763"/>
+    <nd ref="689957765"/>
+    <nd ref="689957768"/>
+    <nd ref="689957788"/>
+    <nd ref="689957790"/>
+    <nd ref="8663599683"/>
+    <nd ref="8663599682"/>
+    <nd ref="8663599681"/>
+    <nd ref="8663599680"/>
+    <nd ref="689957795"/>
+    <nd ref="8663599679"/>
+    <nd ref="8663599678"/>
+    <nd ref="8663599677"/>
+    <tag k="height" v="30"/>
+    <tag k="name" v="Shipley Upper"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="786391116">
+    <nd ref="689957737"/>
+    <nd ref="689957739"/>
+    <nd ref="689957741"/>
+    <nd ref="5761443062"/>
+    <nd ref="5761443063"/>
+    <nd ref="5761443064"/>
+    <nd ref="5761443065"/>
+    <nd ref="5761443066"/>
+    <nd ref="5761443067"/>
+    <nd ref="5761443068"/>
+    <nd ref="5761443069"/>
+    <nd ref="5761443070"/>
+    <nd ref="5761443071"/>
+    <nd ref="5761443072"/>
+    <nd ref="5761443073"/>
+    <tag k="height" v="50"/>
+    <tag k="name" v="Shipley Lower"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="804850988">
+    <nd ref="7513098145"/>
+    <nd ref="7513098144"/>
+    <nd ref="7513098143"/>
+    <tag k="description" v="The Big Pump bouldering area"/>
+    <tag k="height" v="10"/>
+    <tag k="name" v="The Big Pump"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="source" v="local knowledge"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="892149730">
+    <nd ref="3202930173"/>
+    <nd ref="3644013614"/>
+    <nd ref="8292281300"/>
+    <tag k="climbing" v="route"/>
+    <tag k="climbing:bolts" v="yes"/>
+    <tag k="climbing:rock" v="sandstone"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="892149733">
+    <nd ref="8292281300"/>
+    <nd ref="8292281307"/>
+    <nd ref="8292281299"/>
+    <tag k="climbing" v="route"/>
+    <tag k="climbing:bolts" v="yes"/>
+    <tag k="climbing:rock" v="sandstone"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <node id="6784128531" lat="-35.3819675" lon="149.2476352"/>
+  <node id="6784128532" lat="-35.3818590" lon="149.2475255"/>
+  <node id="6784128533" lat="-35.3818735" lon="149.2475469"/>
+  <node id="6784128534" lat="-35.3819185" lon="149.2475855"/>
+  <node id="6784128535" lat="-35.3818424" lon="149.2474993"/>
+  <node id="6784128536" lat="-35.3819876" lon="149.2476510"/>
+  <node id="5761443071" lat="-33.6433553" lon="150.2668329"/>
+  <node id="5761443072" lat="-33.6440087" lon="150.2665828"/>
+  <node id="5761443073" lat="-33.6445113" lon="150.2665526"/>
+  <node id="3202930173" lat="-33.5985487" lon="150.2470530"/>
+  <node id="3644013614" lat="-33.5985169" lon="150.2470702"/>
+  <node id="8292281299" lat="-33.5986387" lon="150.2472072"/>
+  <node id="8292281300" lat="-33.5984443" lon="150.2471365"/>
+  <node id="8292281307" lat="-33.5986057" lon="150.2472343"/>
+  <node id="5761443068" lat="-33.6416322" lon="150.2673029"/>
+  <node id="5761443069" lat="-33.6421276" lon="150.2671175"/>
+  <node id="5761443070" lat="-33.6427953" lon="150.2669580"/>
+  <node id="689957737" lat="-33.6390242" lon="150.2703415"/>
+  <node id="689957739" lat="-33.6396076" lon="150.2696326"/>
+  <node id="689957741" lat="-33.6398577" lon="150.2694609"/>
+  <node id="689957760" lat="-33.6382899" lon="150.2725202"/>
+  <node id="689957763" lat="-33.6384316" lon="150.2722125"/>
+  <node id="689957765" lat="-33.6386611" lon="150.2717330"/>
+  <node id="689957768" lat="-33.6389519" lon="150.2711906"/>
+  <node id="689957788" lat="-33.6392414" lon="150.2706625"/>
+  <node id="689957790" lat="-33.6395236" lon="150.2702404"/>
+  <node id="689957795" lat="-33.6397692" lon="150.2699333"/>
+  <node id="5761443062" lat="-33.6400382" lon="150.2690666"/>
+  <node id="5761443063" lat="-33.6399593" lon="150.2686268"/>
+  <node id="5761443064" lat="-33.6402465" lon="150.2681826"/>
+  <node id="5761443065" lat="-33.6407096" lon="150.2677686"/>
+  <node id="5761443066" lat="-33.6408460" lon="150.2675401"/>
+  <node id="5761443067" lat="-33.6412265" lon="150.2675962"/>
+  <node id="8663599677" lat="-33.6402125" lon="150.2698320"/>
+  <node id="8663599678" lat="-33.6401717" lon="150.2698240"/>
+  <node id="8663599679" lat="-33.6400143" lon="150.2698454"/>
+  <node id="8663599680" lat="-33.6396486" lon="150.2700587"/>
+  <node id="8663599681" lat="-33.6396123" lon="150.2700030"/>
+  <node id="8663599682" lat="-33.6395219" lon="150.2700553"/>
+  <node id="8663599683" lat="-33.6395124" lon="150.2701271"/>
+  <node id="3895898445" lat="-33.8793755" lon="150.9786505"/>
+  <node id="3895898446" lat="-33.8794035" lon="150.9786996"/>
+  <node id="3895898447" lat="-33.8792476" lon="150.9784153"/>
+  <node id="3895898449" lat="-33.8795592" lon="150.9785386"/>
+  <node id="3895898452" lat="-33.8795304" lon="150.9783616"/>
+  <node id="3895899758" lat="-33.8792186" lon="150.9788256"/>
+  <node id="3895899759" lat="-33.8790850" lon="150.9785333"/>
+  <node id="7710452757" lat="-33.8792310" lon="150.9784273"/>
+  <node id="7513098143" lat="-33.7750632" lon="151.1365140"/>
+  <node id="7513098144" lat="-33.7751809" lon="151.1366694"/>
+  <node id="7513098145" lat="-33.7751756" lon="151.1367663"/>
+  <node id="3292242150" lat="-33.7685643" lon="151.1790937"/>
+  <node id="3292242151" lat="-33.7687816" lon="151.1788267"/>
+  <node id="3592234205" lat="-33.7690871" lon="151.1784514"/>
+
+</osm>

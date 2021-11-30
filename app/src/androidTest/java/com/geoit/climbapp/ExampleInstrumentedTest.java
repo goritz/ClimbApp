@@ -32,18 +32,6 @@ public class ExampleInstrumentedTest {
         assertEquals("com.geoit.climbapp", appContext.getPackageName());
 
 
-//        File file=new File(appContext.getApplicationInfo().dataDir,"testabfrage2.xml");
-//        System.out.println("root path: "+file.getAbsolutePath());
-        try {
-
-
-            Document doc=XMLUtils.loadDocument(appContext.getAssets().open("testabfrage2.xml"));
-
-            Overpasser.parseResponse(doc);
-
-        } catch (IOException | SAXException | ParserConfigurationException e) {
-            e.printStackTrace();
-        }
 
     }
 }

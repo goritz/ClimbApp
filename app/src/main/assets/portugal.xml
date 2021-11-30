@@ -1,0 +1,1647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API 0.7.57.1 74a55df1">
+<note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+<meta osm_base="2021-11-30T18:33:47Z"/>
+
+  <node id="910568484" lat="37.3710159" lon="-6.0449618">
+    <tag k="addr:street" v="Avenida del Aljarafe"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Rocódromo"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="1977230377" lat="37.3445705" lon="-7.4695938">
+    <tag k="name" v="Parque Aventura de Odeleite"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="2425800093" lat="38.6486446" lon="-9.0572702">
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="3158990077" lat="37.4135295" lon="-6.0045923">
+    <tag k="leisure" v="pitch"/>
+    <tag k="level" v="0"/>
+    <tag k="lit" v="yes"/>
+    <tag k="name" v="Rocódromo Alamillo"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="surface" v="concrete"/>
+  </node>
+  <node id="3504958543" lat="37.3370812" lon="-6.0403765">
+    <tag k="indoor" v="no"/>
+    <tag k="leisure" v="pitch"/>
+    <tag k="lit" v="no"/>
+    <tag k="name" v="Rockódromo Porzuna"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="surface" v="concrete"/>
+  </node>
+  <node id="4476725455" lat="37.2542083" lon="-8.0994606">
+    <tag k="name" v="Climbing sector Petra"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="4675294034" lat="38.4405810" lon="-9.0642987">
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="2"/>
+    <tag k="climbing:grade:french:max" v="8"/>
+    <tag k="climbing:grade:french:mean" v="7b"/>
+    <tag k="climbing:grade:french:min" v="6c+"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="4"/>
+    <tag k="name" v="Lapa da Cova"/>
+    <tag k="natural" v="cave_entrance"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="7017751686" lat="37.3922823" lon="-5.9573198">
+    <tag k="addr:city" v="Sevilla"/>
+    <tag k="addr:housenumber" v="8"/>
+    <tag k="addr:postcode" v="41007"/>
+    <tag k="addr:street" v="Calle Labrador"/>
+    <tag k="building" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Rock &amp; Wall Climbing"/>
+    <tag k="opening_hours" v="Mo-Fr 11:00-23:00; Sa-Su 11:00-20:00"/>
+    <tag k="phone" v="+34 954 52 21 63"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="website" v="https://www.rockandwallclimbing.com/"/>
+  </node>
+  <node id="8116862445" lat="38.5704024" lon="-8.9112096">
+    <tag k="building" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Crazy Boulder"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="9048774769" lat="37.6023482" lon="-7.2015528">
+    <tag k="climbing" v="area"/>
+    <tag k="name" v="El Monolito"/>
+    <tag k="natural" v="rock"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <node id="9048774770" lat="37.6028741" lon="-7.2022301">
+    <tag k="climbing" v="area"/>
+    <tag k="name" v="Bloques de la Escuela"/>
+    <tag k="natural" v="rock"/>
+    <tag k="sport" v="climbing"/>
+  </node>
+  <way id="95681323">
+    <nd ref="1109280458"/>
+    <nd ref="1109280507"/>
+    <nd ref="1109280798"/>
+    <nd ref="1109280466"/>
+    <nd ref="1109280698"/>
+    <nd ref="1109280432"/>
+    <nd ref="1109280651"/>
+    <nd ref="1109280744"/>
+    <nd ref="1109280526"/>
+    <nd ref="1109280664"/>
+    <nd ref="1109280486"/>
+    <nd ref="1109280628"/>
+    <nd ref="1109280447"/>
+    <nd ref="1109280589"/>
+    <nd ref="1109280409"/>
+    <nd ref="1109280633"/>
+    <nd ref="1109280452"/>
+    <nd ref="1109280598"/>
+    <nd ref="1109280415"/>
+    <nd ref="1109280559"/>
+    <nd ref="1109280376"/>
+    <nd ref="1109280515"/>
+    <nd ref="1109280819"/>
+    <nd ref="1109280395"/>
+    <nd ref="1109280613"/>
+    <nd ref="1109280356"/>
+    <nd ref="1109280578"/>
+    <nd ref="1109280753"/>
+    <nd ref="1109280535"/>
+    <nd ref="1109280670"/>
+    <nd ref="1109280493"/>
+    <nd ref="1109280480"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="691546470">
+    <nd ref="6489531044"/>
+    <nd ref="6489531043"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="7b"/>
+    <tag k="climbing:grade:french:mean" v="6b"/>
+    <tag k="climbing:grade:french:min" v="V+"/>
+    <tag k="climbing:orientation" v="SE"/>
+    <tag k="climbing:quality" v="solid"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="15"/>
+    <tag k="name" v="Condomínio Fechado"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="875746708">
+    <nd ref="8151169254"/>
+    <nd ref="8151169253"/>
+    <nd ref="8151169252"/>
+    <nd ref="6950540085"/>
+    <nd ref="8151169251"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="7b"/>
+    <tag k="climbing:grade:french:mean" v="6b"/>
+    <tag k="climbing:grade:french:min" v="V+"/>
+    <tag k="climbing:orientation" v="SE"/>
+    <tag k="climbing:quality" v="solid"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="13"/>
+    <tag k="name" v="Poema Rocha"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="876280887">
+    <nd ref="8155618992"/>
+    <nd ref="8155618991"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:deepwater" v="yes"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="876280889">
+    <nd ref="6494873433"/>
+    <nd ref="8258605734"/>
+    <nd ref="8258605732"/>
+    <nd ref="8228298801"/>
+    <nd ref="4436279910"/>
+    <nd ref="8258605731"/>
+    <nd ref="8258605730"/>
+    <nd ref="8228298802"/>
+    <nd ref="4436279912"/>
+    <nd ref="8228298800"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="2"/>
+    <tag k="climbing:grade:french:max" v="8a"/>
+    <tag k="climbing:grade:french:mean" v="6b"/>
+    <tag k="climbing:grade:french:min" v="IV+"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:quality" v="solid"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="15"/>
+    <tag k="name" v="Portugal dos Pequeninos"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="876307546">
+    <nd ref="8155801248"/>
+    <nd ref="8833624944"/>
+    <nd ref="8833624942"/>
+    <nd ref="8833624943"/>
+    <nd ref="8155801247"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="7a"/>
+    <tag k="climbing:grade:french:min" v="V"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="6"/>
+    <tag k="name" v="Termópilas"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="876307547">
+    <nd ref="8155801245"/>
+    <nd ref="8833624933"/>
+    <nd ref="8833624932"/>
+    <nd ref="8833624928"/>
+    <nd ref="8833624930"/>
+    <nd ref="8833624931"/>
+    <nd ref="8833624929"/>
+    <nd ref="8833624950"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="7a"/>
+    <tag k="climbing:grade:french:mean" v="V"/>
+    <tag k="climbing:grade:french:min" v="III"/>
+    <tag k="climbing:multipitch" v="1"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="8"/>
+    <tag k="name" v="Creta"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="876307548">
+    <nd ref="8155801247"/>
+    <nd ref="8833624941"/>
+    <nd ref="8833624939"/>
+    <nd ref="8833624940"/>
+    <nd ref="8155801246"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="6c"/>
+    <tag k="climbing:grade:french:mean" v="6a"/>
+    <tag k="climbing:grade:french:min" v="V"/>
+    <tag k="climbing:multipitch" v="4"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="9"/>
+    <tag k="name" v="Tróia"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="876307550">
+    <nd ref="8833624938"/>
+    <nd ref="8155801245"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="6b"/>
+    <tag k="climbing:grade:french:mean" v="6b"/>
+    <tag k="climbing:grade:french:min" v="6b"/>
+    <tag k="climbing:multipitch" v="1"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="4"/>
+    <tag k="name" v="Titãs"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="876362364">
+    <nd ref="8156205179"/>
+    <nd ref="8156205178"/>
+    <nd ref="8156205177"/>
+    <nd ref="8156205174"/>
+    <nd ref="8156205176"/>
+    <nd ref="8156205172"/>
+    <nd ref="8156205175"/>
+    <nd ref="8156205173"/>
+    <nd ref="8156205179"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:grade:french:max" v="7c"/>
+    <tag k="climbing:grade:french:mean" v="7a"/>
+    <tag k="climbing:grade:french:min" v="6b+"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="11"/>
+    <tag k="name" v="Dente de Leão"/>
+    <tag k="natural" v="rock"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="887860619">
+    <nd ref="8254818499"/>
+    <nd ref="8254818498"/>
+    <nd ref="8254818497"/>
+    <nd ref="8254818496"/>
+    <nd ref="8254818495"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="7a"/>
+    <tag k="climbing:grade:french:mean" v="6b"/>
+    <tag k="climbing:grade:french:min" v="IV"/>
+    <tag k="climbing:orientation" v="E"/>
+    <tag k="climbing:quality" v="solid"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="19"/>
+    <tag k="name" v="Cova Mijona"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="888002464">
+    <nd ref="8256067621"/>
+    <nd ref="8256067622"/>
+    <nd ref="8256067623"/>
+    <nd ref="8256067624"/>
+    <nd ref="8256067625"/>
+    <nd ref="8256067626"/>
+    <nd ref="8256067627"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="2"/>
+    <tag k="climbing:grade:french:max" v="7c"/>
+    <tag k="climbing:grade:french:mean" v="6b"/>
+    <tag k="climbing:grade:french:min" v="IV"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="24"/>
+    <tag k="name" v="Pedreiras"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="888289265">
+    <nd ref="8750983919"/>
+    <nd ref="8750983918"/>
+    <nd ref="8750966116"/>
+    <nd ref="8750983917"/>
+    <nd ref="4436279908"/>
+    <nd ref="8750966109"/>
+    <nd ref="8750966110"/>
+    <nd ref="8750966111"/>
+    <nd ref="8750966112"/>
+    <nd ref="6494873435"/>
+    <nd ref="8750966102"/>
+    <nd ref="8750966103"/>
+    <nd ref="4676578067"/>
+    <nd ref="8750966098"/>
+    <nd ref="8258605744"/>
+    <nd ref="6494873434"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="2"/>
+    <tag k="climbing:grade:french:max" v="7c"/>
+    <tag k="climbing:grade:french:min" v="5"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:quality" v="medium"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="31"/>
+    <tag k="climbing:trad" v="1"/>
+    <tag k="name" v="Vertigem"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="895090673">
+    <nd ref="8899241658"/>
+    <nd ref="8899241659"/>
+    <nd ref="8320068716"/>
+    <nd ref="8320068715"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="2"/>
+    <tag k="climbing:grade:french:max" v="7a"/>
+    <tag k="climbing:grade:french:mean" v="6b"/>
+    <tag k="climbing:grade:french:min" v="V"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="13"/>
+    <tag k="name" v="Diedro"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="895090676">
+    <nd ref="8320088165"/>
+    <nd ref="8320088158"/>
+    <nd ref="8320088157"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="2"/>
+    <tag k="climbing:grade:french:max" v="8a+"/>
+    <tag k="climbing:grade:french:mean" v="6c"/>
+    <tag k="climbing:grade:french:min" v="6a"/>
+    <tag k="climbing:multipitch" v="3"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="14"/>
+    <tag k="name" v="Central"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="895090677">
+    <nd ref="8320088160"/>
+    <nd ref="8320088161"/>
+    <nd ref="8320088162"/>
+    <nd ref="8320088163"/>
+    <nd ref="8320088120"/>
+    <nd ref="8320088164"/>
+    <nd ref="8320088165"/>
+    <tag k="alt_name" v="Iniciação"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="2"/>
+    <tag k="climbing:grade:french:max" v="6c"/>
+    <tag k="climbing:grade:french:mean" v="6a"/>
+    <tag k="climbing:grade:french:min" v="V"/>
+    <tag k="climbing:multipitch" v="1"/>
+    <tag k="climbing:orientation" v="W"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="12"/>
+    <tag k="name" v="Komeni"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="895345076">
+    <nd ref="8322564666"/>
+    <nd ref="8322564665"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="2"/>
+    <tag k="climbing:grade:french:max" v="7a"/>
+    <tag k="climbing:grade:french:mean" v="6b"/>
+    <tag k="climbing:grade:french:min" v="V+"/>
+    <tag k="climbing:multipitch" v="3"/>
+    <tag k="climbing:orientation" v="SE"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="8"/>
+    <tag k="climbing:trad" v="yes"/>
+    <tag k="name" v="Admirável Mundo Novo"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="903202301">
+    <nd ref="8388840574"/>
+    <nd ref="8388840573"/>
+    <nd ref="8388840572"/>
+    <nd ref="8388840571"/>
+    <nd ref="8388840570"/>
+    <tag k="alt_name" v="Lusitânia;Murteira"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="fixme" v="resurvey"/>
+    <tag k="name" v="Fim-de-semana Lusitano"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="903536128">
+    <nd ref="8391757826"/>
+    <nd ref="8391757825"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="8b"/>
+    <tag k="climbing:grade:french:mean" v="7b"/>
+    <tag k="climbing:grade:french:min" v="7a+"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="9"/>
+    <tag k="name" v="Degraus"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="903536129">
+    <nd ref="8391757827"/>
+    <nd ref="8391757826"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="name" v="SMART"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="903536130">
+    <nd ref="8391757828"/>
+    <nd ref="8391757827"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="8c+"/>
+    <tag k="climbing:grade:french:mean" v="7c"/>
+    <tag k="climbing:grade:french:min" v="6b"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="14"/>
+    <tag k="name" v="Santa Linha"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="903536131">
+    <nd ref="8391757829"/>
+    <nd ref="8391757828"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="8c+"/>
+    <tag k="climbing:grade:french:mean" v="7c"/>
+    <tag k="climbing:grade:french:min" v="7a"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="10"/>
+    <tag k="name" v="Cabo da Boa Esperança"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="903536132">
+    <nd ref="8391757830"/>
+    <nd ref="8391757829"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="8a"/>
+    <tag k="climbing:grade:french:mean" v="7a"/>
+    <tag k="climbing:grade:french:min" v="6a+"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="22"/>
+    <tag k="name" v="Poças"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="903536133">
+    <nd ref="8391757831"/>
+    <nd ref="8391757830"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="8b"/>
+    <tag k="climbing:grade:french:mean" v="6c"/>
+    <tag k="climbing:grade:french:min" v="V"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:routes" v="34"/>
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="name" v="Baía"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="903536134">
+    <nd ref="8391757833"/>
+    <nd ref="8391757832"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="name" v="Olímpo"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="906879890">
+    <nd ref="8421083025"/>
+    <nd ref="8421083024"/>
+    <nd ref="8421083023"/>
+    <nd ref="8421083022"/>
+    <nd ref="8421083025"/>
+    <tag k="access" v="private"/>
+    <tag k="building" v="yes"/>
+    <tag k="climbing:boulder" v="yes"/>
+    <tag k="leisure" v="sports_centre"/>
+    <tag k="name" v="Boulder do Morcego"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="942931967">
+    <nd ref="8731497635"/>
+    <nd ref="8731497634"/>
+    <nd ref="8731497633"/>
+    <nd ref="8731497632"/>
+    <nd ref="8731497631"/>
+    <nd ref="8731497635"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="6c+"/>
+    <tag k="climbing:grade:french:min" v="6b"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="4"/>
+    <tag k="climbing:trad" v="1"/>
+    <tag k="name" v="Dentinho do Gatinho"/>
+    <tag k="natural" v="rock"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="943954742">
+    <nd ref="6490376902"/>
+    <nd ref="8739892439"/>
+    <nd ref="8739892437"/>
+    <nd ref="6490376892"/>
+    <nd ref="6490376893"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="6b"/>
+    <tag k="climbing:grade:french:min" v="6a"/>
+    <tag k="climbing:orientation" v="SE"/>
+    <tag k="climbing:quality" v="fragile"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:trad" v="4"/>
+    <tag k="name" v="Esporão do Pé-Descalço"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="943954744">
+    <nd ref="8739892478"/>
+    <nd ref="4436279765"/>
+    <nd ref="6494904752"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="6c+"/>
+    <tag k="climbing:grade:french:min" v="6a+"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:quality" v="fragile"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="1"/>
+    <tag k="climbing:trad" v="4"/>
+    <tag k="name" v="Flanco Direito"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="943954745">
+    <nd ref="8739892441"/>
+    <nd ref="9046380989"/>
+    <nd ref="8739892478"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="8a+"/>
+    <tag k="climbing:grade:french:min" v="6b"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:quality" v="fragile"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="6"/>
+    <tag k="climbing:trad" v="6"/>
+    <tag k="name" v="Cova da Areia"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="943954746">
+    <nd ref="100602474"/>
+    <nd ref="8739892466"/>
+    <nd ref="8739892468"/>
+    <nd ref="8739892467"/>
+    <nd ref="8739892442"/>
+    <nd ref="8739892454"/>
+    <nd ref="8739892453"/>
+    <nd ref="8739892452"/>
+    <nd ref="8739892451"/>
+    <nd ref="8739892450"/>
+    <nd ref="8739892448"/>
+    <nd ref="8739892449"/>
+    <nd ref="6490431039"/>
+    <nd ref="6490431042"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="8b"/>
+    <tag k="climbing:grade:french:min" v="6b"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:quality" v="fragile"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="1"/>
+    <tag k="climbing:trad" v="2"/>
+    <tag k="name" v="Parede Grande"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="943954747">
+    <nd ref="8739892470"/>
+    <nd ref="8739892469"/>
+    <nd ref="8739892498"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="8b"/>
+    <tag k="climbing:grade:french:min" v="6b+"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:quality" v="fragile"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="3"/>
+    <tag k="climbing:trad" v="1"/>
+    <tag k="name" v="Cova das Ovelhas"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="943954749">
+    <nd ref="8739892456"/>
+    <nd ref="6490431047"/>
+    <nd ref="8739892455"/>
+    <nd ref="8739892458"/>
+    <nd ref="100602474"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:grade:french:max" v="6c+"/>
+    <tag k="climbing:grade:french:min" v="6a+"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:quality" v="fragile"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="2"/>
+    <tag k="climbing:trad" v="7"/>
+    <tag k="name" v="Flanco Esquerdo"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="945251529">
+    <nd ref="8750947699"/>
+    <nd ref="8750947700"/>
+    <nd ref="8750947701"/>
+    <nd ref="1685233487"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:deepwater" v="yes"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="name" v="Pescas"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="950759746">
+    <nd ref="8801114896"/>
+    <nd ref="8801114913"/>
+    <nd ref="8801114897"/>
+    <tag k="climbing" v="route"/>
+    <tag k="description" v="Atalho, se estiver disposto para escalar"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="962060479">
+    <nd ref="8899241654"/>
+    <nd ref="8899241653"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:grade:french:max" v="6c"/>
+    <tag k="climbing:grade:french:min" v="V"/>
+    <tag k="climbing:orientation" v="SE"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="2"/>
+    <tag k="name" v="Meteoritos"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="962060480">
+    <nd ref="8899241655"/>
+    <nd ref="8899241656"/>
+    <nd ref="8899241657"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:grade:french:max" v="7b+"/>
+    <tag k="climbing:grade:french:min" v="III"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="15"/>
+    <tag k="climbing:trad" v="6"/>
+    <tag k="name" v="Parede Grande"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="977924254">
+    <nd ref="9048785144"/>
+    <nd ref="9048785145"/>
+    <nd ref="9048785146"/>
+    <nd ref="9048785147"/>
+    <nd ref="9048785148"/>
+    <tag k="climbing" v="area"/>
+    <tag k="name" v="Rockatos - Las Maminas"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="977924256">
+    <nd ref="9048785156"/>
+    <nd ref="9048785155"/>
+    <nd ref="9048785154"/>
+    <nd ref="9048785153"/>
+    <nd ref="9048785152"/>
+    <tag k="climbing" v="area"/>
+    <tag k="name" v="El Espolón"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="977924257">
+    <nd ref="9048785187"/>
+    <nd ref="9048785186"/>
+    <nd ref="9048785185"/>
+    <nd ref="9048785184"/>
+    <nd ref="9048785183"/>
+    <nd ref="9048785182"/>
+    <tag k="climbing" v="area"/>
+    <tag k="name" v="El Vertedero"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="977924261">
+    <nd ref="9048785138"/>
+    <nd ref="9048785139"/>
+    <nd ref="9048785140"/>
+    <nd ref="9048785141"/>
+    <nd ref="9048785142"/>
+    <nd ref="9048785143"/>
+    <nd ref="9048785144"/>
+    <tag k="climbing" v="area"/>
+    <tag k="name" v="Rockatos"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="977924262">
+    <nd ref="9048774777"/>
+    <nd ref="9048774776"/>
+    <nd ref="9048774775"/>
+    <nd ref="9048774774"/>
+    <nd ref="9048774773"/>
+    <nd ref="9048774772"/>
+    <nd ref="9048774771"/>
+    <tag k="climbing" v="area"/>
+    <tag k="name" v="Alpende"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="977924263">
+    <nd ref="9048774790"/>
+    <nd ref="9048774789"/>
+    <nd ref="9048774788"/>
+    <nd ref="9048774787"/>
+    <nd ref="9048774786"/>
+    <nd ref="9048774785"/>
+    <nd ref="9048774784"/>
+    <nd ref="9048774783"/>
+    <nd ref="9048774782"/>
+    <nd ref="9048774781"/>
+    <nd ref="9048774780"/>
+    <nd ref="9048774779"/>
+    <nd ref="9048774778"/>
+    <tag k="climbing" v="area"/>
+    <tag k="name" v="El Garfio"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="977924264">
+    <nd ref="9048774807"/>
+    <nd ref="9048774806"/>
+    <nd ref="9048774805"/>
+    <nd ref="9048774804"/>
+    <nd ref="9048774803"/>
+    <nd ref="9048774802"/>
+    <nd ref="9048774801"/>
+    <nd ref="9048774800"/>
+    <nd ref="9048774799"/>
+    <nd ref="9048774798"/>
+    <nd ref="9048774797"/>
+    <nd ref="9048774796"/>
+    <nd ref="9048774795"/>
+    <nd ref="9048774794"/>
+    <nd ref="9048774793"/>
+    <nd ref="9048774792"/>
+    <nd ref="9048774791"/>
+    <tag k="climbing" v="area"/>
+    <tag k="name" v="La Escuela"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="977924265">
+    <nd ref="9048774808"/>
+    <nd ref="9048774809"/>
+    <nd ref="9048774810"/>
+    <nd ref="9048774811"/>
+    <nd ref="9048774812"/>
+    <nd ref="9048774813"/>
+    <nd ref="9048774814"/>
+    <nd ref="9048774815"/>
+    <nd ref="9048774816"/>
+    <nd ref="9048785117"/>
+    <nd ref="9048785118"/>
+    <nd ref="9048785119"/>
+    <nd ref="9048785120"/>
+    <nd ref="9048785121"/>
+    <nd ref="9048785122"/>
+    <nd ref="9048785123"/>
+    <tag k="climbing" v="area"/>
+    <tag k="name" v="El Último"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="977924266">
+    <nd ref="9048785182"/>
+    <nd ref="9048785181"/>
+    <nd ref="9048785180"/>
+    <nd ref="9048785179"/>
+    <nd ref="9048785178"/>
+    <nd ref="9048785177"/>
+    <nd ref="9048785176"/>
+    <nd ref="9048785175"/>
+    <nd ref="9048785174"/>
+    <nd ref="9048785173"/>
+    <nd ref="9048785172"/>
+    <nd ref="9048785171"/>
+    <nd ref="9048785170"/>
+    <nd ref="9048785169"/>
+    <nd ref="9048785168"/>
+    <nd ref="9048785167"/>
+    <nd ref="9048785166"/>
+    <nd ref="9048785165"/>
+    <nd ref="9048785164"/>
+    <nd ref="9048785163"/>
+    <nd ref="9048785162"/>
+    <nd ref="9048785161"/>
+    <nd ref="9048785160"/>
+    <tag k="climbing" v="area"/>
+    <tag k="name" v="Norte"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="989702260">
+    <nd ref="9146429033"/>
+    <nd ref="9146429034"/>
+    <nd ref="9146478199"/>
+    <nd ref="9146429036"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:grade:french:max" v="7b+"/>
+    <tag k="climbing:grade:french:min" v="6b"/>
+    <tag k="climbing:orientation" v="S"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="15"/>
+    <tag k="climbing:trad" v="4"/>
+    <tag k="name" v="Figueirinha"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="989741268">
+    <nd ref="9146872543"/>
+    <nd ref="9146872542"/>
+    <nd ref="4194795218"/>
+    <nd ref="4685227980"/>
+    <nd ref="4685227981"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:grade:french:max" v="7b"/>
+    <tag k="climbing:grade:french:min" v="6a+"/>
+    <tag k="climbing:orientation" v="E"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="13"/>
+    <tag k="name" v="Giroflé-Giroflá"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="989741270">
+    <nd ref="4394268383"/>
+    <nd ref="9146872318"/>
+    <tag k="climbing" v="route"/>
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:grade:french" v="III+"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="climbing:toprope" v="yes"/>
+    <tag k="name" v="Quinto Pirata"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="989741278">
+    <nd ref="4194795209"/>
+    <nd ref="9146872406"/>
+    <nd ref="9146872407"/>
+    <nd ref="8155871396"/>
+    <nd ref="9146872408"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:grade:french:max" v="7c+"/>
+    <tag k="climbing:grade:french:min" v="6a"/>
+    <tag k="climbing:orientation" v="SW"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="35"/>
+    <tag k="name" v="Amarelas"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="989741279">
+    <nd ref="9146872408"/>
+    <nd ref="4194795210"/>
+    <nd ref="9146872409"/>
+    <nd ref="9146872410"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:grade:french:max" v="8a+"/>
+    <tag k="climbing:grade:french:min" v="6a+"/>
+    <tag k="climbing:orientation" v="SW"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="23"/>
+    <tag k="name" v="El Carallon"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="989741282">
+    <nd ref="4685227939"/>
+    <nd ref="9146490843"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:grade:french:max" v="V+"/>
+    <tag k="climbing:grade:french:min" v="III"/>
+    <tag k="climbing:orientation" v="NW"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="7"/>
+    <tag k="name" v="Placas"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <way id="989741288">
+    <nd ref="4685227951"/>
+    <nd ref="4685227952"/>
+    <nd ref="9146872397"/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:grade:french:max" v="8a"/>
+    <tag k="climbing:grade:french:min" v="6a"/>
+    <tag k="climbing:orientation" v="SE"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="24"/>
+    <tag k="name" v="Crocodilos"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+  </way>
+  <relation id="11931231">
+    <member type="way" ref="945251529" role=""/>
+    <member type="way" ref="888289265" role=""/>
+    <member type="way" ref="876280889" role=""/>
+    <member type="way" ref="876280887" role=""/>
+    <tag k="climbing" v="area"/>
+    <tag k="climbing:deepwater" v="yes"/>
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="name" v="Sesimbra Velha"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="type" v="site"/>
+  </relation>
+  <relation id="11931634">
+    <member type="way" ref="876307546" role=""/>
+    <member type="way" ref="876307548" role=""/>
+    <member type="way" ref="876307550" role=""/>
+    <member type="way" ref="876307547" role=""/>
+    <tag k="climbing" v="area"/>
+    <tag k="climbing:multipitch" v="6"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="name" v="Escola de Escalada do Outão"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="type" v="site"/>
+  </relation>
+  <relation id="12184562">
+    <member type="way" ref="962060479" role=""/>
+    <member type="way" ref="962060480" role=""/>
+    <member type="way" ref="895090673" role=""/>
+    <member type="way" ref="895090677" role=""/>
+    <member type="way" ref="895090676" role=""/>
+    <tag k="climbing" v="area"/>
+    <tag k="climbing:multipitch" v="yes"/>
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="name" v="Fojo dos Morcegos"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="type" v="site"/>
+  </relation>
+  <relation id="12271589">
+    <member type="way" ref="903536134" role=""/>
+    <member type="way" ref="903536133" role=""/>
+    <member type="way" ref="903536132" role=""/>
+    <member type="way" ref="903536131" role=""/>
+    <member type="way" ref="903536130" role=""/>
+    <member type="way" ref="903536129" role=""/>
+    <member type="way" ref="903536128" role=""/>
+    <tag k="climbing" v="area"/>
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="name" v="Meio Mango"/>
+    <tag k="natural" v="cliff"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="type" v="site"/>
+  </relation>
+  <relation id="12724048">
+    <member type="way" ref="943954742" role=""/>
+    <member type="way" ref="943954744" role=""/>
+    <member type="way" ref="943954745" role=""/>
+    <member type="way" ref="943954747" role=""/>
+    <member type="way" ref="943954749" role=""/>
+    <member type="way" ref="943954746" role=""/>
+    <member type="way" ref="942931967" role=""/>
+    <tag k="climbing" v="area"/>
+    <tag k="name" v="Pinheirinhos"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="type" v="site"/>
+  </relation>
+  <relation id="13291484">
+    <member type="way" ref="989741283" role=""/>
+    <member type="way" ref="989741284" role=""/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:grade:french:max" v="8a"/>
+    <tag k="climbing:grade:french:min" v="III+"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="13"/>
+    <tag k="name" v="Cú de Judas"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="type" v="site"/>
+  </relation>
+  <relation id="13291485">
+    <member type="way" ref="989741285" role=""/>
+    <member type="way" ref="989741286" role=""/>
+    <tag k="climbing" v="crag"/>
+    <tag k="climbing:bolted" v="yes"/>
+    <tag k="climbing:grade:french:max" v="7c+"/>
+    <tag k="climbing:grade:french:min" v="V+"/>
+    <tag k="climbing:rock" v="limestone"/>
+    <tag k="climbing:sport" v="17"/>
+    <tag k="name" v="Piratas"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="type" v="site"/>
+  </relation>
+  <relation id="13291486">
+    <member type="way" ref="989741268" role=""/>
+    <member type="relation" ref="13291484" role=""/>
+    <member type="relation" ref="13291485" role=""/>
+    <member type="way" ref="989741288" role=""/>
+    <member type="way" ref="989741279" role=""/>
+    <member type="way" ref="989741278" role=""/>
+    <member type="way" ref="989741282" role=""/>
+    <tag k="climbing" v="area"/>
+    <tag k="climbing:sport" v="yes"/>
+    <tag k="name" v="Fenda"/>
+    <tag k="sport" v="climbing"/>
+    <tag k="type" v="site"/>
+    <tag k="wikipedia" v="pt:Serra da Arrábida#Escalada_na_Serra_da_Arrábida"/>
+  </relation>
+  <node id="1109280432" lat="37.2537373" lon="-8.1083556"/>
+  <node id="1109280458" lat="37.2537254" lon="-8.1105507"/>
+  <node id="1109280466" lat="37.2536381" lon="-8.1093883"/>
+  <node id="1109280507" lat="37.2537572" lon="-8.1100867"/>
+  <node id="1109280526" lat="37.2536301" lon="-8.1069287"/>
+  <node id="1109280651" lat="37.2537254" lon="-8.1079066"/>
+  <node id="1109280698" lat="37.2536619" lon="-8.1088994"/>
+  <node id="1109280744" lat="37.2536103" lon="-8.1075424"/>
+  <node id="1109280798" lat="37.2536460" lon="-8.1098173"/>
+  <node id="1109280409" lat="37.2537691" lon="-8.1038007"/>
+  <node id="1109280447" lat="37.2536937" lon="-8.1048483"/>
+  <node id="1109280486" lat="37.2536698" lon="-8.1057364"/>
+  <node id="1109280589" lat="37.2537056" lon="-8.1043395"/>
+  <node id="1109280628" lat="37.2536341" lon="-8.1053822"/>
+  <node id="1109280633" lat="37.2538843" lon="-8.1032569"/>
+  <node id="1109280664" lat="37.2535984" lon="-8.1062951"/>
+  <node id="1109280376" lat="37.2542020" lon="-8.1004780"/>
+  <node id="1109280415" lat="37.2540511" lon="-8.1014209"/>
+  <node id="1109280452" lat="37.2539915" lon="-8.1024536"/>
+  <node id="1109280559" lat="37.2541186" lon="-8.1009719"/>
+  <node id="1109280598" lat="37.2539597" lon="-8.1020096"/>
+  <node id="1109280480" lat="37.2539399" lon="-8.0949203"/>
+  <node id="1109280356" lat="37.2544879" lon="-8.0979836"/>
+  <node id="1109280395" lat="37.2546070" lon="-8.0989714"/>
+  <node id="1109280493" lat="37.2540074" lon="-8.0954043"/>
+  <node id="1109280515" lat="37.2542417" lon="-8.0996898"/>
+  <node id="1109280535" lat="37.2541900" lon="-8.0964819"/>
+  <node id="1109280578" lat="37.2544005" lon="-8.0974797"/>
+  <node id="1109280613" lat="37.2545991" lon="-8.0984076"/>
+  <node id="1109280670" lat="37.2541027" lon="-8.0958882"/>
+  <node id="1109280753" lat="37.2542059" lon="-8.0969758"/>
+  <node id="1109280819" lat="37.2543886" lon="-8.0994104"/>
+  <node id="8801114896" lat="37.0276612" lon="-7.9301988"/>
+  <node id="8801114897" lat="37.0276244" lon="-7.9301996"/>
+  <node id="8801114913" lat="37.0276513" lon="-7.9301990"/>
+  <node id="9048774808" lat="37.6010105" lon="-7.1997464"/>
+  <node id="9048774809" lat="37.6010222" lon="-7.1998067"/>
+  <node id="9048774810" lat="37.6010339" lon="-7.1998376"/>
+  <node id="9048774811" lat="37.6010317" lon="-7.1998845"/>
+  <node id="9048774812" lat="37.6010477" lon="-7.1999060"/>
+  <node id="9048774813" lat="37.6010583" lon="-7.1999623"/>
+  <node id="9048774814" lat="37.6010795" lon="-7.1999730"/>
+  <node id="9048774815" lat="37.6010849" lon="-7.2000039"/>
+  <node id="9048774816" lat="37.6010806" lon="-7.2000575"/>
+  <node id="9048785117" lat="37.6010923" lon="-7.2001165"/>
+  <node id="9048785118" lat="37.6011189" lon="-7.2001232"/>
+  <node id="9048785119" lat="37.6011444" lon="-7.2001232"/>
+  <node id="9048785120" lat="37.6011454" lon="-7.2001407"/>
+  <node id="9048785121" lat="37.6011794" lon="-7.2001514"/>
+  <node id="9048785122" lat="37.6012389" lon="-7.2001769"/>
+  <node id="9048785123" lat="37.6012538" lon="-7.2002493"/>
+  <node id="9048774778" lat="37.6033501" lon="-7.2024903"/>
+  <node id="9048774779" lat="37.6033501" lon="-7.2024474"/>
+  <node id="9048774780" lat="37.6033544" lon="-7.2024098"/>
+  <node id="9048774806" lat="37.6031334" lon="-7.2024205"/>
+  <node id="9048774807" lat="37.6031844" lon="-7.2024581"/>
+  <node id="9048774771" lat="37.6021708" lon="-7.2015676"/>
+  <node id="9048774772" lat="37.6021814" lon="-7.2015743"/>
+  <node id="9048774773" lat="37.6021888" lon="-7.2016038"/>
+  <node id="9048774774" lat="37.6021856" lon="-7.2016360"/>
+  <node id="9048774775" lat="37.6021601" lon="-7.2016507"/>
+  <node id="9048774776" lat="37.6021346" lon="-7.2016373"/>
+  <node id="9048774777" lat="37.6021134" lon="-7.2016145"/>
+  <node id="9048774781" lat="37.6033586" lon="-7.2023535"/>
+  <node id="9048774782" lat="37.6033863" lon="-7.2023562"/>
+  <node id="9048774783" lat="37.6034266" lon="-7.2023696"/>
+  <node id="9048774784" lat="37.6034543" lon="-7.2023723"/>
+  <node id="9048774785" lat="37.6034543" lon="-7.2023186"/>
+  <node id="9048774786" lat="37.6034734" lon="-7.2022891"/>
+  <node id="9048774787" lat="37.6035116" lon="-7.2023106"/>
+  <node id="9048774788" lat="37.6035371" lon="-7.2023240"/>
+  <node id="9048774789" lat="37.6035775" lon="-7.2022945"/>
+  <node id="9048774790" lat="37.6036306" lon="-7.2023213"/>
+  <node id="9048774791" lat="37.6029193" lon="-7.2022985"/>
+  <node id="9048774792" lat="37.6029310" lon="-7.2022811"/>
+  <node id="9048774793" lat="37.6029490" lon="-7.2022891"/>
+  <node id="9048774794" lat="37.6029687" lon="-7.2022891"/>
+  <node id="9048774795" lat="37.6029873" lon="-7.2022871"/>
+  <node id="9048774796" lat="37.6029990" lon="-7.2023032"/>
+  <node id="9048774797" lat="37.6030048" lon="-7.2023246"/>
+  <node id="9048774798" lat="37.6030139" lon="-7.2023347"/>
+  <node id="9048774799" lat="37.6030314" lon="-7.2023347"/>
+  <node id="9048774800" lat="37.6030564" lon="-7.2023340"/>
+  <node id="9048774801" lat="37.6030691" lon="-7.2023414"/>
+  <node id="9048774802" lat="37.6030861" lon="-7.2023461"/>
+  <node id="9048774803" lat="37.6030946" lon="-7.2023622"/>
+  <node id="9048774804" lat="37.6031079" lon="-7.2023769"/>
+  <node id="9048774805" lat="37.6031217" lon="-7.2023877"/>
+  <node id="9048785138" lat="37.6016990" lon="-7.2010714"/>
+  <node id="9048785139" lat="37.6017032" lon="-7.2011116"/>
+  <node id="9048785140" lat="37.6017213" lon="-7.2011505"/>
+  <node id="9048785141" lat="37.6017681" lon="-7.2012176"/>
+  <node id="9048785142" lat="37.6018084" lon="-7.2012632"/>
+  <node id="9048785143" lat="37.6018403" lon="-7.2013007"/>
+  <node id="9048785144" lat="37.6018701" lon="-7.2012900"/>
+  <node id="9048785145" lat="37.6018966" lon="-7.2013168"/>
+  <node id="9048785146" lat="37.6019306" lon="-7.2013423"/>
+  <node id="9048785147" lat="37.6019540" lon="-7.2013155"/>
+  <node id="9048785148" lat="37.6019816" lon="-7.2012725"/>
+  <node id="9048785152" lat="37.6015056" lon="-7.1995801"/>
+  <node id="9048785153" lat="37.6015332" lon="-7.1996015"/>
+  <node id="9048785154" lat="37.6015609" lon="-7.1996525"/>
+  <node id="9048785155" lat="37.6015630" lon="-7.1997061"/>
+  <node id="9048785156" lat="37.6016012" lon="-7.1997571"/>
+  <node id="9048785160" lat="37.6015779" lon="-7.1999824"/>
+  <node id="9048785161" lat="37.6015545" lon="-7.2000280"/>
+  <node id="9048785162" lat="37.6015821" lon="-7.2000843"/>
+  <node id="9048785163" lat="37.6016119" lon="-7.2001380"/>
+  <node id="9048785164" lat="37.6016501" lon="-7.2001943"/>
+  <node id="9048785165" lat="37.6016820" lon="-7.2001970"/>
+  <node id="9048785166" lat="37.6017521" lon="-7.2002882"/>
+  <node id="9048785167" lat="37.6018286" lon="-7.2003955"/>
+  <node id="9048785168" lat="37.6018881" lon="-7.2005028"/>
+  <node id="9048785169" lat="37.6019179" lon="-7.2005805"/>
+  <node id="9048785170" lat="37.6019731" lon="-7.2006664"/>
+  <node id="9048785171" lat="37.6019859" lon="-7.2007763"/>
+  <node id="9048785172" lat="37.6020879" lon="-7.2008353"/>
+  <node id="9048785173" lat="37.6021708" lon="-7.2008944"/>
+  <node id="9048785174" lat="37.6022154" lon="-7.2009480"/>
+  <node id="9048785175" lat="37.6022324" lon="-7.2010312"/>
+  <node id="9048785176" lat="37.6021793" lon="-7.2010553"/>
+  <node id="9048785177" lat="37.6021814" lon="-7.2010982"/>
+  <node id="9048785178" lat="37.6022239" lon="-7.2011304"/>
+  <node id="9048785179" lat="37.6022621" lon="-7.2011438"/>
+  <node id="9048785180" lat="37.6023131" lon="-7.2011223"/>
+  <node id="9048785181" lat="37.6023556" lon="-7.2011304"/>
+  <node id="9048785182" lat="37.6023790" lon="-7.2011492"/>
+  <node id="9048785183" lat="37.6023705" lon="-7.2011894"/>
+  <node id="9048785184" lat="37.6023578" lon="-7.2012243"/>
+  <node id="9048785185" lat="37.6023981" lon="-7.2012645"/>
+  <node id="9048785186" lat="37.6024385" lon="-7.2013047"/>
+  <node id="9048785187" lat="37.6024704" lon="-7.2013584"/>
+  <node id="8391757825" lat="38.4118250" lon="-9.2092291"/>
+  <node id="8391757826" lat="38.4118562" lon="-9.2097110"/>
+  <node id="8391757827" lat="38.4118830" lon="-9.2101380"/>
+  <node id="8391757828" lat="38.4119551" lon="-9.2104397"/>
+  <node id="8391757829" lat="38.4121471" lon="-9.2108864"/>
+  <node id="8391757830" lat="38.4124064" lon="-9.2117632"/>
+  <node id="8391757831" lat="38.4125608" lon="-9.2123910"/>
+  <node id="8391757832" lat="38.4126368" lon="-9.2120506"/>
+  <node id="8391757833" lat="38.4126874" lon="-9.2122821"/>
+  <node id="6489531044" lat="38.4227775" lon="-9.1817695"/>
+  <node id="6489531043" lat="38.4229956" lon="-9.1814289"/>
+  <node id="6950540085" lat="38.4266486" lon="-9.1760966"/>
+  <node id="8151169251" lat="38.4267141" lon="-9.1760779"/>
+  <node id="8151169252" lat="38.4265995" lon="-9.1761104"/>
+  <node id="8151169253" lat="38.4265599" lon="-9.1760910"/>
+  <node id="8151169254" lat="38.4264465" lon="-9.1761017"/>
+  <node id="8254818497" lat="38.4270293" lon="-9.1761780"/>
+  <node id="8254818498" lat="38.4269858" lon="-9.1761556"/>
+  <node id="8254818499" lat="38.4269328" lon="-9.1761502"/>
+  <node id="8254818495" lat="38.4272156" lon="-9.1763209"/>
+  <node id="8254818496" lat="38.4270963" lon="-9.1762401"/>
+  <node id="100602474" lat="38.4296774" lon="-9.1358658"/>
+  <node id="6490431047" lat="38.4296461" lon="-9.1361950"/>
+  <node id="8731497631" lat="38.4293118" lon="-9.1365224"/>
+  <node id="8731497632" lat="38.4292802" lon="-9.1365104"/>
+  <node id="8731497633" lat="38.4292367" lon="-9.1365279"/>
+  <node id="8731497634" lat="38.4292608" lon="-9.1366022"/>
+  <node id="8731497635" lat="38.4293154" lon="-9.1365889"/>
+  <node id="8739892455" lat="38.4296288" lon="-9.1360737"/>
+  <node id="8739892456" lat="38.4296674" lon="-9.1366219"/>
+  <node id="8739892458" lat="38.4296714" lon="-9.1360057"/>
+  <node id="8739892466" lat="38.4297928" lon="-9.1358441"/>
+  <node id="8739892468" lat="38.4298182" lon="-9.1358081"/>
+  <node id="8739892469" lat="38.4299234" lon="-9.1359961"/>
+  <node id="8739892470" lat="38.4299341" lon="-9.1360331"/>
+  <node id="8739892498" lat="38.4299388" lon="-9.1359627"/>
+  <node id="4436279765" lat="38.4303104" lon="-9.1349734"/>
+  <node id="6490376892" lat="38.4298274" lon="-9.1337787"/>
+  <node id="6490376893" lat="38.4297738" lon="-9.1335855"/>
+  <node id="6490376902" lat="38.4300853" lon="-9.1340918"/>
+  <node id="6490431039" lat="38.4299078" lon="-9.1353678"/>
+  <node id="6490431042" lat="38.4299840" lon="-9.1352150"/>
+  <node id="6494904752" lat="38.4303363" lon="-9.1348603"/>
+  <node id="8739892437" lat="38.4298689" lon="-9.1338416"/>
+  <node id="8739892439" lat="38.4299958" lon="-9.1340338"/>
+  <node id="8739892441" lat="38.4301006" lon="-9.1352919"/>
+  <node id="8739892442" lat="38.4298990" lon="-9.1355717"/>
+  <node id="8739892448" lat="38.4299070" lon="-9.1354244"/>
+  <node id="8739892449" lat="38.4298967" lon="-9.1354041"/>
+  <node id="8739892450" lat="38.4299266" lon="-9.1354143"/>
+  <node id="8739892451" lat="38.4299178" lon="-9.1354674"/>
+  <node id="8739892452" lat="38.4299000" lon="-9.1354996"/>
+  <node id="8739892453" lat="38.4299117" lon="-9.1355175"/>
+  <node id="8739892454" lat="38.4299023" lon="-9.1355402"/>
+  <node id="8739892467" lat="38.4298444" lon="-9.1356840"/>
+  <node id="8739892478" lat="38.4301132" lon="-9.1351696"/>
+  <node id="9046380989" lat="38.4301069" lon="-9.1352338"/>
+  <node id="4436279910" lat="38.4335810" lon="-9.1202061"/>
+  <node id="6494873433" lat="38.4334476" lon="-9.1203925"/>
+  <node id="8155618991" lat="38.4333253" lon="-9.1203495"/>
+  <node id="8155618992" lat="38.4333189" lon="-9.1205842"/>
+  <node id="8228298801" lat="38.4334706" lon="-9.1203016"/>
+  <node id="8258605732" lat="38.4334498" lon="-9.1203149"/>
+  <node id="8258605734" lat="38.4334446" lon="-9.1203398"/>
+  <node id="1685233487" lat="38.4338652" lon="-9.1170425"/>
+  <node id="4436279908" lat="38.4338785" lon="-9.1221958"/>
+  <node id="4436279912" lat="38.4337428" lon="-9.1199252"/>
+  <node id="4676578067" lat="38.4337473" lon="-9.1214797"/>
+  <node id="6494873434" lat="38.4336831" lon="-9.1211273"/>
+  <node id="6494873435" lat="38.4338388" lon="-9.1218354"/>
+  <node id="8228298800" lat="38.4337852" lon="-9.1197846"/>
+  <node id="8228298802" lat="38.4336691" lon="-9.1200805"/>
+  <node id="8258605730" lat="38.4336375" lon="-9.1201024"/>
+  <node id="8258605731" lat="38.4336067" lon="-9.1201439"/>
+  <node id="8258605744" lat="38.4337409" lon="-9.1213044"/>
+  <node id="8750947699" lat="38.4341851" lon="-9.1171840"/>
+  <node id="8750947700" lat="38.4340364" lon="-9.1171311"/>
+  <node id="8750947701" lat="38.4339487" lon="-9.1171020"/>
+  <node id="8750966098" lat="38.4337561" lon="-9.1213885"/>
+  <node id="8750966102" lat="38.4337882" lon="-9.1216426"/>
+  <node id="8750966103" lat="38.4337962" lon="-9.1216205"/>
+  <node id="8750966109" lat="38.4338294" lon="-9.1220333"/>
+  <node id="8750966110" lat="38.4338522" lon="-9.1219917"/>
+  <node id="8750966111" lat="38.4338381" lon="-9.1219582"/>
+  <node id="8750966112" lat="38.4338332" lon="-9.1219022"/>
+  <node id="8750966116" lat="38.4338542" lon="-9.1223390"/>
+  <node id="8750983917" lat="38.4338704" lon="-9.1223184"/>
+  <node id="8750983918" lat="38.4338490" lon="-9.1223718"/>
+  <node id="8750983919" lat="38.4338635" lon="-9.1224292"/>
+  <node id="8156205172" lat="38.4389244" lon="-9.0878452"/>
+  <node id="8156205173" lat="38.4388424" lon="-9.0877929"/>
+  <node id="8156205174" lat="38.4389701" lon="-9.0877466"/>
+  <node id="8156205175" lat="38.4388907" lon="-9.0878485"/>
+  <node id="8156205176" lat="38.4389496" lon="-9.0878224"/>
+  <node id="8156205177" lat="38.4389343" lon="-9.0876983"/>
+  <node id="8156205178" lat="38.4388944" lon="-9.0876440"/>
+  <node id="8156205179" lat="38.4388445" lon="-9.0877084"/>
+  <node id="8322564665" lat="38.4368494" lon="-9.0729829"/>
+  <node id="8322564666" lat="38.4366502" lon="-9.0731902"/>
+  <node id="8256067621" lat="38.4404419" lon="-9.0648739"/>
+  <node id="8256067622" lat="38.4404513" lon="-9.0648011"/>
+  <node id="8256067623" lat="38.4404913" lon="-9.0646357"/>
+  <node id="8256067624" lat="38.4405318" lon="-9.0645116"/>
+  <node id="8256067625" lat="38.4405915" lon="-9.0644534"/>
+  <node id="8256067626" lat="38.4406553" lon="-9.0644037"/>
+  <node id="8256067627" lat="38.4407002" lon="-9.0643378"/>
+  <node id="8320068715" lat="38.4548882" lon="-9.0154849"/>
+  <node id="8320068716" lat="38.4548517" lon="-9.0157486"/>
+  <node id="8320088120" lat="38.4551232" lon="-9.0156329"/>
+  <node id="8320088157" lat="38.4550185" lon="-9.0152908"/>
+  <node id="8320088158" lat="38.4549396" lon="-9.0154644"/>
+  <node id="8320088160" lat="38.4553532" lon="-9.0159213"/>
+  <node id="8320088161" lat="38.4553081" lon="-9.0158247"/>
+  <node id="8320088162" lat="38.4552429" lon="-9.0157322"/>
+  <node id="8320088163" lat="38.4551805" lon="-9.0156577"/>
+  <node id="8320088164" lat="38.4550508" lon="-9.0156621"/>
+  <node id="8320088165" lat="38.4549473" lon="-9.0157366"/>
+  <node id="8899241653" lat="38.4554145" lon="-9.0147816"/>
+  <node id="8899241654" lat="38.4552055" lon="-9.0149508"/>
+  <node id="8899241655" lat="38.4547925" lon="-9.0166045"/>
+  <node id="8899241656" lat="38.4549328" lon="-9.0161874"/>
+  <node id="8899241657" lat="38.4549285" lon="-9.0159685"/>
+  <node id="8899241658" lat="38.4549374" lon="-9.0158527"/>
+  <node id="8899241659" lat="38.4548810" lon="-9.0157921"/>
+  <node id="3514853692" lat="38.4788987" lon="-8.9839767"/>
+  <node id="3514861593" lat="38.4789958" lon="-8.9839165"/>
+  <node id="3514861594" lat="38.4790595" lon="-8.9838174"/>
+  <node id="3514861595" lat="38.4791815" lon="-8.9839129"/>
+  <node id="3514861596" lat="38.4792261" lon="-8.9838376"/>
+  <node id="3514861597" lat="38.4793055" lon="-8.9837774"/>
+  <node id="3514861598" lat="38.4793649" lon="-8.9837073"/>
+  <node id="3514861603" lat="38.4791115" lon="-8.9838212"/>
+  <node id="4394268383" lat="38.4791414" lon="-8.9838959"/>
+  <node id="4685227951" lat="38.4783642" lon="-8.9847353"/>
+  <node id="4685227952" lat="38.4785068" lon="-8.9845238"/>
+  <node id="4685227960" lat="38.4791710" lon="-8.9837582"/>
+  <node id="4685227961" lat="38.4791535" lon="-8.9838184"/>
+  <node id="4685227962" lat="38.4791067" lon="-8.9838046"/>
+  <node id="4685227963" lat="38.4790240" lon="-8.9837274"/>
+  <node id="4685227973" lat="38.4791480" lon="-8.9838691"/>
+  <node id="9146872318" lat="38.4791721" lon="-8.9838619"/>
+  <node id="9146872397" lat="38.4785602" lon="-8.9844513"/>
+  <node id="9146872403" lat="38.4792599" lon="-8.9837958"/>
+  <node id="9146872404" lat="38.4794236" lon="-8.9836891"/>
+  <node id="3514861599" lat="38.4795206" lon="-8.9837103"/>
+  <node id="3514861600" lat="38.4796108" lon="-8.9836157"/>
+  <node id="4194795209" lat="38.4801455" lon="-8.9829163"/>
+  <node id="4194795210" lat="38.4805333" lon="-8.9819956"/>
+  <node id="4194795218" lat="38.4809918" lon="-8.9813451"/>
+  <node id="4685227939" lat="38.4804025" lon="-8.9820252"/>
+  <node id="4685227980" lat="38.4811193" lon="-8.9812551"/>
+  <node id="4685227981" lat="38.4812718" lon="-8.9810421"/>
+  <node id="8155871396" lat="38.4803065" lon="-8.9825879"/>
+  <node id="9146490843" lat="38.4802580" lon="-8.9822501"/>
+  <node id="9146872405" lat="38.4794815" lon="-8.9837403"/>
+  <node id="9146872406" lat="38.4802250" lon="-8.9828180"/>
+  <node id="9146872407" lat="38.4802213" lon="-8.9827277"/>
+  <node id="9146872408" lat="38.4803369" lon="-8.9824280"/>
+  <node id="9146872409" lat="38.4805897" lon="-8.9818878"/>
+  <node id="9146872410" lat="38.4806088" lon="-8.9818112"/>
+  <node id="9146872542" lat="38.4809267" lon="-8.9814122"/>
+  <node id="9146872543" lat="38.4808691" lon="-8.9814374"/>
+  <node id="8388840570" lat="38.4919263" lon="-8.9755743"/>
+  <node id="8388840571" lat="38.4919007" lon="-8.9756221"/>
+  <node id="8388840572" lat="38.4919064" lon="-8.9756899"/>
+  <node id="8388840573" lat="38.4919602" lon="-8.9757392"/>
+  <node id="8388840574" lat="38.4920290" lon="-8.9757967"/>
+  <node id="9146429033" lat="38.4852804" lon="-8.9522005"/>
+  <node id="9146429034" lat="38.4852804" lon="-8.9521263"/>
+  <node id="9146429036" lat="38.4852289" lon="-8.9519096"/>
+  <node id="9146478199" lat="38.4852423" lon="-8.9520611"/>
+  <node id="8155801245" lat="38.4902457" lon="-8.9359664"/>
+  <node id="8155801246" lat="38.4901849" lon="-8.9362524"/>
+  <node id="8155801247" lat="38.4901615" lon="-8.9364458"/>
+  <node id="8155801248" lat="38.4900791" lon="-8.9365870"/>
+  <node id="8833624928" lat="38.4902235" lon="-8.9357905"/>
+  <node id="8833624929" lat="38.4902880" lon="-8.9357708"/>
+  <node id="8833624930" lat="38.4902310" lon="-8.9357809"/>
+  <node id="8833624931" lat="38.4902740" lon="-8.9358001"/>
+  <node id="8833624932" lat="38.4902235" lon="-8.9358162"/>
+  <node id="8833624933" lat="38.4902445" lon="-8.9358950"/>
+  <node id="8833624938" lat="38.4902216" lon="-8.9360723"/>
+  <node id="8833624939" lat="38.4901141" lon="-8.9363655"/>
+  <node id="8833624940" lat="38.4901324" lon="-8.9363183"/>
+  <node id="8833624941" lat="38.4901244" lon="-8.9364055"/>
+  <node id="8833624942" lat="38.4901062" lon="-8.9365016"/>
+  <node id="8833624943" lat="38.4901429" lon="-8.9365037"/>
+  <node id="8833624944" lat="38.4900725" lon="-8.9365166"/>
+  <node id="8833624950" lat="38.4902894" lon="-8.9357308"/>
+  <node id="8421083022" lat="38.5827788" lon="-8.8413951"/>
+  <node id="8421083023" lat="38.5828386" lon="-8.8412663"/>
+  <node id="8421083024" lat="38.5827316" lon="-8.8411818"/>
+  <node id="8421083025" lat="38.5826771" lon="-8.8413025"/>
+  <way id="903536128">
+    <nd ref="8391757826"/>
+    <nd ref="8391757825"/>
+  </way>
+  <way id="903536129">
+    <nd ref="8391757827"/>
+    <nd ref="8391757826"/>
+  </way>
+  <way id="903536130">
+    <nd ref="8391757828"/>
+    <nd ref="8391757827"/>
+  </way>
+  <way id="903536131">
+    <nd ref="8391757829"/>
+    <nd ref="8391757828"/>
+  </way>
+  <way id="903536132">
+    <nd ref="8391757830"/>
+    <nd ref="8391757829"/>
+  </way>
+  <way id="903536133">
+    <nd ref="8391757831"/>
+    <nd ref="8391757830"/>
+  </way>
+  <way id="903536134">
+    <nd ref="8391757833"/>
+    <nd ref="8391757832"/>
+  </way>
+  <way id="943954746">
+    <nd ref="100602474"/>
+    <nd ref="8739892466"/>
+    <nd ref="8739892468"/>
+    <nd ref="8739892467"/>
+    <nd ref="8739892442"/>
+    <nd ref="8739892454"/>
+    <nd ref="8739892453"/>
+    <nd ref="8739892452"/>
+    <nd ref="8739892451"/>
+    <nd ref="8739892450"/>
+    <nd ref="8739892448"/>
+    <nd ref="8739892449"/>
+    <nd ref="6490431039"/>
+    <nd ref="6490431042"/>
+  </way>
+  <way id="942931967">
+    <nd ref="8731497635"/>
+    <nd ref="8731497634"/>
+    <nd ref="8731497633"/>
+    <nd ref="8731497632"/>
+    <nd ref="8731497631"/>
+    <nd ref="8731497635"/>
+  </way>
+  <way id="943954747">
+    <nd ref="8739892470"/>
+    <nd ref="8739892469"/>
+    <nd ref="8739892498"/>
+  </way>
+  <way id="943954749">
+    <nd ref="8739892456"/>
+    <nd ref="6490431047"/>
+    <nd ref="8739892455"/>
+    <nd ref="8739892458"/>
+    <nd ref="100602474"/>
+  </way>
+  <way id="943954742">
+    <nd ref="6490376902"/>
+    <nd ref="8739892439"/>
+    <nd ref="8739892437"/>
+    <nd ref="6490376892"/>
+    <nd ref="6490376893"/>
+  </way>
+  <way id="943954744">
+    <nd ref="8739892478"/>
+    <nd ref="4436279765"/>
+    <nd ref="6494904752"/>
+  </way>
+  <way id="943954745">
+    <nd ref="8739892441"/>
+    <nd ref="9046380989"/>
+    <nd ref="8739892478"/>
+  </way>
+  <way id="876280889">
+    <nd ref="6494873433"/>
+    <nd ref="8258605734"/>
+    <nd ref="8258605732"/>
+    <nd ref="8228298801"/>
+    <nd ref="4436279910"/>
+    <nd ref="8258605731"/>
+    <nd ref="8258605730"/>
+    <nd ref="8228298802"/>
+    <nd ref="4436279912"/>
+    <nd ref="8228298800"/>
+  </way>
+  <way id="876280887">
+    <nd ref="8155618992"/>
+    <nd ref="8155618991"/>
+  </way>
+  <way id="888289265">
+    <nd ref="8750983919"/>
+    <nd ref="8750983918"/>
+    <nd ref="8750966116"/>
+    <nd ref="8750983917"/>
+    <nd ref="4436279908"/>
+    <nd ref="8750966109"/>
+    <nd ref="8750966110"/>
+    <nd ref="8750966111"/>
+    <nd ref="8750966112"/>
+    <nd ref="6494873435"/>
+    <nd ref="8750966102"/>
+    <nd ref="8750966103"/>
+    <nd ref="4676578067"/>
+    <nd ref="8750966098"/>
+    <nd ref="8258605744"/>
+    <nd ref="6494873434"/>
+  </way>
+  <way id="945251529">
+    <nd ref="8750947699"/>
+    <nd ref="8750947700"/>
+    <nd ref="8750947701"/>
+    <nd ref="1685233487"/>
+  </way>
+  <way id="895090673">
+    <nd ref="8899241658"/>
+    <nd ref="8899241659"/>
+    <nd ref="8320068716"/>
+    <nd ref="8320068715"/>
+  </way>
+  <way id="895090676">
+    <nd ref="8320088165"/>
+    <nd ref="8320088158"/>
+    <nd ref="8320088157"/>
+  </way>
+  <way id="895090677">
+    <nd ref="8320088160"/>
+    <nd ref="8320088161"/>
+    <nd ref="8320088162"/>
+    <nd ref="8320088163"/>
+    <nd ref="8320088120"/>
+    <nd ref="8320088164"/>
+    <nd ref="8320088165"/>
+  </way>
+  <way id="962060479">
+    <nd ref="8899241654"/>
+    <nd ref="8899241653"/>
+  </way>
+  <way id="962060480">
+    <nd ref="8899241655"/>
+    <nd ref="8899241656"/>
+    <nd ref="8899241657"/>
+  </way>
+  <way id="989741284">
+    <nd ref="4685227960"/>
+    <nd ref="4685227961"/>
+    <nd ref="4685227962"/>
+  </way>
+  <way id="989741285">
+    <nd ref="4685227962"/>
+    <nd ref="4685227963"/>
+  </way>
+  <way id="989741286">
+    <nd ref="3514853692"/>
+    <nd ref="3514861593"/>
+    <nd ref="3514861594"/>
+    <nd ref="3514861603"/>
+  </way>
+  <way id="989741288">
+    <nd ref="4685227951"/>
+    <nd ref="4685227952"/>
+    <nd ref="9146872397"/>
+  </way>
+  <way id="989741283">
+    <nd ref="3514861603"/>
+    <nd ref="4685227973"/>
+    <nd ref="3514861595"/>
+    <nd ref="3514861596"/>
+    <nd ref="9146872403"/>
+    <nd ref="3514861597"/>
+    <nd ref="3514861598"/>
+    <nd ref="9146872404"/>
+    <nd ref="9146872405"/>
+    <nd ref="3514861599"/>
+    <nd ref="3514861600"/>
+  </way>
+  <way id="989741268">
+    <nd ref="9146872543"/>
+    <nd ref="9146872542"/>
+    <nd ref="4194795218"/>
+    <nd ref="4685227980"/>
+    <nd ref="4685227981"/>
+  </way>
+  <way id="989741278">
+    <nd ref="4194795209"/>
+    <nd ref="9146872406"/>
+    <nd ref="9146872407"/>
+    <nd ref="8155871396"/>
+    <nd ref="9146872408"/>
+  </way>
+  <way id="989741279">
+    <nd ref="9146872408"/>
+    <nd ref="4194795210"/>
+    <nd ref="9146872409"/>
+    <nd ref="9146872410"/>
+  </way>
+  <way id="989741282">
+    <nd ref="4685227939"/>
+    <nd ref="9146490843"/>
+  </way>
+  <way id="876307546">
+    <nd ref="8155801248"/>
+    <nd ref="8833624944"/>
+    <nd ref="8833624942"/>
+    <nd ref="8833624943"/>
+    <nd ref="8155801247"/>
+  </way>
+  <way id="876307547">
+    <nd ref="8155801245"/>
+    <nd ref="8833624933"/>
+    <nd ref="8833624932"/>
+    <nd ref="8833624928"/>
+    <nd ref="8833624930"/>
+    <nd ref="8833624931"/>
+    <nd ref="8833624929"/>
+    <nd ref="8833624950"/>
+  </way>
+  <way id="876307548">
+    <nd ref="8155801247"/>
+    <nd ref="8833624941"/>
+    <nd ref="8833624939"/>
+    <nd ref="8833624940"/>
+    <nd ref="8155801246"/>
+  </way>
+  <way id="876307550">
+    <nd ref="8833624938"/>
+    <nd ref="8155801245"/>
+  </way>
+
+</osm>

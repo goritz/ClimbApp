@@ -3,31 +3,40 @@ package com.geoit.climbapp;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-
-import javax.xml.parsers.ParserConfigurationException;
 
 public class Overpasser {
 
 
     public static void parseResponse(Document document) {
+        ArrayList<ClimbingElement> nodeElements=new ArrayList<>();
+        ArrayList<ClimbingElement> wayElements=new ArrayList<>();
+
+
 
         Element root = document.getDocumentElement();
         NodeList nodeList = root.getElementsByTagName("node");
 
-        ArrayList<ClimbingElement> elements=new ArrayList<>();
-
         for (int i = 0; i < nodeList.getLength(); i++) {
 
             Element n = (Element) nodeList.item(i);
-
             try {
                 ClimbingElement climbingElement=new ClimbingElement(n);
-                elements.add(climbingElement);
+                nodeElements.add(climbingElement);
+            } catch (OverpassException e) {
+                e.printStackTrace();
+            }
+
+        }
+        NodeList wayList = root.getElementsByTagName("way");
+
+        for (int i = 0; i < wayList.getLength(); i++) {
+
+            Element w = (Element) wayList.item(i);
+            try {
+                ClimbingElement climbingElement=new ClimbingElement(w);
+                wayElements.add(climbingElement);
             } catch (OverpassException e) {
                 e.printStackTrace();
             }
@@ -35,9 +44,13 @@ public class Overpasser {
         }
 
 
-        System.out.println(elements.size()+" elements!");
+        System.out.println(nodeElements.size()+" node elements!");
+        System.out.println(wayElements.size()+" way elements!");
 
-        for(ClimbingElement el:elements){
+        for(ClimbingElement el:nodeElements){
+            System.out.println(el.toString());
+        }
+        for(ClimbingElement el:wayElements){
             System.out.println(el.toString());
         }
 
