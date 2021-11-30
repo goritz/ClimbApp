@@ -138,7 +138,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         testLocalXML(this.getApplicationContext(),"australia.xml");
         testLocalXML(this.getApplicationContext(),"pyrenaen.xml");
         testLocalXML(this.getApplicationContext(),"portugal.xml");
-
         testLocalXML(this.getApplicationContext(),"southamerica.xml");
 
 

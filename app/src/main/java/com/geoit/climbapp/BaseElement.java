@@ -4,14 +4,12 @@ import org.w3c.dom.Element;
 
 import java.time.format.DateTimeParseException;
 
-public class BaseElement {
+public abstract class BaseElement{
 
     private final long id;
 //    private long version=0;
 //    private Instant timeStamp;
 
-
-    private final LatLng latLng;
 
     public BaseElement(Element osmNode) throws OverpassException {
 
@@ -21,11 +19,6 @@ public class BaseElement {
             id = Long.parseLong(osmNode.getAttribute("id"));
 //            version=Integer.parseInt(osmElement.getAttribute("version"));
 //            timeStamp=Instant.parse(osmElement.getAttribute("timeStamp"));
-
-
-            double lat = Double.parseDouble(osmNode.getAttribute("lat"));
-            double lng = Double.parseDouble(osmNode.getAttribute("lon"));
-            latLng = new LatLng(lat, lng);
 
         } catch (NumberFormatException | NullPointerException | DateTimeParseException nfe) {
             nfe.printStackTrace();
@@ -38,7 +31,10 @@ public class BaseElement {
         return id;
     }
 
-    public LatLng getLatLng() {
-        return latLng;
+    @Override
+    public String toString() {
+        return "BaseElement{" +
+                "id=" + id +
+                '}';
     }
 }
