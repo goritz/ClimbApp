@@ -330,9 +330,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 //                System.out.println(result.toString());
                 for (TaggedElement t : result) {
 //                    System.out.println(t.toString());
-                    Log.d("[Request]","adding symbol for "+t.toString());
+//                    Log.d("[Request]","adding symbol for "+t.toString());
                     addSymbolForElement(t);
                 }
+                 Log.d("[Request]","added "+result.size()+" symbols!");
+
 
 
             }

@@ -11,6 +11,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import timber.log.Timber;
 
@@ -20,6 +21,8 @@ public class TaggedElement extends BaseElement {
     final ElementType type;
 
     final ArrayList<Long> referenceIDs;
+
+    final HashMap<String,String> otherTags=new HashMap<>();
 
     private LatLng latLng;
 
@@ -179,7 +182,10 @@ public class TaggedElement extends BaseElement {
                     if (!value.equals("no"))
                         styles.add(ClimbingStyles.DEEPWATER);
                     break;
+                default:
+                    otherTags.put(key,value);
 
+                    //todo default case restliche tags in String,String set speichern?!
             }
 
 
@@ -267,14 +273,17 @@ public class TaggedElement extends BaseElement {
                 buildLine("climbingGradeUIAAMin", climbingGradeUIAAMin) +
                 buildLine("rock", rock) +
                 (length != 0 ? buildLine("length", length) : "") +
-                (elevation != 0 ? buildLine("elevation", elevation) : "")
-                ;
+                (elevation != 0 ? buildLine("elevation", elevation) : "") +
+                buildLine("TAGS", otherTags.toString())
+
+        ;
 
     }
 
     @Override
     public String toString() {
         return "TaggedElement{" + "type=" + type +
+                ", id="+getId()+
 //                ", referenceIDs=" + referenceIDs +
                 ", latLng=" + latLng +
                 ", name='" + name + '\'' +
@@ -296,6 +305,7 @@ public class TaggedElement extends BaseElement {
                 ", rock='" + rock + '\'' +
                 ", length=" + length +
                 ", elevation=" + elevation +
+                ", TAGS=" + otherTags.toString() +
                 '}';
     }
 
