@@ -38,7 +38,7 @@ public class ElementFactory {
                 } else if (baseElement instanceof TaggedElement) {
                     TaggedElement el = (TaggedElement) baseElement;
                     nodeElements.add(el);
-                    Log.d("[NODE]",el.toString());
+//                    Log.d("[NODE]",el.toString());
                 }
 
             } catch (OverpassException e) {
@@ -70,7 +70,7 @@ public class ElementFactory {
                     el.setLatLng(centroid);
 
                     wayElements.add(el);
-                    Log.d("[WAY]",el.toString());
+//                    Log.d("[WAY]",el.toString());
                 }
 
             } catch (OverpassException e) {

@@ -212,6 +212,11 @@ public class TaggedElement extends BaseElement {
     public void setLatLng(LatLng latLng) {
         this.latLng = latLng;
     }
+
+    public LatLng getLatLng() {
+        return latLng;
+    }
+
     public ArrayList<Long> getReferenceIDs(){
         return this.referenceIDs;
     }

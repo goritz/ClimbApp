@@ -3,11 +3,15 @@ package com.geoit.climbapp;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,17 +19,27 @@ import androidx.core.app.ActivityCompat;
 
 import com.geoit.climbapp.overpass.ElementFactory;
 import com.geoit.climbapp.overpass.OverpassException;
+import com.geoit.climbapp.overpass.OverpassTask;
+import com.geoit.climbapp.overpass.TaggedElement;
+import com.geoit.climbapp.overpass.TaskExecutor;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.mapbox.api.directions.v5.DirectionsCriteria;
 import com.mapbox.api.directions.v5.models.DirectionsRoute;
 import com.mapbox.api.directions.v5.models.RouteOptions;
+import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
-//import com.mapbox.services.android.navigation.v5.navigation.MapboxNavigation;
+import com.mapbox.mapboxsdk.plugins.annotation.OnSymbolClickListener;
+import com.mapbox.mapboxsdk.plugins.annotation.Symbol;
+import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager;
+import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions;
+import com.mapbox.mapboxsdk.style.layers.Property;
+import com.mapbox.maps.extension.style.layers.properties.generated.Anchor;
 import com.mapbox.navigation.base.options.NavigationOptions;
 import com.mapbox.navigation.base.route.RouterCallback;
 import com.mapbox.navigation.base.route.RouterFailure;
@@ -38,6 +52,7 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -54,7 +69,18 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private static final String[] PERMISSIONS = {Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION};
 
 
+    private FloatingActionButton button;
+    private ProgressBar loadingBar;
+
     private MapView mapView;
+    private SymbolManager symbolManager;
+
+    private HashMap<Symbol,TaggedElement> elementHashMap;
+    private Location lastLocation;
+    private final LatLng DEFAULT_LOCATION=new LatLng(52.13,13.25);
+
+    TaskExecutor executor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +91,18 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         setContentView(R.layout.activity_main);
 
         layout = findViewById(R.id.main_layout);
+        button=findViewById(R.id.btn_sendRequest);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendRequest();
+            }
+        });
+        loadingBar=findViewById(R.id.progressBar);
+        loadingBar.setVisibility(View.INVISIBLE);
 
+        elementHashMap=new HashMap<>();
+        executor= new TaskExecutor();
 
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
@@ -73,35 +110,134 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             @Override
             public void onMapReady(@NonNull MapboxMap mapboxMap) {
 
-                mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
+//                List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
+//                symbolLayerIconFeatureList.add(Feature.fromGeometry(
+//                        Point.fromLngLat(-57.225365, -33.213144)));
+//                symbolLayerIconFeatureList.add(Feature.fromGeometry(
+//                        Point.fromLngLat(-54.14164, -33.981818)));
+//                symbolLayerIconFeatureList.add(Feature.fromGeometry(
+//                        Point.fromLngLat(-56.990533, -30.583266)));
+
+                mapboxMap.addOnMapLongClickListener(new MapboxMap.OnMapLongClickListener() {
                     @Override
-                    public void onStyleLoaded(@NonNull Style style) {
-
-                        // Map is set up and the style has loaded. Now you can add data or make other map adjustments
-
-
+                    public boolean onMapLongClick(@NonNull com.mapbox.mapboxsdk.geometry.LatLng point) {
+                        sendRequest(new LatLng(point.getLatitude(),point.getLongitude()));
+                        return true;
                     }
                 });
+
+                mapboxMap.setStyle(new Style.Builder().fromUri(Style.MAPBOX_STREETS)
+
+                                // Add the SymbolLayer icon image to the map style
+//                        .withImage("markerimg", BitmapFactory.decodeResource(getResources(), R.drawable.mapbox_marker_icon_default))
+                                .withImage("markerimg", BitmapFactory.decodeResource(getResources(), R.drawable.baseline_push_pin_black_24dp))
+
+//                        // Adding a GeoJson source for the SymbolLayer icons.
+//                        .withSource(new GeoJsonSource("geosource",
+//                                FeatureCollection.fromFeatures(symbolLayerIconFeatureList)))
+//
+//                        // Adding the actual SymbolLayer to the map style. An offset is added that the bottom of the red
+//                        // marker icon gets fixed to the coordinate, rather than the middle of the icon being fixed to
+//                        // the coordinate point. This is offset is not always needed and is dependent on the image
+//                        // that you use for the SymbolLayer icon.
+//                        .withLayer(new SymbolLayer("symbollayer","geosource")
+//                                .withProperties(
+//                                        iconImage("markerimg"),
+//                                        iconAllowOverlap(true),
+//                                        iconIgnorePlacement(true)
+//                                )
+
+
+                        , new Style.OnStyleLoaded() {
+                            @Override
+                            public void onStyleLoaded(@NonNull Style style) {
+
+                                // Map is set up and the style has loaded. Now you can add additional data or make other map adjustments.
+                                // Set up a SymbolManager instance
+                                symbolManager = new SymbolManager(mapView, mapboxMap, style);
+
+                                symbolManager.setIconAllowOverlap(true);
+                                symbolManager.setTextAllowOverlap(true);
+                                symbolManager.addClickListener(new OnSymbolClickListener() {
+                                    @Override
+                                    public void onAnnotationClick(Symbol symbol) {
+                                        TaggedElement clicked=elementHashMap.get(symbol);
+                                        if(clicked!=null){
+                                            Log.d("Annotation Click","symbol was clicked: "+clicked.toString());
+                                            //TODO dialog öffnen
+                                            UIUtils.showToast(MainActivity.this,clicked.toString(), Toast.LENGTH_LONG);
+                                        }else{
+                                            Log.e("Annotation Click","symbol was not found in hashmap: "+symbol.getLatLng().toString());
+                                        }
+                                    }
+                                });
+
+
+                            }
+                        });
+
+
+//                mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
+//                    @Override
+//                    public void onStyleLoaded(@NonNull Style style) {
+//
+//                        // Map is set up and the style has loaded. Now you can add data or make other map adjustments
+//
+//
+//// Set up a SymbolManager instance
+//                        symbolManager = new SymbolManager(mapView, mapboxMap, style);
+//
+//                        symbolManager.setIconAllowOverlap(true);
+//                        symbolManager.setTextAllowOverlap(true);
+//
+//                        style.addImage("marker", BitmapFactory.decodeResource(getResources(), R.drawable.baseline_push_pin_black_24dp));
+//
+////                        symbolManager.
+//// Add symbol at specified lat/lon
+//                        Symbol symbol = symbolManager.create(new SymbolOptions()
+//                                .withLatLng(new com.mapbox.mapboxsdk.geometry.LatLng(60.169091, 24.939876))
+//                                .withIconImage("marker")
+//                                .withIconSize(2.0f));
+//
+//                        SymbolLayer symbolLayer=new SymbolLayer("symbols","markersource");
+//
+//
+//
+//                        .withLayer(new SymbolLayer(LAYER_ID, SOURCE_ID)
+//                                .withProperties(
+//                                        iconImage(match(get("report_id"), literal("location_transparent_icon_id"),
+//                                                stop(literal("1"), "black_location_icon_id"),
+//                                                stop(literal("2"), "current_pin_icon_id"),
+//                                                stop(literal("3"), "current_location_icon_id"))),
+//                                        iconAllowOverlap(true),
+//                                        iconIgnorePlacement(true),
+//                                        iconAllowOverlap(true),
+//                                        iconSize(0.7f)
+//                                )
+//                        ),
+//
+//                    }
+//                });
 
             }
         });
 
 
-        if(MapboxNavigationProvider.isCreated()){
-            navigation=MapboxNavigationProvider.retrieve();
-        }else{
-            navigation=MapboxNavigationProvider.create(new NavigationOptions.Builder(this).accessToken(getString(R.string.mapbox_access_token)).build());
+        if (MapboxNavigationProvider.isCreated()) {
+            navigation = MapboxNavigationProvider.retrieve();
+        } else {
+            navigation = MapboxNavigationProvider.create(new NavigationOptions.Builder(this).accessToken(getString(R.string.mapbox_access_token)).build());
         }
 
-        Point a=Point.fromLngLat(13.25,52.3);
-        Point b=Point.fromLngLat(15.75,52);
+        Point a = Point.fromLngLat(13.25, 52.3);
+        Point b = Point.fromLngLat(15.75, 52);
 
-        ArrayList<Point>list=new ArrayList<>();
+        ArrayList<Point> list = new ArrayList<>();
         list.add(a);
         list.add(b);
 
 
-        RouteOptions options= RouteOptions.builder().coordinatesList(list).profile(DirectionsCriteria.PROFILE_DRIVING).alternatives(false).build();
+        RouteOptions options = RouteOptions.builder().coordinatesList(list).profile(DirectionsCriteria.PROFILE_DRIVING).alternatives(false).build();
 
         navigation.requestRoutes(options, new RouterCallback() {
             @Override
@@ -129,29 +265,89 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         });
 
 
-
-
-
-
         requestPermission();
 
 
-        testLocalXML(this.getApplicationContext(),"testabfrage2.xml");
-        testLocalXML(this.getApplicationContext(),"australia.xml");
-        testLocalXML(this.getApplicationContext(),"pyrenaen.xml");
-        testLocalXML(this.getApplicationContext(),"portugal.xml");
-        testLocalXML(this.getApplicationContext(),"southamerica.xml");
+//        testLocalXML(this.getApplicationContext(),"testabfrage2.xml");
+//        testLocalXML(this.getApplicationContext(),"australia.xml");
+//        testLocalXML(this.getApplicationContext(),"pyrenaen.xml");
+//        testLocalXML(this.getApplicationContext(),"portugal.xml");
+//        testLocalXML(this.getApplicationContext(),"southamerica.xml");
+
+//        InputStream stream= null;
+//        try {
+//
+//            stream = getApplicationContext().getAssets().open("testabfrage2.xml");
+//
+//            OverpassTask task=new OverpassTask(stream);
+//
+
+
+//
+//
+//
+//
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
 
     }
 
+    private void sendRequest(){
+        Log.d("[Request]","sending Overpass-Request");
+        LatLng latLng=DEFAULT_LOCATION;
+        if(lastLocation!=null){
+            latLng=new LatLng(lastLocation.getLatitude(),lastLocation.getLongitude());
+        }
+        //TODO latlng der click positionssuche
+
+        sendRequest(latLng);
+
+    }
+    private void sendRequest(LatLng latLng){
+        UIUtils.showToast(this,getString(R.string.request_starting));
+        loadingBar.setVisibility(View.VISIBLE);
+
+        elementHashMap.clear();
+        symbolManager.deleteAll();
+        executor.executeAsync(new OverpassTask(latLng), new TaskExecutor.Callback<ArrayList<TaggedElement>>() {
+            @Override
+            public void onComplete(ArrayList<TaggedElement> result) {
+                UIUtils.showToast(MainActivity.this,getString(R.string.request_found_elements,result.size()));
+                loadingBar.setVisibility(View.INVISIBLE);
+//                System.out.println(result.toString());
+                for (TaggedElement t : result) {
+//                    System.out.println(t.toString());
+                    Log.d("[Request]","adding symbol for "+t.toString());
+                    addSymbolForElement(t);
+                }
 
 
+            }
+        });
+    }
 
-    private void testLocalXML(Context context,String filename){
+    private void addSymbolForElement(TaggedElement element){
+        // Add symbol at specified lat/lon
+        Symbol symbol = symbolManager.create(new SymbolOptions()
+                        .withLatLng(new com.mapbox.mapboxsdk.geometry.LatLng(element.getLatLng().getLatitude(),element.getLatLng().getLongitude()))
+                        .withIconImage("markerimg")
+                        .withIconAnchor(Property.ICON_ANCHOR_BOTTOM)
+                        .withIconSize(1.0f)
+
+//                                        .withDraggable(true)
+        );
+        elementHashMap.put(symbol,element);
+
+    }
+
+    @Deprecated
+    private void testLocalXML(Context context, String filename) {
         try {
-            System.out.println("TESTING XML: "+filename);
-            Document doc=XMLUtils.loadDocument(context.getAssets().open(filename));
+            System.out.println("TESTING XML: " + filename);
+            Document doc = XMLUtils.loadDocument(context.getAssets().open(filename));
 //            Overpasser.parseResponse(doc);
             ElementFactory.parseResponse(doc);
 
@@ -202,7 +398,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             }).show();
 
 
-        }else{
+        } else {
             initLocator();
         }
 
@@ -253,6 +449,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 //                updateLocation(location);
                 if (location != null) {
                     System.out.println("last known location: " + location.toString());
+                    this.lastLocation=location;
                 } else {
                     System.out.println("no last known location found!");
                 }
@@ -279,6 +476,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     @Override
     public void onLocationChanged(@NonNull Location location) {
         System.out.println("location changed: " + location.toString());
+        this.lastLocation=location;
     }
 
     /**
@@ -290,6 +488,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public void onProviderEnabled(@NonNull String provider) {
 
     }
+
     /**
      * Called when the provider is disabled by the user. If requestLocationUpdates
      * is called on an already disabled provider, this method is called
@@ -301,6 +500,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public void onProviderDisabled(@NonNull String provider) {
 
     }
+
     @Override
     protected void onStart() {
         super.onStart();
