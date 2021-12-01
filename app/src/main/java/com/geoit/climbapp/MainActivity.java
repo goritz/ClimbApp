@@ -343,15 +343,20 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     private void addSymbolForElement(TaggedElement element){
         // Add symbol at specified lat/lon
-        Symbol symbol = symbolManager.create(new SymbolOptions()
-                        .withLatLng(new com.mapbox.mapboxsdk.geometry.LatLng(element.getLatLng().getLatitude(),element.getLatLng().getLongitude()))
-                        .withIconImage("markerimg")
-                        .withIconAnchor(Property.ICON_ANCHOR_BOTTOM)
-                        .withIconSize(1.0f)
+        try{
+            Symbol symbol = symbolManager.create(new SymbolOptions()
+                            .withLatLng(new com.mapbox.mapboxsdk.geometry.LatLng(element.getLatLng().getLatitude(),element.getLatLng().getLongitude()))
+                            .withIconImage("markerimg")
+                            .withIconAnchor(Property.ICON_ANCHOR_BOTTOM)
+                            .withIconSize(1.0f)
 
 //                                        .withDraggable(true)
-        );
-        elementHashMap.put(symbol,element);
+            );
+            elementHashMap.put(symbol,element);
+        } catch (IllegalArgumentException e){
+            e.printStackTrace();
+        }
+
 
     }
 

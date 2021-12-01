@@ -58,7 +58,7 @@ public class TaggedElement extends BaseElement {
     String rock = "";
 
     int length = 0;
-    int elevation = 0;
+    float elevation = 0;
 
 
     public TaggedElement(long id, ElementType type, Element osmElement) throws OverpassException {
