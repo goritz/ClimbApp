@@ -184,8 +184,7 @@ public class TaggedElement extends BaseElement {
                     break;
                 default:
                     otherTags.put(key,value);
-
-                    //todo default case restliche tags in String,String set speichern?!
+                    break;
             }
 
 
