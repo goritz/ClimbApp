@@ -20,14 +20,12 @@ import javax.xml.parsers.ParserConfigurationException;
 public class OverpassTask implements Callable<ArrayList<TaggedElement>> {
 
 
-    public static final int RADIUS =50000; //m
-//    private final String input;
-    private final LatLng startPosition;
+    public static final int RADIUS =45000; //m
 
     private URL requestURL = null;
 
     public OverpassTask(LatLng position) {
-        this.startPosition=position;
+        //    private final String input;
 
 
         if (position == null || (position.getLongitude() == 0.00f && position.getLatitude() == 0.00f)) {

@@ -60,10 +60,10 @@ public class TaggedElement extends BaseElement {
 
     public TaggedElement(long id, ElementType type, Element osmElement) throws OverpassException {
         super(id);
-        this.type=type;
+        this.type = type;
 
 
-            //Todo für alle ways der response am ende calcLatLng(refNodes)`?!
+        //Todo für alle ways der response am ende calcLatLng(refNodes)`?!
 
         NodeList tagList = osmElement.getElementsByTagName("tag");
 
@@ -137,7 +137,7 @@ public class TaggedElement extends BaseElement {
                         this.length = Integer.parseInt(value);
                     } catch (NumberFormatException nfe) {
 //                        Timber.tag("tag climbing:length").w("could not parse length: %s", value);
-                        Log.w("[NFE]","could not parse length: "+value);
+                        Log.w("[NFE]", "could not parse length: " + value);
 //                        nfe.printStackTrace();
                     }
                     break;
@@ -186,8 +186,8 @@ public class TaggedElement extends BaseElement {
         }
 
         // Falls dieses Element ein WAY ist, referenzierte Nodes finden und parsen
-        referenceIDs =new ArrayList<>();
-        if(this.type== ElementType.WAY){
+        referenceIDs = new ArrayList<>();
+        if (this.type == ElementType.WAY) {
 
             NodeList refList = osmElement.getElementsByTagName("nd");
 
@@ -195,10 +195,10 @@ public class TaggedElement extends BaseElement {
                 Element n = (Element) refList.item(i);
 
                 try {
-                    long refID=Long.parseLong(n.getAttribute("ref"));
+                    long refID = Long.parseLong(n.getAttribute("ref"));
                     referenceIDs.add(refID);
                 } catch (NumberFormatException nfe) {
-                    Log.w("[Warning]","could not parse id reference ("+i+") of way "+this.getId());
+                    Log.w("[Warning]", "could not parse id reference (" + i + ") of way " + this.getId());
                     nfe.printStackTrace();
                 }
 
@@ -217,16 +217,66 @@ public class TaggedElement extends BaseElement {
         return latLng;
     }
 
-    public ArrayList<Long> getReferenceIDs(){
+    public ArrayList<Long> getReferenceIDs() {
         return this.referenceIDs;
+    }
+
+    //    public String toFormattedString(){
+//        StringBuilder sb=new StringBuilder("ClimbingElement{");
+//
+//        sb.append(buildLine("type",this.type));
+//        sb.append(buildLine("id",this.getId()));
+//        sb.append(buildLine("pos",this.latLng));
+//        sb.append(buildLine("name",this.name));
+//        sb.append(buildLine("street",this.street));
+//        sb.append(buildLine("houseNumber",this.houseNumber));
+//        sb.append(buildLine("postcode",this.postcode));
+//
+//        return sb.toString();
+//    }
+    private String buildLine(String name, Object o) {
+        if (o != null) {
+            String os = o.toString();
+            if (!os.isEmpty())
+                return name + ": " + os + '\n';
+        }
+        return "";
+    }
+
+
+    public String toFormattedString() {
+        return "TaggedElement: " + buildLine("type", type) +
+                buildLine("id", getId()) +
+                (type == ElementType.WAY ? buildLine("refs", referenceIDs.size()) : "") +
+                buildLine("latLng", latLng) +
+                buildLine("name", name) +
+                buildLine("street", street) +
+                buildLine("houseNumber", houseNumber) +
+                buildLine("postcode", postcode) +
+                buildLine("openingHours", openingHours) +
+                buildLine("website", website) +
+                buildLine("isSportsCenter", isSportsCenter) +
+                buildLine("hasIndoor", hasIndoor) +
+                buildLine("hasOutdoor", hasOutdoor) +
+                buildLine("hasFee", hasFee) +
+                buildLine("natural", natural) +
+                buildLine("styles", styles) +
+                buildLine("climbingGradeUIAA", climbingGradeUIAA) +
+                buildLine("climbingGradeUIAAMax", climbingGradeUIAAMax) +
+                buildLine("climbingGradeUIAAMean", climbingGradeUIAAMean) +
+                buildLine("climbingGradeUIAAMin", climbingGradeUIAAMin) +
+                buildLine("rock", rock) +
+                (length != 0 ? buildLine("length", length) : "") +
+                (elevation != 0 ? buildLine("elevation", elevation) : "")
+                ;
+
     }
 
     @Override
     public String toString() {
-        return "ClimbingElement{" +
-                "type='" + type + '\'' +
-                ", id='" + getId() + '\'' +
-                ", "+latLng +
+        return "TaggedElement{" + "type=" + type +
+//                ", referenceIDs=" + referenceIDs +
+                ", latLng=" + latLng +
                 ", name='" + name + '\'' +
                 ", street='" + street + '\'' +
                 ", houseNumber='" + houseNumber + '\'' +
@@ -248,4 +298,5 @@ public class TaggedElement extends BaseElement {
                 ", elevation=" + elevation +
                 '}';
     }
+
 }

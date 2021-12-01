@@ -19,7 +19,7 @@ public class UIUtils {
 //        Toast toast = Toast.makeText(context, text, Toast.LENGTH_LONG);
 
         Toast toast = Toast.makeText(context, text, toastLength);
-        toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 200);
+//        toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 200);
 
 
 //        View view = toast.getView();

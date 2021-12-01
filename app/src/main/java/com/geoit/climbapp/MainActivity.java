@@ -30,6 +30,9 @@ import com.mapbox.api.directions.v5.models.RouteOptions;
 import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.camera.CameraPosition;
+import com.mapbox.mapboxsdk.camera.CameraUpdate;
+import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
@@ -165,14 +168,21 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                         if(clicked!=null){
                                             Log.d("Annotation Click","symbol was clicked: "+clicked.toString());
                                             //TODO dialog öffnen
-                                            UIUtils.showToast(MainActivity.this,clicked.toString(), Toast.LENGTH_LONG);
+                                            UIUtils.showToast(MainActivity.this,clicked.toFormattedString(), Toast.LENGTH_LONG);
                                         }else{
                                             Log.e("Annotation Click","symbol was not found in hashmap: "+symbol.getLatLng().toString());
                                         }
                                     }
                                 });
 
+                                CameraPosition position = new CameraPosition.Builder()
+                                        .target(new com.mapbox.mapboxsdk.geometry.LatLng(49.0, 11.0)) // Sets the new camera position
+                                        .zoom(4) // Sets the zoom
+//                                        .bearing(180) // Rotate the camera
+//                                        .tilt(30) // Set the camera tilt
+                                        .build(); // Creates a CameraPosition from the builder
 
+                                mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 2000);
                             }
                         });
 
@@ -307,7 +317,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     }
     private void sendRequest(LatLng latLng){
-        UIUtils.showToast(this,getString(R.string.request_starting));
+        UIUtils.showToast(this,getString(R.string.request_starting),Toast.LENGTH_SHORT);
         loadingBar.setVisibility(View.VISIBLE);
 
         elementHashMap.clear();
@@ -315,7 +325,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         executor.executeAsync(new OverpassTask(latLng), new TaskExecutor.Callback<ArrayList<TaggedElement>>() {
             @Override
             public void onComplete(ArrayList<TaggedElement> result) {
-                UIUtils.showToast(MainActivity.this,getString(R.string.request_found_elements,result.size()));
+                UIUtils.showToast(MainActivity.this,getString(R.string.request_found_elements,result.size()),Toast.LENGTH_SHORT);
                 loadingBar.setVisibility(View.INVISIBLE);
 //                System.out.println(result.toString());
                 for (TaggedElement t : result) {
