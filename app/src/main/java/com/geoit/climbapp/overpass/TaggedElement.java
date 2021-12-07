@@ -114,7 +114,7 @@ public class TaggedElement extends BaseElement {
                     break;
                 case "ele":
                     try {
-                        this.elevation = Integer.parseInt(value);
+                        this.elevation = Float.parseFloat(value);
                     } catch (NumberFormatException nfe) {
                         Timber.tag("tag ele").w("could not parse elevation: %s", value);
                         nfe.printStackTrace();
@@ -277,6 +277,90 @@ public class TaggedElement extends BaseElement {
 
         ;
 
+    }
+
+    public ElementType getType() {
+        return type;
+    }
+
+    public HashMap<String, String> getOtherTags() {
+        return otherTags;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getHouseNumber() {
+        return houseNumber;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public String getOpeningHours() {
+        return openingHours;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public boolean isSportsCenter() {
+        return isSportsCenter;
+    }
+
+    public boolean isHasIndoor() {
+        return hasIndoor;
+    }
+
+    public boolean isHasOutdoor() {
+        return hasOutdoor;
+    }
+
+    public boolean isHasFee() {
+        return hasFee;
+    }
+
+    public String getNatural() {
+        return natural;
+    }
+
+    public ArrayList<ClimbingStyles> getStyles() {
+        return styles;
+    }
+
+    public String getClimbingGradeUIAA() {
+        return climbingGradeUIAA;
+    }
+
+    public String getClimbingGradeUIAAMax() {
+        return climbingGradeUIAAMax;
+    }
+
+    public String getClimbingGradeUIAAMean() {
+        return climbingGradeUIAAMean;
+    }
+
+    public String getClimbingGradeUIAAMin() {
+        return climbingGradeUIAAMin;
+    }
+
+    public String getRock() {
+        return rock;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public float getElevation() {
+        return elevation;
     }
 
     @Override

@@ -169,6 +169,15 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                             Log.d("Annotation Click","symbol was clicked: "+clicked.toString());
                                             //TODO dialog öffnen
                                             UIUtils.showToast(MainActivity.this,clicked.toFormattedString(), Toast.LENGTH_LONG);
+                                            MarkerDialog dialog=new MarkerDialog(MainActivity.this, clicked, new MarkerDialogListener() {
+                                                @Override
+                                                public void onStartNavigationClick() {
+                                                    //Todo start navigation
+
+
+                                                }
+                                            });
+                                            dialog.show();
                                         }else{
                                             Log.e("Annotation Click","symbol was not found in hashmap: "+symbol.getLatLng().toString());
                                         }
@@ -255,6 +264,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 System.out.println("ready");
                 System.out.println(routerOrigin.toString());
                 System.out.println(list.toString());
+
+                if(list.size()>0)
+                    System.out.println(list.get(0).geometry());
+                //TODO geometry (json) parsen -> google json lib
+                //TODO oder als geometry
 
             }
 
