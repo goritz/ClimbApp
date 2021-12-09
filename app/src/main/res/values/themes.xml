@@ -22,4 +22,11 @@
     <style name="Theme.ClimbApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.ClimbApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="ImageButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">@drawable/button_background</item>
+    </style>
+
+
 </resources>

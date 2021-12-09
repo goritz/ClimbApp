@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/dialog_background"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="-16dp"
+        android:layout_marginTop="-16dp"
+        android:layout_marginEnd="-16dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_name"
+        app:layout_constraintStart_toStartOf="@+id/dialog_name"
+        app:layout_constraintTop_toTopOf="@+id/dialog_name" />
+
+    <TextView
+        android:id="@+id/dialog_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="start"
+        android:text="Textview"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/greyLightTransparent"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_name"
+        app:layout_constraintStart_toStartOf="@+id/dialog_name"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_name" />
+
+    <TextView
+        android:id="@+id/dialog_hours"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="start|center_vertical"
+        android:text="Textview"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:visibility="visible"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_name"
+        app:layout_constraintStart_toStartOf="@+id/dialog_name"
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+    <TextView
+        android:id="@+id/dialog_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="start|center_vertical"
+        android:text="Textview"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:visibility="visible"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_name"
+        app:layout_constraintStart_toStartOf="@+id/dialog_name"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_hours" />
+
+    <ImageButton
+        android:id="@+id/dialog_btn_routing"
+        style="@style/ImageButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:elevation="2dp"
+        android:padding="1dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/mapbox_navigation_puck_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_name"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_status" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
