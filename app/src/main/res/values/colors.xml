@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="accent">#FF03DAE5</color>
+    <color name="primary">#FF03DAE5</color>
+    <color name="secondary">#FF0396B2</color>
+    <color name="accent">#FFa496B2</color>
+
+
 
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -11,4 +15,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="greyLightTransparent">#44BBBBBB</color>
+    <color name="transparent">#00000000</color>
+
 </resources>

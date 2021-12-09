@@ -10,13 +10,13 @@
         android:id="@+id/dialog_background"
         android:layout_width="300dp"
         android:layout_height="0dp"
-        android:layout_marginStart="-16dp"
-        android:layout_marginTop="-16dp"
-        android:layout_marginEnd="-16dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/dialog_name"
-        app:layout_constraintStart_toStartOf="@+id/dialog_name"
-        app:layout_constraintTop_toTopOf="@+id/dialog_name" />
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/round_corner_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgType" />
 
     <TextView
         android:id="@+id/dialog_name"
@@ -24,15 +24,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/metrophobic"
         android:gravity="start"
         android:text="Textview"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/imgType"
+        app:layout_constraintStart_toStartOf="@+id/dialog_background"
+        app:layout_constraintTop_toTopOf="@+id/dialog_background" />
 
 
     <View
@@ -50,13 +51,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/metrophobic"
         android:gravity="start|center_vertical"
         android:text="Textview"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="12sp"
         android:visibility="visible"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="@+id/dialog_name"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_background"
         app:layout_constraintStart_toStartOf="@+id/dialog_name"
         app:layout_constraintTop_toBottomOf="@+id/view4" />
 
@@ -65,13 +67,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/metrophobic"
         android:gravity="start|center_vertical"
         android:text="Textview"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="12sp"
         android:visibility="visible"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="@+id/dialog_name"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_background"
         app:layout_constraintStart_toStartOf="@+id/dialog_name"
         app:layout_constraintTop_toBottomOf="@+id/dialog_hours" />
 
@@ -81,13 +84,26 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:elevation="2dp"
         android:padding="1dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/mapbox_navigation_puck_icon"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_navigation"
+        app:tint="@color/accent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/dialog_name"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_background"
         app:layout_constraintTop_toBottomOf="@+id/dialog_status" />
+
+    <ImageView
+        android:id="@+id/imgType"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="-8dp"
+        android:layout_marginEnd="-8dp"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_confusing_directions_filled" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
