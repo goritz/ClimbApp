@@ -342,7 +342,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         executor.executeAsync(new OverpassTask(latLng), new TaskExecutor.Callback<ArrayList<TaggedElement>>() {
             @Override
             public void onComplete(ArrayList<TaggedElement> result) {
-                UIUtils.showToast(MainActivity.this,getString(R.string.request_found_elements,result.size()),Toast.LENGTH_SHORT);
+                UIUtils.showToast(MainActivity.this,"asder Text lol", Toast.LENGTH_SHORT);
                 loadingBar.setVisibility(View.INVISIBLE);
 //                System.out.println(result.toString());
                 for (TaggedElement t : result) {
