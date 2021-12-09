@@ -11,8 +11,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="mapbox_access_token">pk.eyJ1IjoiYmV1dGgtc3R1ZGVudCIsImEiOiJjazJkazBvanowM2JoM25ydWF5bGQ1bHRnIn0.7ZceALC-VxdQcUCZmU-iRA</string>
-
-    <string name="request_starting">Starting Overpass request…</string>
-    <string name="request_found_elements">Found %1$d elements!</string>
-
+    <string name="request_starting">Overpass Request</string>
+    <string name="request_found_elements">Elemente</string>
 </resources>
