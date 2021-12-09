@@ -20,7 +20,7 @@ import javax.xml.parsers.ParserConfigurationException;
 public class OverpassTask implements Callable<ArrayList<TaggedElement>> {
 
 
-    public static final int RADIUS =45000; //m
+    public static final int RADIUS =25000; //m
 
     private URL requestURL = null;
 
@@ -66,8 +66,8 @@ public class OverpassTask implements Callable<ArrayList<TaggedElement>> {
 //            connection = ().openConnection();
                 assert connection != null;
                 System.out.println("Starte Verbindung ...");
-                connection.setConnectTimeout(5000);
-                connection.setReadTimeout(10000);
+                connection.setConnectTimeout(7500);
+                connection.setReadTimeout(12500);
                 connection.connect();
 
                 //Getting Inputstream as Response
