@@ -1,13 +1,4 @@
-package com.geoit.climbapp;/*#################################################################################################
- # Copyright (c) 2021 SpreeNav                                                                    #
- # This file (SaveRouteDialog) is part of SpreeNav Offline Navigator for Android.                 #
- # It is without any warranties. Modification or distribution is prohibited.                      #
- #                                                                                                #
- # Moritz Gerlowski 9.8.2021                                                                      #
- # Email us at info@spreenav.com                                                                  #
- #################################################################################################*/
-
-
+package com.geoit.climbapp;
 
 import android.app.Dialog;
 import android.content.Context;
