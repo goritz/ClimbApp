@@ -18,6 +18,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.Route;
 
+@Deprecated
 public class OverpassAsyncTask extends AsyncTask<String, Float, File> {
 
     private final static String URL = "";

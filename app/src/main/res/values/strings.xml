@@ -12,5 +12,45 @@
 
     <string name="mapbox_access_token">pk.eyJ1IjoiYmV1dGgtc3R1ZGVudCIsImEiOiJjazJkazBvanowM2JoM25ydWF5bGQ1bHRnIn0.7ZceALC-VxdQcUCZmU-iRA</string>
     <string name="request_starting">Overpass Request</string>
-    <string name="request_found_elements">Elemente</string>
+    <string name="request_found_elements">%1$d Spots gefunden, %2$d gefiltert!</string>
+
+    <string name="title_activity_settings">SettingsActivity</string>
+
+
+    <string name="default_overpass_mirror">https://overpass-api.de/api/interpreter</string>
+
+    <!-- Preference Titles -->
+    <string name="settings_header_filter">Filter</string>
+    <string name="settings_header_search">Suche</string>
+
+    <string name="settings_radius_h">Radius</string>
+    <string name="settings_radius_i">Stelle den Suchradius ein (km)</string>
+
+    <string name="settings_filter_h">Filter deaktieren</string>
+    <string name="settings_filter_i_on">Alle Filter werden ignoriert</string>
+    <string name="settings_filter_i_off">Folgende Filter werden verwendet</string>
+
+    <string name="settings_filter_indoor_h">Indoor</string>
+    <string name="settings_filter_indoor_i_on">Zeigt Indoor-Kletterspots an</string>
+    <string name="settings_filter_indoor_i_off">Indoor-Kletterspots werden gefiltert</string>
+
+    <string name="settings_filter_outdoor_h">Outdoor</string>
+    <string name="settings_filter_outdoor_i_on">Zeigt Outdoor-Kletterspots an</string>
+    <string name="settings_filter_outdoor_i_off">Outdoor-Kletterspots werden gefiltert</string>
+
+    <string name="settings_filter_fee_h">Nicht kostenlose Spots</string>
+    <string name="settings_filter_fee_i_on">Zeigt auch nicht kostenlose Kletterspots an</string>
+    <string name="settings_filter_fee_i_off">Zeigt nur kostenlose Kletterspots an</string>
+
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 </resources>

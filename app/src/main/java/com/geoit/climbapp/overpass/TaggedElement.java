@@ -97,8 +97,10 @@ public class TaggedElement extends BaseElement {
                     this.openingHours = value;
                     break;
                 case "leisure":
-                    if (value.equals("sports_centre"))
+                    if (value.equals("sports_centre")){
                         this.isSportsCenter = true;
+                        this.hasIndoor=true;
+                    }
                     break;
                 case "fee":
                     if (value.equals("yes")) {
@@ -186,6 +188,8 @@ public class TaggedElement extends BaseElement {
                     otherTags.put(key,value);
                     break;
             }
+
+            //TODO am ende prüfen und vervöllstädnigen
 
 
         }
@@ -315,15 +319,15 @@ public class TaggedElement extends BaseElement {
         return isSportsCenter;
     }
 
-    public boolean isHasIndoor() {
+    public boolean isIndoor() {
         return hasIndoor;
     }
 
-    public boolean isHasOutdoor() {
+    public boolean isOutdoor() {
         return hasOutdoor;
     }
 
-    public boolean isHasFee() {
+    public boolean isFee() {
         return hasFee;
     }
 
