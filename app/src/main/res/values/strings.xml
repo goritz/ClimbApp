@@ -14,10 +14,22 @@
     <string name="request_starting">Overpass Request</string>
     <string name="request_found_elements">%1$d Spots gefunden, %2$d gefiltert!</string>
 
+    <string name="internet_disabled_map">Diese App benötigt Internetzugriff für die Darstellung der Karte</string>
+    <string name="internet_disabled_overpass">Diese App benötigt Internetzugriff für Overpass-Abfragen</string>
+
+    <string name="gps_disabled">Dein Standortzugriff ist deaktiviert. Bitte prüfe deine Einstellungen!</string>
+    <string name="gps_no_position">Es konnte keine Position ermittelt werden.</string>
+    <string name="center">Zentrieren</string>
+
+    <string name="already_running_request">Es läuft gerade bereits eine Abfrage!!!</string>
+    <string name="overpass_error">Die Overpass Antwort war fehlerhaft</string>
+    <string name="overpass_timeout">Overpass antwortet nicht auf deine Anfrage :(</string>
+
+
     <string name="title_activity_settings">SettingsActivity</string>
 
 
-    <string name="default_overpass_mirror">https://overpass-api.de/api/interpreter</string>
+    <string name="default_overpass_mirror">https://lz4.overpass-api.de/api/interpreter</string>
 
     <!-- Preference Titles -->
     <string name="settings_header_filter">Filter</string>

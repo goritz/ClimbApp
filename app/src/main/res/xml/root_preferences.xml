@@ -66,16 +66,16 @@
             app:adjustable="true"
             app:defaultValue="25"/>
 
+        <!--     todo list entries (oben) durch human readables ersetzen! der entryValue(unten) des gewählten entries index wirds geschrieben!-->
+<!--        entries-> human readable-->
+<!--        entryValues-> saved values-->
         <ListPreference
             android:entries="@array/overpass_mirrors"
             android:entryValues="@array/overpass_mirrors"
             app:defaultValue="@string/default_overpass_mirror"
             android:key="overpass"
             android:title="Overpass API"
-
             app:useSimpleSummaryProvider="true" />
-
-
 
 
     </PreferenceCategory>

@@ -9,6 +9,8 @@ import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public static final int DEFAULT_RADIUS = 25000; //m
 
 
-    private FloatingActionButton btnSearch, btnSettings;
+    private FloatingActionButton btnSearch, btnSettings, btnCenter;
     private ProgressBar loadingBar;
 
     private MapView mapView;
@@ -102,6 +104,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!checkNetworkStatus()) {
+                    UIUtils.showToast(MainActivity.this, getString(R.string.internet_disabled_overpass));
+                    return;
+                }
                 sendRequest();
             }
         });
@@ -114,11 +120,17 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
             }
         });
+        btnCenter = findViewById(R.id.btn_center);
+
         loadingBar = findViewById(R.id.progressBar);
         loadingBar.setVisibility(View.INVISIBLE);
 
         elementHashMap = new HashMap<>();
         executor = new TaskExecutor();
+
+        if (!checkNetworkStatus()) {
+            UIUtils.showToast(MainActivity.this, getString(R.string.internet_disabled_map));
+        }
 
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
@@ -137,6 +149,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 mapboxMap.addOnMapLongClickListener(new MapboxMap.OnMapLongClickListener() {
                     @Override
                     public boolean onMapLongClick(@NonNull com.mapbox.mapboxsdk.geometry.LatLng point) {
+                        if (!checkNetworkStatus()) {
+                            UIUtils.showToast(MainActivity.this, getString(R.string.internet_disabled_overpass));
+                            return true;
+                        }
                         sendRequest(new LatLng(point.getLatitude(), point.getLongitude()));
                         return true;
                     }
@@ -205,6 +221,35 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                         .build(); // Creates a CameraPosition from the builder
 
                                 mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 2000);
+
+
+                                btnCenter.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+
+                                        if (locManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                                            UIUtils.showToast(MainActivity.this, getString(R.string.gps_disabled));
+                                            return;
+                                        }
+
+                                        if (lastLocation != null) {
+                                            UIUtils.showToast(MainActivity.this, getString(R.string.center));
+                                            CameraPosition position = new CameraPosition.Builder()
+                                                    .target(new com.mapbox.mapboxsdk.geometry.LatLng(lastLocation.getLatitude(), lastLocation.getLongitude())) // Sets the new camera position
+                                                    .zoom(15) // Sets the zoom
+//                                        .bearing(180) // Rotate the camera
+//                                        .tilt(30) // Set the camera tilt
+                                                    .build(); // Creates a CameraPosition from the builder
+
+                                            mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 4000);
+                                        } else {
+                                            UIUtils.showToast(MainActivity.this, getString(R.string.gps_no_position));
+
+
+                                        }
+
+                                    }
+                                });
                             }
                         });
 
@@ -333,6 +378,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     }
 
     private void sendRequest() {
+
         Log.d("[Request]", "sending Overpass-Request");
         LatLng latLng = DEFAULT_LOCATION;
         if (lastLocation != null) {
@@ -346,6 +392,13 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     }
 
     private void sendRequest(LatLng latLng) {
+
+        System.out.println(executor.isRunning()); //TODo was wenn schon einer l#uft
+        if (executor.isRunning()) {
+            UIUtils.showToast(this, getString(R.string.already_running_request));
+            return;
+        }
+
         UIUtils.showToast(this, getString(R.string.request_starting), Toast.LENGTH_SHORT);
         loadingBar.setVisibility(View.VISIBLE);
 
@@ -401,6 +454,18 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
 
             }
+
+            @Override
+            public void onTimeout() {
+                UIUtils.showToast(MainActivity.this, getString(R.string.overpass_timeout), Toast.LENGTH_SHORT);
+                loadingBar.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onError() {
+                UIUtils.showToast(MainActivity.this, getString(R.string.overpass_error), Toast.LENGTH_SHORT);
+                loadingBar.setVisibility(View.INVISIBLE);
+            }
         });
     }
 
@@ -421,6 +486,13 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         }
 
 
+    }
+
+
+    private boolean checkNetworkStatus() {
+        ConnectivityManager cm = (ConnectivityManager) MainActivity.this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null;
     }
 
     @Deprecated
@@ -523,7 +595,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         try {
             locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             if (locManager != null) {
-                locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100L,
+                locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000L,
                         10.0f, this);
                 Location location = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 //                updateLocation(location);
