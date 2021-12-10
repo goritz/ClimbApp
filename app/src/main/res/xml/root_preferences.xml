@@ -1,0 +1,83 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/settings_header_filter">
+
+
+        <SwitchPreferenceCompat
+            app:key="filter"
+            app:defaultValue="true"
+            app:disableDependentsState="true"
+            app:title="@string/settings_filter_h"
+            app:summaryOn="@string/settings_filter_i_on"
+            app:summaryOff="@string/settings_filter_i_off"/>
+
+
+<!--        <SwitchPreferenceCompat-->
+<!--            app:dependency="sync"-->
+<!--            app:key="attachment"-->
+<!--            app:summaryOff="@string/attachment_summary_off"-->
+<!--            app:summaryOn="@string/attachment_summary_on"-->
+<!--            app:title="@string/attachment_title" />-->
+        <SwitchPreferenceCompat
+            app:dependency="filter"
+            app:defaultValue="true"
+            app:key="indoor"
+            app:summaryOff="@string/settings_filter_indoor_i_off"
+            app:summaryOn="@string/settings_filter_indoor_i_on"
+            app:title="@string/settings_filter_indoor_h" />
+
+        <SwitchPreferenceCompat
+            app:dependency="filter"
+            app:defaultValue="true"
+            app:key="outdoor"
+            app:summaryOff="@string/settings_filter_outdoor_i_off"
+            app:summaryOn="@string/settings_filter_outdoor_i_on"
+            app:title="@string/settings_filter_outdoor_h" />
+
+        <SwitchPreferenceCompat
+            app:dependency="filter"
+            app:defaultValue="true"
+            app:key="fee"
+            app:summaryOff="@string/settings_filter_fee_i_off"
+            app:summaryOn="@string/settings_filter_fee_i_on"
+            app:title="@string/settings_filter_fee_h" />
+
+<!--        <ListPreference-->
+<!--            app:defaultValue="reply"-->
+<!--            app:entries="@array/reply_entries"-->
+<!--            app:entryValues="@array/reply_values"-->
+<!--            app:key="reply"-->
+<!--            app:title="@string/reply_title"-->
+<!--            app:useSimpleSummaryProvider="true" />-->
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/settings_header_search">
+
+        <SeekBarPreference
+            app:key="radius"
+            app:title="@string/settings_radius_h"
+            app:summary="@string/settings_radius_i"
+            app:showSeekBarValue="true"
+            app:min="5"
+            android:max="35"
+            app:seekBarIncrement="5"
+            app:adjustable="true"
+            app:defaultValue="25"/>
+
+        <ListPreference
+            android:entries="@array/overpass_mirrors"
+            android:entryValues="@array/overpass_mirrors"
+            app:defaultValue="@string/default_overpass_mirror"
+            android:key="overpass"
+            android:title="Overpass API"
+
+            app:useSimpleSummaryProvider="true" />
+
+
+
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

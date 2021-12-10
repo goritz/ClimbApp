@@ -2,6 +2,8 @@ package com.geoit.climbapp;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.location.Location;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.preference.PreferenceManager;
 
 import com.geoit.climbapp.overpass.ElementFactory;
 import com.geoit.climbapp.overpass.OverpassException;
@@ -28,11 +31,9 @@ import com.google.android.material.snackbar.Snackbar;
 import com.mapbox.api.directions.v5.DirectionsCriteria;
 import com.mapbox.api.directions.v5.models.DirectionsRoute;
 import com.mapbox.api.directions.v5.models.RouteOptions;
-import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
-import com.mapbox.mapboxsdk.camera.CameraUpdate;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
@@ -43,7 +44,6 @@ import com.mapbox.mapboxsdk.plugins.annotation.Symbol;
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager;
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions;
 import com.mapbox.mapboxsdk.style.layers.Property;
-import com.mapbox.maps.extension.style.layers.properties.generated.Anchor;
 import com.mapbox.navigation.base.options.NavigationOptions;
 import com.mapbox.navigation.base.route.RouterCallback;
 import com.mapbox.navigation.base.route.RouterFailure;
@@ -71,17 +71,18 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     View layout;
     private static final int PERMISSION_REQUEST_CODE = 1234;
     private static final String[] PERMISSIONS = {Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION};
+    public static final int DEFAULT_RADIUS = 25000; //m
 
 
-    private FloatingActionButton button;
+    private FloatingActionButton btnSearch, btnSettings;
     private ProgressBar loadingBar;
 
     private MapView mapView;
     private SymbolManager symbolManager;
 
-    private HashMap<Symbol,TaggedElement> elementHashMap;
+    private HashMap<Symbol, TaggedElement> elementHashMap;
     private Location lastLocation;
-    private final LatLng DEFAULT_LOCATION=new LatLng(52.13,13.25);
+    private final LatLng DEFAULT_LOCATION = new LatLng(52.13, 13.25);
 
     TaskExecutor executor;
 
@@ -97,18 +98,27 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         setContentView(R.layout.activity_main);
 
         layout = findViewById(R.id.main_layout);
-        button=findViewById(R.id.btn_sendRequest);
-        button.setOnClickListener(new View.OnClickListener() {
+        btnSearch = findViewById(R.id.btn_sendRequest);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendRequest();
             }
         });
-        loadingBar=findViewById(R.id.progressBar);
+        btnSettings = findViewById(R.id.btn_settings);
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        loadingBar = findViewById(R.id.progressBar);
         loadingBar.setVisibility(View.INVISIBLE);
 
-        elementHashMap=new HashMap<>();
-        executor= new TaskExecutor();
+        elementHashMap = new HashMap<>();
+        executor = new TaskExecutor();
 
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
@@ -127,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 mapboxMap.addOnMapLongClickListener(new MapboxMap.OnMapLongClickListener() {
                     @Override
                     public boolean onMapLongClick(@NonNull com.mapbox.mapboxsdk.geometry.LatLng point) {
-                        sendRequest(new LatLng(point.getLatitude(),point.getLongitude()));
+                        sendRequest(new LatLng(point.getLatitude(), point.getLongitude()));
                         return true;
                     }
                 });
@@ -167,12 +177,12 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                 symbolManager.addClickListener(new OnSymbolClickListener() {
                                     @Override
                                     public void onAnnotationClick(Symbol symbol) {
-                                        TaggedElement clicked=elementHashMap.get(symbol);
-                                        if(clicked!=null){
-                                            Log.d("Annotation Click","symbol was clicked: "+clicked.toString());
+                                        TaggedElement clicked = elementHashMap.get(symbol);
+                                        if (clicked != null) {
+                                            Log.d("Annotation Click", "symbol was clicked: " + clicked.toString());
                                             //TODO dialog öffnen
-                                            UIUtils.showToast(MainActivity.this,clicked.toFormattedString(), Toast.LENGTH_LONG);
-                                            MarkerDialog dialog=new MarkerDialog(MainActivity.this, clicked, new MarkerDialogListener() {
+                                            UIUtils.showToast(MainActivity.this, clicked.toFormattedString(), Toast.LENGTH_LONG);
+                                            MarkerDialog dialog = new MarkerDialog(MainActivity.this, clicked, new MarkerDialogListener() {
                                                 @Override
                                                 public void onStartNavigationClick() {
                                                     //Todo start navigation
@@ -181,8 +191,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                                 }
                                             });
                                             dialog.show();
-                                        }else{
-                                            Log.e("Annotation Click","symbol was not found in hashmap: "+symbol.getLatLng().toString());
+                                        } else {
+                                            Log.e("Annotation Click", "symbol was not found in hashmap: " + symbol.getLatLng().toString());
                                         }
                                     }
                                 });
@@ -268,7 +278,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 System.out.println(routerOrigin.toString());
                 System.out.println(list.toString());
 
-                if(list.size()>0)
+                if (list.size() > 0)
                     System.out.println(list.get(0).geometry());
                 //TODO geometry (json) parsen -> google json lib
                 //TODO oder als geometry
@@ -322,55 +332,91 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     }
 
-    private void sendRequest(){
-        Log.d("[Request]","sending Overpass-Request");
-        LatLng latLng=DEFAULT_LOCATION;
-        if(lastLocation!=null){
-            latLng=new LatLng(lastLocation.getLatitude(),lastLocation.getLongitude());
+    private void sendRequest() {
+        Log.d("[Request]", "sending Overpass-Request");
+        LatLng latLng = DEFAULT_LOCATION;
+        if (lastLocation != null) {
+            latLng = new LatLng(lastLocation.getLatitude(), lastLocation.getLongitude());
         }
         //TODO latlng der click positionssuche
+
 
         sendRequest(latLng);
 
     }
-    private void sendRequest(LatLng latLng){
-        UIUtils.showToast(this,getString(R.string.request_starting),Toast.LENGTH_SHORT);
+
+    private void sendRequest(LatLng latLng) {
+        UIUtils.showToast(this, getString(R.string.request_starting), Toast.LENGTH_SHORT);
         loadingBar.setVisibility(View.VISIBLE);
 
         elementHashMap.clear();
         symbolManager.deleteAll();
-        executor.executeAsync(new OverpassTask(latLng), new TaskExecutor.Callback<ArrayList<TaggedElement>>() {
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        String api = sharedPreferences.getString("overpass", getString(R.string.default_overpass_mirror));
+        int radius = sharedPreferences.getInt("radius", DEFAULT_RADIUS);
+
+        boolean isFilteringDeactivated = sharedPreferences.getBoolean("filter", true);
+        boolean showIndoor = sharedPreferences.getBoolean("indoor", true);
+        boolean showOutdoor = sharedPreferences.getBoolean("outdoor", true);
+        boolean showFee = sharedPreferences.getBoolean("fee", true);
+
+
+        Log.d("Overpass Request", "starting request for: " + api + ", radius: " + radius + latLng.toString());
+
+        executor.executeAsync(new OverpassTask(api, radius, latLng), new TaskExecutor.Callback<ArrayList<TaggedElement>>() {
             @Override
             public void onComplete(ArrayList<TaggedElement> result) {
-                UIUtils.showToast(MainActivity.this,"asder Text lol", Toast.LENGTH_SHORT);
+                int additions = 0;
+
                 loadingBar.setVisibility(View.INVISIBLE);
 //                System.out.println(result.toString());
                 for (TaggedElement t : result) {
 //                    System.out.println(t.toString());
 //                    Log.d("[Request]","adding symbol for "+t.toString());
-                    addSymbolForElement(t);
-                }
-                 Log.d("[Request]","added "+result.size()+" symbols!");
 
+                    if (!isFilteringDeactivated) {
+
+                        if (t.isIndoor() && t.isOutdoor() && !showIndoor && !showOutdoor) {
+                            continue;
+                        } else {
+                            if (t.isIndoor() && !showIndoor) {
+                                continue;
+                            } else if (t.isOutdoor() && !showOutdoor) {
+                                continue;
+                            }
+                        }
+
+                        if (t.isFee() && !showFee) {
+                            continue;
+                        }
+                    }
+                    addSymbolForElement(t);
+                    additions++;
+
+                }
+                UIUtils.showToast(MainActivity.this, getString(R.string.request_found_elements, result.size(), result.size() - additions), Toast.LENGTH_SHORT);
+                Log.d("[Request]", "result size " + result.size());
+                Log.d("[Request]", "added " + additions + " symbols!");
 
 
             }
         });
     }
 
-    private void addSymbolForElement(TaggedElement element){
+    private void addSymbolForElement(TaggedElement element) {
         // Add symbol at specified lat/lon
-        try{
+        try {
             Symbol symbol = symbolManager.create(new SymbolOptions()
-                            .withLatLng(new com.mapbox.mapboxsdk.geometry.LatLng(element.getLatLng().getLatitude(),element.getLatLng().getLongitude()))
+                            .withLatLng(new com.mapbox.mapboxsdk.geometry.LatLng(element.getLatLng().getLatitude(), element.getLatLng().getLongitude()))
                             .withIconImage("markerimg")
                             .withIconAnchor(Property.ICON_ANCHOR_BOTTOM)
                             .withIconSize(1.0f)
 
 //                                        .withDraggable(true)
             );
-            elementHashMap.put(symbol,element);
-        } catch (IllegalArgumentException e){
+            elementHashMap.put(symbol, element);
+        } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
 
@@ -483,7 +529,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 //                updateLocation(location);
                 if (location != null) {
                     System.out.println("last known location: " + location.toString());
-                    this.lastLocation=location;
+                    this.lastLocation = location;
                 } else {
                     System.out.println("no last known location found!");
                 }
@@ -510,7 +556,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     @Override
     public void onLocationChanged(@NonNull Location location) {
         System.out.println("location changed: " + location.toString());
-        this.lastLocation=location;
+        this.lastLocation = location;
     }
 
     /**

@@ -20,13 +20,13 @@ import javax.xml.parsers.ParserConfigurationException;
 public class OverpassTask implements Callable<ArrayList<TaggedElement>> {
 
 
-    public static final int RADIUS =25000; //m
 
     private URL requestURL = null;
 
-    public OverpassTask(LatLng position) {
+    public OverpassTask(String api,int radius,LatLng position) {
         //    private final String input;
 
+        radius*=1000;
 
         if (position == null || (position.getLongitude() == 0.00f && position.getLatitude() == 0.00f)) {
             return;
@@ -34,9 +34,9 @@ public class OverpassTask implements Callable<ArrayList<TaggedElement>> {
 
 
         try {
-            requestURL=new URL("https://overpass-api.de/api/interpreter?data=(" +
-                    "node[sport=climbing](around:" + RADIUS + ',' + position.getLatitude() + ',' + position.getLongitude() + ");" +
-                    "way[sport=climbing](around:" + RADIUS + ',' + position.getLatitude() + ',' + position.getLongitude() + ");" +
+            requestURL=new URL(api+"?data=(" +
+                    "node[sport=climbing](around:" + radius + ',' + position.getLatitude() + ',' + position.getLongitude() + ");" +
+                    "way[sport=climbing](around:" + radius + ',' + position.getLatitude() + ',' + position.getLongitude() + ");" +
                     "(._;>;);"+
                     ");out%20meta;");
         } catch (MalformedURLException e) {

@@ -1,0 +1,23 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+
+    <string-array name="overpass_mirrors">
+        <item>https://overpass-api.de/api/interpreter</item>
+        <item>https://lz4.overpass-api.de/api/interpreter</item>
+        <item>https://z.overpass-api.de/api/interpreter</item>
+        <item>https://overpass.openstreetmap.ru/api/interpreter</item>
+        <item>https://overpass.openstreetmap.fr/api/interpreter</item>
+        <item>https://overpass.osm.ch/api/interpreter</item>
+        <item>https://overpass.kumi.systems/api/interpreter</item>
+        <item>https://overpass.nchc.org.tw/api/interpreter</item>
+    </string-array>
+</resources>
