@@ -37,10 +37,10 @@ dependencies {
       exclude group: 'com.mapbox.mapboxsdk', module:'mapbox-android-telemetry'
     })
 
-    //testweise ui
     implementation( 'com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.42.6',{
         exclude group: 'com.mapbox.mapboxsdk', module:'mapbox-android-telemetry'
     })
+
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'androidx.preference:preference:1.1.1'
 

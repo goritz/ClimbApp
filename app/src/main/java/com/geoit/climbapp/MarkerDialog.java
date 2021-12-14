@@ -75,7 +75,7 @@ public class MarkerDialog extends Dialog{
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onStartNavigationClick();
+                listener.onStartNavigationClick(element.getLatLng());
             }
         });
 
