@@ -552,7 +552,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                             .withLatLng(new com.mapbox.mapboxsdk.geometry.LatLng(element.getLatLng().getLatitude(), element.getLatLng().getLongitude()))
                             .withIconImage("markerimg")
                             .withIconAnchor(Property.ICON_ANCHOR_BOTTOM)
-                            .withIconSize(1.0f)
+                            .withIconSize(0.5f)
 
 //                                        .withDraggable(true)
             );
