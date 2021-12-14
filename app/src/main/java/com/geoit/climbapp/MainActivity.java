@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
                                 // Add the SymbolLayer icon image to the map style
 //                        .withImage("markerimg", BitmapFactory.decodeResource(getResources(), R.drawable.mapbox_marker_icon_default))
-                                .withImage("markerimg", BitmapFactory.decodeResource(getResources(), R.drawable.ic_outdoor))
+                                .withImage("markerimg", BitmapFactory.decodeResource(getResources(), R.drawable.outdoor))
 
 //                        // Adding a GeoJson source for the SymbolLayer icons.
 //                        .withSource(new GeoJsonSource("geosource",
