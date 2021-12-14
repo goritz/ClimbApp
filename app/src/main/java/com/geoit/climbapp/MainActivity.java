@@ -33,6 +33,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.mapbox.api.directions.v5.DirectionsCriteria;
 import com.mapbox.api.directions.v5.models.DirectionsRoute;
 import com.mapbox.api.directions.v5.models.RouteOptions;
+import com.mapbox.bindgen.Expected;
 import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
@@ -52,6 +53,14 @@ import com.mapbox.navigation.base.route.RouterFailure;
 import com.mapbox.navigation.base.route.RouterOrigin;
 import com.mapbox.navigation.core.MapboxNavigation;
 import com.mapbox.navigation.core.MapboxNavigationProvider;
+import com.mapbox.navigation.ui.base.util.MapboxNavigationConsumer;
+import com.mapbox.navigation.ui.maps.route.line.api.MapboxRouteLineApi;
+import com.mapbox.navigation.ui.maps.route.line.api.MapboxRouteLineView;
+import com.mapbox.navigation.ui.maps.route.line.model.MapboxRouteLineOptions;
+import com.mapbox.navigation.ui.maps.route.line.model.RouteLine;
+import com.mapbox.navigation.ui.maps.route.line.model.RouteLineError;
+import com.mapbox.navigation.ui.maps.route.line.model.RouteSetValue;
+import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
 
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
@@ -80,6 +89,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private ProgressBar loadingBar;
 
     private MapView mapView;
+    private MapboxMap mapboxMap;
+    //    private Style mapStyle;
+    private NavigationMapRoute route;
     private SymbolManager symbolManager;
 
     private HashMap<Symbol, TaggedElement> elementHashMap;
@@ -87,6 +99,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private final LatLng DEFAULT_LOCATION = new LatLng(52.13, 13.25);
 
     TaskExecutor executor;
+
+
+    MapboxRouteLineApi lineApi;
+    MapboxRouteLineView lineView;
+    MapboxRouteLineOptions lineOptions;
 
 
     //TODO setting menu als activity und fab
@@ -131,12 +148,17 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         if (!checkNetworkStatus()) {
             UIUtils.showToast(MainActivity.this, getString(R.string.internet_disabled_map));
         }
+        lineOptions = new MapboxRouteLineOptions.Builder(this).build();
+
+        lineApi = new MapboxRouteLineApi(lineOptions);
+        lineView = new MapboxRouteLineView(lineOptions);
 
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(@NonNull MapboxMap mapboxMap) {
+                MainActivity.this.mapboxMap = mapboxMap;
 
 //                List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
 //                symbolLayerIconFeatureList.add(Feature.fromGeometry(
@@ -186,6 +208,16 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
                                 // Map is set up and the style has loaded. Now you can add additional data or make other map adjustments.
                                 // Set up a SymbolManager instance
+                                if (MapboxNavigationProvider.isCreated()) {
+                                    navigation = MapboxNavigationProvider.retrieve();
+                                } else {
+                                    navigation = MapboxNavigationProvider.create(new NavigationOptions.Builder(MainActivity.this).accessToken(getString(R.string.mapbox_access_token)).build());
+                                }
+
+                                route = new NavigationMapRoute(null, mapView, mapboxMap, R.style.NavigationMapRoute);
+
+
+//                                MainActivity.this.mapStyle=style;
                                 symbolManager = new SymbolManager(mapView, mapboxMap, style);
 
                                 symbolManager.setIconAllowOverlap(true);
@@ -200,8 +232,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                             UIUtils.showToast(MainActivity.this, clicked.toFormattedString(), Toast.LENGTH_LONG);
                                             MarkerDialog dialog = new MarkerDialog(MainActivity.this, clicked, new MarkerDialogListener() {
                                                 @Override
-                                                public void onStartNavigationClick() {
+                                                public void onStartNavigationClick(LatLng markerPosition) {
                                                     //Todo start navigation
+                                                    startNavigation(markerPosition);
 
 
                                                 }
@@ -300,53 +333,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         });
 
 
-        if (MapboxNavigationProvider.isCreated()) {
-            navigation = MapboxNavigationProvider.retrieve();
-        } else {
-            navigation = MapboxNavigationProvider.create(new NavigationOptions.Builder(this).accessToken(getString(R.string.mapbox_access_token)).build());
-        }
-
-        Point a = Point.fromLngLat(13.25, 52.3);
-        Point b = Point.fromLngLat(15.75, 52);
-
-        ArrayList<Point> list = new ArrayList<>();
-        list.add(a);
-        list.add(b);
-
-
-        RouteOptions options = RouteOptions.builder().coordinatesList(list).profile(DirectionsCriteria.PROFILE_DRIVING).alternatives(false).build();
-
-        navigation.requestRoutes(options, new RouterCallback() {
-            @Override
-            public void onRoutesReady(@NonNull List<? extends DirectionsRoute> list, @NonNull RouterOrigin routerOrigin) {
-                System.out.println("ready");
-                System.out.println(routerOrigin.toString());
-                System.out.println(list.toString());
-
-                if (list.size() > 0)
-                    System.out.println(list.get(0).geometry());
-                //TODO geometry (json) parsen -> google json lib
-                //TODO oder als geometry
-
-            }
-
-            @Override
-            public void onFailure(@NonNull List<RouterFailure> list, @NonNull RouteOptions routeOptions) {
-                System.out.println("failure");
-                System.out.println(routeOptions.toString());
-                System.out.println(list.toString());
-
-            }
-
-            @Override
-            public void onCanceled(@NonNull RouteOptions routeOptions, @NonNull RouterOrigin routerOrigin) {
-                System.out.println("canceled");
-                System.out.println(routerOrigin.toString());
-                System.out.println(list.toString());
-            }
-        });
-
-
         requestPermission();
 
 
@@ -375,6 +361,96 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 //        }
 
 
+    }
+
+    private void startNavigation(LatLng b) {
+
+
+        if (lastLocation == null) {
+            UIUtils.showToast(MainActivity.this, getString(R.string.gps_disabled));
+            return;
+        }
+
+        Point location = Point.fromLngLat(lastLocation.getLongitude(), lastLocation.getLatitude());
+        Point target = Point.fromLngLat(b.getLongitude(), b.getLatitude());
+
+
+        ArrayList<Point> list = new ArrayList<>();
+        list.add(location);
+        list.add(target);
+
+
+        RouteOptions options = RouteOptions.builder().coordinatesList(list).profile(DirectionsCriteria.PROFILE_DRIVING).alternatives(false).build();
+
+        navigation.requestRoutes(options, new RouterCallback() {
+
+            @Override
+            public void onRoutesReady(@NonNull List<? extends DirectionsRoute> list, @NonNull RouterOrigin routerOrigin) {
+                System.out.println("ready");
+                System.out.println(routerOrigin.toString());
+                System.out.println(list.toString());
+
+                if (list.size() == 0) {
+                    return;
+                }
+                System.out.println(list.get(0).geometry());
+
+
+
+//                List<RouteLine> lines = new ArrayList<>();
+//
+//                int i = 0;
+//                for (DirectionsRoute route : list) {
+//                    lines.add(new RouteLine(route, "nav route " + i));
+//                    i++;
+//                }
+
+//                route.addRoute(list.get(0));
+
+//TODO geometry (json) parsen -> google json lib
+                //TODO oder als geometry
+
+//                route.removeRoute();
+//                route=new NavigationMapRoute(navigation,mapView,mapboxMap,R.style.NavigationMapRoute);
+//                route.addRoute(list.get(0));
+
+//                lineApi.setRoutes(, new MapboxNavigationConsumer<Expected<RouteLineError, RouteSetValue>>() {
+//                    @Override
+//                    public void accept(Expected<RouteLineError, RouteSetValue> routeLineErrorRouteSetValueExpected) {
+//
+//
+//
+////                            mapboxMap.getStyle(new Style.OnStyleLoaded() {
+////                                @Override
+////                                public void onStyleLoaded(@NonNull Style style) {
+////
+////                                    lineView.renderRouteDrawData(com.mapbox.navigation.,routeLineErrorRouteSetValueExpected);
+////
+////                                }
+////                            });
+//                    }
+//                });
+
+
+
+
+            }
+
+            @Override
+            public void onFailure(@NonNull List<RouterFailure> list, @NonNull RouteOptions routeOptions) {
+                System.out.println("failure");
+                System.out.println(routeOptions.toString());
+                System.out.println(list.toString());
+
+            }
+
+            @Override
+            public void onCanceled(@NonNull RouteOptions routeOptions, @NonNull RouterOrigin routerOrigin) {
+                System.out.println("canceled");
+                System.out.println(routerOrigin.toString());
+                System.out.println(list.toString());
+            }
+        });
     }
 
     private void sendRequest() {
