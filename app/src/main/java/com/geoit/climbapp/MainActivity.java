@@ -213,6 +213,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                                 @Override
                                                 public void onStartNavigationClick(LatLng markerPosition) {
                                                     startNavigation(markerPosition);
+                                                    //TODO bei erfolg den dialog schließen!
 
 
                                                 }
@@ -303,7 +304,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
 
         if (lastLocation == null) {
-            UIUtils.showToast(MainActivity.this, getString(R.string.gps_disabled));
+            UIUtils.showToast(MainActivity.this, getString(R.string.gps_disabled)); //TODO tritt auch auf, wenn gps an ist aber keine position gefunden!
             return;
         }
 

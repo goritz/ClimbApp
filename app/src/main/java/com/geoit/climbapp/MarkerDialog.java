@@ -85,7 +85,7 @@ public class MarkerDialog extends Dialog {
         details.append(buildLine(element.getOperator()));
 
         details.append(joinLine(element.getStreet(), element.getHouseNumber()));
-        details.append(joinLine(element.getPostcode(), element.getCity(),element.getSubUrb()));
+        details.append(joinLine(element.getPostcode(), element.getCity(),element.getSubUrb())); //TODO postcode wird durch autolink phone auch zum hyperlink!
 
         details.append(buildLine(element.getOpeningHours()));
         details.append(buildLine(element.getWebsite()));
