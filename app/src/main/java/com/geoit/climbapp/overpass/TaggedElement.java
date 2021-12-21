@@ -42,7 +42,7 @@ public class TaggedElement extends BaseElement {
 
     boolean isSportsCenter = false;
 
-    boolean hasIndoor = false;
+    boolean hasIndoor = false; //TODO was wenn beides false? tritt auf jeden fall auf! (zb. Boulderfelsen Spielplatz Jablonskistraße)
     boolean hasOutdoor = false;
     boolean hasFee = false;
     String natural = "";

@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
 
 
-    //TODO setting menu als activity und fab
+    //TODO meldung anzeigen "halte gedrückt um zu suchen" !
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -176,9 +176,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 mapboxMap.setStyle(new Style.Builder().fromUri(Style.MAPBOX_STREETS)
 
                                 // Add the SymbolLayer icon image to the map style
-                                .withImage("marker_outdoor", BitmapFactory.decodeResource(getResources(), R.drawable.outdoor))
-                                .withImage("marker_indoor", BitmapFactory.decodeResource(getResources(), R.drawable.indoor))
-                                .withImage("marker_both", BitmapFactory.decodeResource(getResources(), R.drawable.inout))
+                                .withImage("marker_outdoor", BitmapFactory.decodeResource(getResources(), R.drawable.outdoor_bitmap))
+                                .withImage("marker_indoor", BitmapFactory.decodeResource(getResources(), R.drawable.indoor_bitmap))
+                                .withImage("marker_both", BitmapFactory.decodeResource(getResources(), R.drawable.inout_bitmap))
 
 
                         , new Style.OnStyleLoaded() {
@@ -224,6 +224,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                     }
                                 });
 
+                                //TODO an gps position zoomen, wenn noch nicht da nach dt zoomen, wenn dann iwann doch da, erneut auf position zoomen
                                 CameraPosition position = new CameraPosition.Builder()
                                         .target(new com.mapbox.mapboxsdk.geometry.LatLng(49.0, 11.0)) // Sets the new camera position
                                         .zoom(4) // Sets the zoom
