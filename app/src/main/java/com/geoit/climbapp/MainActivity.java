@@ -33,7 +33,6 @@ import com.google.android.material.snackbar.Snackbar;
 import com.mapbox.api.directions.v5.DirectionsCriteria;
 import com.mapbox.api.directions.v5.models.DirectionsRoute;
 import com.mapbox.api.directions.v5.models.RouteOptions;
-import com.mapbox.bindgen.Expected;
 import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
@@ -53,13 +52,9 @@ import com.mapbox.navigation.base.route.RouterFailure;
 import com.mapbox.navigation.base.route.RouterOrigin;
 import com.mapbox.navigation.core.MapboxNavigation;
 import com.mapbox.navigation.core.MapboxNavigationProvider;
-import com.mapbox.navigation.ui.base.util.MapboxNavigationConsumer;
 import com.mapbox.navigation.ui.maps.route.line.api.MapboxRouteLineApi;
 import com.mapbox.navigation.ui.maps.route.line.api.MapboxRouteLineView;
 import com.mapbox.navigation.ui.maps.route.line.model.MapboxRouteLineOptions;
-import com.mapbox.navigation.ui.maps.route.line.model.RouteLine;
-import com.mapbox.navigation.ui.maps.route.line.model.RouteLineError;
-import com.mapbox.navigation.ui.maps.route.line.model.RouteSetValue;
 import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
 
 import org.w3c.dom.Document;
@@ -90,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     private MapView mapView;
     private MapboxMap mapboxMap;
-    //    private Style mapStyle;
     private NavigationMapRoute route;
     private SymbolManager symbolManager;
 
@@ -106,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     MapboxRouteLineOptions lineOptions;
 
 
+
     //TODO setting menu als activity und fab
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,7 +111,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         setContentView(R.layout.activity_main);
 
+
         layout = findViewById(R.id.main_layout);
+
         btnSearch = findViewById(R.id.btn_sendRequest);
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,7 +130,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+//                intent.addFlags(FLAG)
                 startActivity(intent);
+
+
 
             }
         });
@@ -160,13 +160,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             public void onMapReady(@NonNull MapboxMap mapboxMap) {
                 MainActivity.this.mapboxMap = mapboxMap;
 
-//                List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
-//                symbolLayerIconFeatureList.add(Feature.fromGeometry(
-//                        Point.fromLngLat(-57.225365, -33.213144)));
-//                symbolLayerIconFeatureList.add(Feature.fromGeometry(
-//                        Point.fromLngLat(-54.14164, -33.981818)));
-//                symbolLayerIconFeatureList.add(Feature.fromGeometry(
-//                        Point.fromLngLat(-56.990533, -30.583266)));
 
                 mapboxMap.addOnMapLongClickListener(new MapboxMap.OnMapLongClickListener() {
                     @Override
@@ -183,23 +176,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 mapboxMap.setStyle(new Style.Builder().fromUri(Style.MAPBOX_STREETS)
 
                                 // Add the SymbolLayer icon image to the map style
-//                        .withImage("markerimg", BitmapFactory.decodeResource(getResources(), R.drawable.mapbox_marker_icon_default))
-                                .withImage("markerimg", BitmapFactory.decodeResource(getResources(), R.drawable.outdoor))
-
-//                        // Adding a GeoJson source for the SymbolLayer icons.
-//                        .withSource(new GeoJsonSource("geosource",
-//                                FeatureCollection.fromFeatures(symbolLayerIconFeatureList)))
-//
-//                        // Adding the actual SymbolLayer to the map style. An offset is added that the bottom of the red
-//                        // marker icon gets fixed to the coordinate, rather than the middle of the icon being fixed to
-//                        // the coordinate point. This is offset is not always needed and is dependent on the image
-//                        // that you use for the SymbolLayer icon.
-//                        .withLayer(new SymbolLayer("symbollayer","geosource")
-//                                .withProperties(
-//                                        iconImage("markerimg"),
-//                                        iconAllowOverlap(true),
-//                                        iconIgnorePlacement(true)
-//                                )
+                                .withImage("marker_outdoor", BitmapFactory.decodeResource(getResources(), R.drawable.outdoor))
+                                .withImage("marker_indoor", BitmapFactory.decodeResource(getResources(), R.drawable.indoor))
+                                .withImage("marker_both", BitmapFactory.decodeResource(getResources(), R.drawable.inout))
 
 
                         , new Style.OnStyleLoaded() {
@@ -214,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                     navigation = MapboxNavigationProvider.create(new NavigationOptions.Builder(MainActivity.this).accessToken(getString(R.string.mapbox_access_token)).build());
                                 }
 
-                                route = new NavigationMapRoute(null, mapView, mapboxMap, R.style.NavigationMapRoute);
+                                route = new NavigationMapRoute(null, mapView, mapboxMap, R.style.ClimbAppNavigationMapRoute);
 
 
 //                                MainActivity.this.mapStyle=style;
@@ -228,12 +207,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                         TaggedElement clicked = elementHashMap.get(symbol);
                                         if (clicked != null) {
                                             Log.d("Annotation Click", "symbol was clicked: " + clicked.toString());
-                                            //TODO dialog öffnen
+
                                             UIUtils.showToast(MainActivity.this, clicked.toFormattedString(), Toast.LENGTH_LONG);
                                             MarkerDialog dialog = new MarkerDialog(MainActivity.this, clicked, new MarkerDialogListener() {
                                                 @Override
                                                 public void onStartNavigationClick(LatLng markerPosition) {
-                                                    //Todo start navigation
                                                     startNavigation(markerPosition);
 
 
@@ -286,49 +264,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                             }
                         });
 
-
-//                mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
-//                    @Override
-//                    public void onStyleLoaded(@NonNull Style style) {
-//
-//                        // Map is set up and the style has loaded. Now you can add data or make other map adjustments
-//
-//
-//// Set up a SymbolManager instance
-//                        symbolManager = new SymbolManager(mapView, mapboxMap, style);
-//
-//                        symbolManager.setIconAllowOverlap(true);
-//                        symbolManager.setTextAllowOverlap(true);
-//
-//                        style.addImage("marker", BitmapFactory.decodeResource(getResources(), R.drawable.baseline_push_pin_black_24dp));
-//
-////                        symbolManager.
-//// Add symbol at specified lat/lon
-//                        Symbol symbol = symbolManager.create(new SymbolOptions()
-//                                .withLatLng(new com.mapbox.mapboxsdk.geometry.LatLng(60.169091, 24.939876))
-//                                .withIconImage("marker")
-//                                .withIconSize(2.0f));
-//
-//                        SymbolLayer symbolLayer=new SymbolLayer("symbols","markersource");
-//
-//
-//
-//                        .withLayer(new SymbolLayer(LAYER_ID, SOURCE_ID)
-//                                .withProperties(
-//                                        iconImage(match(get("report_id"), literal("location_transparent_icon_id"),
-//                                                stop(literal("1"), "black_location_icon_id"),
-//                                                stop(literal("2"), "current_pin_icon_id"),
-//                                                stop(literal("3"), "current_location_icon_id"))),
-//                                        iconAllowOverlap(true),
-//                                        iconIgnorePlacement(true),
-//                                        iconAllowOverlap(true),
-//                                        iconSize(0.7f)
-//                                )
-//                        ),
-//
-//                    }
-//                });
-
             }
         });
 
@@ -380,7 +315,14 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         list.add(target);
 
 
-        RouteOptions options = RouteOptions.builder().coordinatesList(list).profile(DirectionsCriteria.PROFILE_DRIVING).alternatives(false).build();
+        RouteOptions options = RouteOptions.builder()
+
+                .coordinatesList(list)
+                .profile(DirectionsCriteria.PROFILE_DRIVING)
+
+                .alternatives(false)
+                .steps(true)
+                .build();
 
         navigation.requestRoutes(options, new RouterCallback() {
 
@@ -396,42 +338,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 System.out.println(list.get(0).geometry());
 
 
-
-//                List<RouteLine> lines = new ArrayList<>();
-//
-//                int i = 0;
-//                for (DirectionsRoute route : list) {
-//                    lines.add(new RouteLine(route, "nav route " + i));
-//                    i++;
-//                }
-
-//                route.addRoute(list.get(0));
-
-//TODO geometry (json) parsen -> google json lib
-                //TODO oder als geometry
-
-//                route.removeRoute();
-//                route=new NavigationMapRoute(navigation,mapView,mapboxMap,R.style.NavigationMapRoute);
-//                route.addRoute(list.get(0));
-
-//                lineApi.setRoutes(, new MapboxNavigationConsumer<Expected<RouteLineError, RouteSetValue>>() {
-//                    @Override
-//                    public void accept(Expected<RouteLineError, RouteSetValue> routeLineErrorRouteSetValueExpected) {
-//
-//
-//
-////                            mapboxMap.getStyle(new Style.OnStyleLoaded() {
-////                                @Override
-////                                public void onStyleLoaded(@NonNull Style style) {
-////
-////                                    lineView.renderRouteDrawData(com.mapbox.navigation.,routeLineErrorRouteSetValueExpected);
-////
-////                                }
-////                            });
-//                    }
-//                });
-
-
+                route.addRoute(list.get(0)); //so ist capture of ? egal!
+                //List<DirectionsRoute> list2 = new ArrayList<>(list);
+                //route.addRoutes(list2);
 
 
             }
@@ -550,9 +459,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         try {
             Symbol symbol = symbolManager.create(new SymbolOptions()
                             .withLatLng(new com.mapbox.mapboxsdk.geometry.LatLng(element.getLatLng().getLatitude(), element.getLatLng().getLongitude()))
-                            .withIconImage("markerimg")
+                            .withIconImage((element.isIndoor()?(element.isOutdoor()?"marker_both":"marker_indoor"):"marker_outdoor"))
                             .withIconAnchor(Property.ICON_ANCHOR_BOTTOM)
-                            .withIconSize(0.5f)
+                            .withIconSize(0.3f)
 
 //                                        .withDraggable(true)
             );

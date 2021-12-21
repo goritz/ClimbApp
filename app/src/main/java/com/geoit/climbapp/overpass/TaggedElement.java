@@ -22,22 +22,28 @@ public class TaggedElement extends BaseElement {
 
     final ArrayList<Long> referenceIDs;
 
-    final HashMap<String,String> otherTags=new HashMap<>();
+    final HashMap<String, String> otherTags = new HashMap<>();
 
     private LatLng latLng;
 
 
-    String name = "";
+    //TODO access=no auslesen und anzeigen!
+    String name = ""; //TODO oldName auslesen und kleiner unter name anzeigen?
     String street = "";
     String houseNumber = "";
     String postcode = "";
+    String city="";
+    String subUrb="";
     String openingHours = "";
     String website = "";
+    String phone="";
+
+    String operator="";
 
     boolean isSportsCenter = false;
 
     boolean hasIndoor = false;
-    boolean hasOutdoor = true;
+    boolean hasOutdoor = false;
     boolean hasFee = false;
     String natural = "";
 
@@ -57,8 +63,8 @@ public class TaggedElement extends BaseElement {
 
     String rock = "";
 
-    int length = 0;
-    float elevation = 0;
+    int length = -1;
+    float elevation = -1;
 
 
     public TaggedElement(long id, ElementType type, Element osmElement) throws OverpassException {
@@ -90,29 +96,45 @@ public class TaggedElement extends BaseElement {
                 case "addr:postcode":
                     this.postcode = value;
                     break;
+                case "addr:suburb":
+                    this.subUrb=value;
+                    break;
+                case "addr:city":
+                    this.city=value;
+                    break;
                 case "contact:website":
+                case "website":
                     this.website = value;
+                    break;
+                case "phone":
+                    this.phone=value;
+                    break;
+                case "operator":
+                    this.operator=value;
                     break;
                 case "opening_hours":
                     this.openingHours = value;
                     break;
                 case "leisure":
-                    if (value.equals("sports_centre")){
+                    if (value.equals("sports_centre")) {
                         this.isSportsCenter = true;
-                        this.hasIndoor=true;
+                        this.hasIndoor = true;
                     }
                     break;
                 case "fee":
                     if (value.equals("yes")) {
                         this.hasFee = true;
                     }
+                    break;
                 case "indoor":
                     if (value.equals("yes"))
                         this.hasIndoor = true;
                     break;
                 case "natural":
-                    this.hasOutdoor = true;
-                    this.natural = value;
+                    if(!value.isEmpty()){
+                        this.hasOutdoor = true;
+                        this.natural = value;
+                    }
                     break;
                 case "ele":
                     try {
@@ -185,7 +207,7 @@ public class TaggedElement extends BaseElement {
                         styles.add(ClimbingStyles.DEEPWATER);
                     break;
                 default:
-                    otherTags.put(key,value);
+                    otherTags.put(key, value);
                     break;
             }
 
@@ -262,8 +284,12 @@ public class TaggedElement extends BaseElement {
                 buildLine("street", street) +
                 buildLine("houseNumber", houseNumber) +
                 buildLine("postcode", postcode) +
+                buildLine("city", city) +
+                buildLine("suburb", subUrb) +
                 buildLine("openingHours", openingHours) +
                 buildLine("website", website) +
+                buildLine("phone", phone) +
+                buildLine("operator", operator) +
                 buildLine("isSportsCenter", isSportsCenter) +
                 buildLine("hasIndoor", hasIndoor) +
                 buildLine("hasOutdoor", hasOutdoor) +
@@ -275,11 +301,11 @@ public class TaggedElement extends BaseElement {
                 buildLine("climbingGradeUIAAMean", climbingGradeUIAAMean) +
                 buildLine("climbingGradeUIAAMin", climbingGradeUIAAMin) +
                 buildLine("rock", rock) +
-                (length != 0 ? buildLine("length", length) : "") +
-                (elevation != 0 ? buildLine("elevation", elevation) : "") +
+                (length != -1 ? buildLine("length", length) : "") +
+                (elevation != -1 ? buildLine("elevation", elevation) : "") +
                 buildLine("TAGS", otherTags.toString())
 
-        ;
+                ;
 
     }
 
@@ -307,12 +333,29 @@ public class TaggedElement extends BaseElement {
         return postcode;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public String getSubUrb() {
+        return subUrb;
+    }
+
+
     public String getOpeningHours() {
         return openingHours;
     }
 
     public String getWebsite() {
         return website;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getOperator() {
+        return operator;
     }
 
     public boolean isSportsCenter() {
@@ -370,15 +413,16 @@ public class TaggedElement extends BaseElement {
     @Override
     public String toString() {
         return "TaggedElement{" + "type=" + type +
-                ", id="+getId()+
-//                ", referenceIDs=" + referenceIDs +
+                ", otherTags=" + otherTags +
                 ", latLng=" + latLng +
                 ", name='" + name + '\'' +
                 ", street='" + street + '\'' +
                 ", houseNumber='" + houseNumber + '\'' +
                 ", postcode='" + postcode + '\'' +
+                ", city='" + city + '\'' +
                 ", openingHours='" + openingHours + '\'' +
                 ", website='" + website + '\'' +
+                ", phone='" + phone + '\'' +
                 ", isSportsCenter=" + isSportsCenter +
                 ", hasIndoor=" + hasIndoor +
                 ", hasOutdoor=" + hasOutdoor +
@@ -392,8 +436,6 @@ public class TaggedElement extends BaseElement {
                 ", rock='" + rock + '\'' +
                 ", length=" + length +
                 ", elevation=" + elevation +
-                ", TAGS=" + otherTags.toString() +
                 '}';
     }
-
 }

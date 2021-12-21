@@ -26,7 +26,7 @@
     <string name="overpass_timeout">Overpass antwortet nicht auf deine Anfrage :(</string>
 
 
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_settings">Einstellungen</string>
 
 
     <string name="default_overpass_mirror">https://lz4.overpass-api.de/api/interpreter</string>
