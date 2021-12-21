@@ -22,7 +22,7 @@ public class TaggedElement extends BaseElement {
 
     final ArrayList<Long> referenceIDs;
 
-    final HashMap<String,String> otherTags=new HashMap<>();
+    final HashMap<String, String> otherTags = new HashMap<>();
 
     private LatLng latLng;
 
@@ -37,7 +37,7 @@ public class TaggedElement extends BaseElement {
     boolean isSportsCenter = false;
 
     boolean hasIndoor = false;
-    boolean hasOutdoor = true;
+    boolean hasOutdoor = false;
     boolean hasFee = false;
     String natural = "";
 
@@ -97,22 +97,25 @@ public class TaggedElement extends BaseElement {
                     this.openingHours = value;
                     break;
                 case "leisure":
-                    if (value.equals("sports_centre")){
+                    if (value.equals("sports_centre")) {
                         this.isSportsCenter = true;
-                        this.hasIndoor=true;
+                        this.hasIndoor = true;
                     }
                     break;
                 case "fee":
                     if (value.equals("yes")) {
                         this.hasFee = true;
                     }
+                    break;
                 case "indoor":
                     if (value.equals("yes"))
                         this.hasIndoor = true;
                     break;
                 case "natural":
-                    this.hasOutdoor = true;
-                    this.natural = value;
+                    if(!value.isEmpty()){
+                        this.hasOutdoor = true;
+                        this.natural = value;
+                    }
                     break;
                 case "ele":
                     try {
@@ -185,7 +188,7 @@ public class TaggedElement extends BaseElement {
                         styles.add(ClimbingStyles.DEEPWATER);
                     break;
                 default:
-                    otherTags.put(key,value);
+                    otherTags.put(key, value);
                     break;
             }
 
@@ -279,7 +282,7 @@ public class TaggedElement extends BaseElement {
                 (elevation != 0 ? buildLine("elevation", elevation) : "") +
                 buildLine("TAGS", otherTags.toString())
 
-        ;
+                ;
 
     }
 
@@ -370,7 +373,7 @@ public class TaggedElement extends BaseElement {
     @Override
     public String toString() {
         return "TaggedElement{" + "type=" + type +
-                ", id="+getId()+
+                ", id=" + getId() +
 //                ", referenceIDs=" + referenceIDs +
                 ", latLng=" + latLng +
                 ", name='" + name + '\'' +

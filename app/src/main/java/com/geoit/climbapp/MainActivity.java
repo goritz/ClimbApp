@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     MapboxRouteLineOptions lineOptions;
 
 
+
     //TODO setting menu als activity und fab
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +111,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         setContentView(R.layout.activity_main);
 
+
         layout = findViewById(R.id.main_layout);
+
         btnSearch = findViewById(R.id.btn_sendRequest);
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,7 +130,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+//                intent.addFlags(FLAG)
                 startActivity(intent);
+
+
 
             }
         });
@@ -170,7 +176,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 mapboxMap.setStyle(new Style.Builder().fromUri(Style.MAPBOX_STREETS)
 
                                 // Add the SymbolLayer icon image to the map style
-                                .withImage("markerimg", BitmapFactory.decodeResource(getResources(), R.drawable.outdoor))
+                                .withImage("marker_outdoor", BitmapFactory.decodeResource(getResources(), R.drawable.outdoor1))
+                                .withImage("marker_indoor", BitmapFactory.decodeResource(getResources(), R.drawable.indoor1))
+                                .withImage("marker_both", BitmapFactory.decodeResource(getResources(), R.drawable.inout))
 
 
                         , new Style.OnStyleLoaded() {
@@ -199,12 +207,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                         TaggedElement clicked = elementHashMap.get(symbol);
                                         if (clicked != null) {
                                             Log.d("Annotation Click", "symbol was clicked: " + clicked.toString());
-                                            //TODO dialog öffnen
+
                                             UIUtils.showToast(MainActivity.this, clicked.toFormattedString(), Toast.LENGTH_LONG);
                                             MarkerDialog dialog = new MarkerDialog(MainActivity.this, clicked, new MarkerDialogListener() {
                                                 @Override
                                                 public void onStartNavigationClick(LatLng markerPosition) {
-                                                    //Todo start navigation
                                                     startNavigation(markerPosition);
 
 
@@ -452,9 +459,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         try {
             Symbol symbol = symbolManager.create(new SymbolOptions()
                             .withLatLng(new com.mapbox.mapboxsdk.geometry.LatLng(element.getLatLng().getLatitude(), element.getLatLng().getLongitude()))
-                            .withIconImage("markerimg")
+                            .withIconImage((element.isIndoor()?(element.isOutdoor()?"marker_both":"marker_indoor"):"marker_outdoor"))
                             .withIconAnchor(Property.ICON_ANCHOR_BOTTOM)
-                            .withIconSize(0.5f)
+                            .withIconSize(0.3f)
 
 //                                        .withDraggable(true)
             );

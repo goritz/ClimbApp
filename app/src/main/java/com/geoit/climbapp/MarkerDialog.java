@@ -2,18 +2,14 @@ package com.geoit.climbapp;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.InputType;
-import android.text.TextWatcher;
 import android.view.View;
-import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+
+import androidx.core.content.res.ResourcesCompat;
 
 import com.geoit.climbapp.overpass.TaggedElement;
 
@@ -24,18 +20,14 @@ public class MarkerDialog extends Dialog{
 
 
 
-    TextView tvName,tvHours,tvOpen;
+    TextView tvName, tvDetails;
 
 
 
 
-    public static final int MAX_NAME_LENGTH = 32;
-    public static final int MAX_DETAILS_LENGTH = 2048;
-    private static final char[] ILLEGAL_CHARS = {'.', ';', ':', '/', '\n', '\r', '\t', '\0', '\f', '`', '\'', '?', '!', '*', '\\', '<', '>', '|', '\"',};
-    private static final String ALLOWED_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_,";
 
 
-
+    ImageView imgType;
     ImageButton imageButton;
 
 
@@ -63,13 +55,20 @@ public class MarkerDialog extends Dialog{
 //        tvName.setHint(R.string.dialog_save_name_prompt);
 
 
+        imgType=findViewById(R.id.dialog_imgType);
 
-        tvHours = findViewById(R.id.dialog_hours);
-        tvHours.setText("");
+        if(element.isIndoor() && element.isOutdoor()){
+            imgType.setImageDrawable(ResourcesCompat.getDrawable(getContext().getResources(),R.drawable.ic_inout,null));
+        }else if(element.isIndoor()){
+            imgType.setImageDrawable(ResourcesCompat.getDrawable(getContext().getResources(),R.drawable.ic_indoor,null));
+        }else {
+            imgType.setImageDrawable(ResourcesCompat.getDrawable(getContext().getResources(),R.drawable.ic_outdoor,null));
+        }
+
+        tvDetails = findViewById(R.id.dialog_details);
+        tvDetails.setText("");
 //        tvHours.setHint(R.string.dialog_save_details_prompt);
 
-        tvOpen=findViewById(R.id.dialog_status);
-        tvOpen.setText("");
 
         imageButton =findViewById(R.id.dialog_btn_routing);
         imageButton.setOnClickListener(new View.OnClickListener() {
@@ -89,8 +88,28 @@ public class MarkerDialog extends Dialog{
     protected void onStart() {
         super.onStart();
         this.tvName.setText(element.getName());
-        this.tvHours.setText(element.getOpeningHours());
-        this.tvOpen.setText("Jetzt geöffnet!");
+        this.tvDetails.setText(element.getOpeningHours());
+
+        StringBuilder details=new StringBuilder("");
+
+
+
+//        element.getStreet()
+
+
+
+
+
+
+
+    }
+    private String buildLine(String detail){
+        if(detail!=null){
+            return detail+'\n';
+
+        }else{
+            return "";
+        }
     }
 
     /**

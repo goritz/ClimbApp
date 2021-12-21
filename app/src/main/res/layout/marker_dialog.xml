@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imgType" />
+        app:layout_constraintTop_toTopOf="@+id/dialog_imgType" />
 
     <TextView
         android:id="@+id/dialog_name"
@@ -31,13 +31,13 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toStartOf="@+id/imgType"
+        app:layout_constraintEnd_toStartOf="@+id/dialog_imgType"
         app:layout_constraintStart_toStartOf="@+id/dialog_background"
         app:layout_constraintTop_toTopOf="@+id/dialog_background" />
 
 
     <View
-        android:id="@+id/view4"
+        android:id="@+id/dialog_separator"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="4dp"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dialog_name" />
 
     <TextView
-        android:id="@+id/dialog_hours"
+        android:id="@+id/dialog_details"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -60,23 +60,7 @@
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="@+id/dialog_background"
         app:layout_constraintStart_toStartOf="@+id/dialog_name"
-        app:layout_constraintTop_toBottomOf="@+id/view4" />
-
-    <TextView
-        android:id="@+id/dialog_status"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/metrophobic"
-        android:gravity="start|center_vertical"
-        android:text="Textview"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        android:visibility="visible"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="@+id/dialog_background"
-        app:layout_constraintStart_toStartOf="@+id/dialog_name"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_hours" />
+        app:layout_constraintTop_toBottomOf="@+id/dialog_separator" />
 
     <ImageButton
         android:id="@+id/dialog_btn_routing"
@@ -90,20 +74,22 @@
         android:padding="1dp"
         android:scaleType="centerInside"
         android:src="@drawable/ic_navigation"
-        app:tint="@color/accent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/dialog_background"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_status" />
+        app:layout_constraintTop_toBottomOf="@+id/dialog_details"
+        app:tint="@color/accent" />
 
     <ImageView
-        android:id="@+id/imgType"
+        android:id="@+id/dialog_imgType"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="-8dp"
         android:layout_marginEnd="-8dp"
+        android:background="@drawable/button_background"
         android:elevation="2dp"
+        android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_confusing_directions_filled" />
+        app:srcCompat="@drawable/ic_inout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
