@@ -176,8 +176,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 mapboxMap.setStyle(new Style.Builder().fromUri(Style.MAPBOX_STREETS)
 
                                 // Add the SymbolLayer icon image to the map style
-                                .withImage("marker_outdoor", BitmapFactory.decodeResource(getResources(), R.drawable.outdoor1))
-                                .withImage("marker_indoor", BitmapFactory.decodeResource(getResources(), R.drawable.indoor1))
+                                .withImage("marker_outdoor", BitmapFactory.decodeResource(getResources(), R.drawable.outdoor))
+                                .withImage("marker_indoor", BitmapFactory.decodeResource(getResources(), R.drawable.indoor))
                                 .withImage("marker_both", BitmapFactory.decodeResource(getResources(), R.drawable.inout))
 
 
