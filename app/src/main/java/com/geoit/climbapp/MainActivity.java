@@ -240,7 +240,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                     @Override
                                     public void onClick(View view) {
 
-                                        if (locManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                                        if (!locManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                                             UIUtils.showToast(MainActivity.this, getString(R.string.gps_disabled));
                                             return;
                                         }
