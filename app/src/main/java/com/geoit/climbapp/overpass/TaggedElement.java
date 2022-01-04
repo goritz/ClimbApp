@@ -72,7 +72,6 @@ public class TaggedElement extends BaseElement {
         this.type = type;
 
 
-        //Todo für alle ways der response am ende calcLatLng(refNodes)`?!
 
         NodeList tagList = osmElement.getElementsByTagName("tag");
 
@@ -211,12 +210,12 @@ public class TaggedElement extends BaseElement {
                     break;
             }
 
-            //TODO am ende prüfen und vervöllstädnigen
 
 
         }
 
         // Falls dieses Element ein WAY ist, referenzierte Nodes finden und parsen
+        // Aus diesen Nodes den Zentroid bestimmen und diesen als WAY LatLng verwenden
         referenceIDs = new ArrayList<>();
         if (this.type == ElementType.WAY) {
 

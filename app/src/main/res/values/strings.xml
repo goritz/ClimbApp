@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ClimbApp</string>
+    <string name="app_name" translatable="false">ClimbApp</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -10,8 +10,8 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
-    <string name="mapbox_access_token">pk.eyJ1IjoiYmV1dGgtc3R1ZGVudCIsImEiOiJjazJkazBvanowM2JoM25ydWF5bGQ1bHRnIn0.7ZceALC-VxdQcUCZmU-iRA</string>
-    <string name="request_starting">Overpass Request</string>
+    <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoiYmV1dGgtc3R1ZGVudCIsImEiOiJjazJkazBvanowM2JoM25ydWF5bGQ1bHRnIn0.7ZceALC-VxdQcUCZmU-iRA</string>
+    <string name="request_starting">Starte Overpass Abfrage…</string>
     <string name="request_found_elements">%1$d Spots gefunden, %2$d gefiltert!</string>
 
     <string name="internet_disabled_map">Diese App benötigt Internetzugriff für die Darstellung der Karte</string>
@@ -29,11 +29,12 @@
     <string name="title_activity_settings">Einstellungen</string>
 
 
-    <string name="default_overpass_mirror">https://lz4.overpass-api.de/api/interpreter</string>
+    <string name="default_overpass_mirror" translatable="false">https://lz4.overpass-api.de/api/interpreter</string>
 
     <!-- Preference Titles -->
     <string name="settings_header_filter">Filter</string>
     <string name="settings_header_search">Suche</string>
+    <string name="settings_header_other">Sonstiges</string>
 
     <string name="settings_radius_h">Radius</string>
     <string name="settings_radius_i">Stelle den Suchradius ein (km)</string>
@@ -54,6 +55,13 @@
     <string name="settings_filter_fee_i_on">Zeigt auch nicht kostenlose Kletterspots an</string>
     <string name="settings_filter_fee_i_off">Zeigt nur kostenlose Kletterspots an</string>
 
+    <string name="settings_other_debug_h">Debug</string>
+    <string name="settings_other_debug_on">Zeigt Debug-Meldungen an</string>
+    <string name="settings_other_debug_off">Zeigt keine Debug-Meldungen an</string>
+
+
+    <string name="element_no_name_boulder">Unbekannter Kletterfelsen</string>
+    <string name="element_no_name_center">Unbekannte Kletterhalle</string>
 
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>

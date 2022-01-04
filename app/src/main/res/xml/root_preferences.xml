@@ -80,4 +80,17 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory app:title="@string/settings_header_other">
+
+
+        <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:key="debug"
+            app:summaryOff="@string/settings_other_debug_off"
+            app:summaryOn="@string/settings_other_debug_on"
+            app:title="@string/settings_other_debug_h" />
+
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

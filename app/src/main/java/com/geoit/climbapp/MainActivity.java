@@ -208,7 +208,13 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                         if (clicked != null) {
                                             Log.d("Annotation Click", "symbol was clicked: " + clicked.toString());
 
-                                            UIUtils.showToast(MainActivity.this, clicked.toFormattedString(), Toast.LENGTH_LONG);
+
+                                            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+                                            boolean debug=sharedPreferences.getBoolean("debug",true);
+                                            if(debug){
+                                                UIUtils.showToast(MainActivity.this, clicked.toFormattedString(), Toast.LENGTH_LONG);
+                                            }
+
                                             MarkerDialog dialog = new MarkerDialog(MainActivity.this, clicked, new MarkerDialogListener() {
                                                 @Override
                                                 public void onStartNavigationClick(LatLng markerPosition) {

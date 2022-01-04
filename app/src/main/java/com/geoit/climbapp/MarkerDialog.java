@@ -78,14 +78,23 @@ public class MarkerDialog extends Dialog {
     @Override
     protected void onStart() {
         super.onStart();
-        this.tvName.setText(element.getName());
+
+        if(element.getName().isEmpty()){
+            if(element.isSportsCenter()){
+                this.tvName.setText(getContext().getResources().getString(R.string.element_no_name_center));
+            }else{
+                this.tvName.setText(getContext().getResources().getString(R.string.element_no_name_boulder));
+            }
+        }else{
+            this.tvName.setText(element.getName());
+        }
 
         StringBuilder details = new StringBuilder("");
 
         details.append(buildLine(element.getOperator()));
 
         details.append(joinLine(element.getStreet(), element.getHouseNumber()));
-        details.append(joinLine(element.getPostcode(), element.getCity(),element.getSubUrb())); //TODO postcode wird durch autolink phone auch zum hyperlink!
+        details.append(joinLine(element.getPostcode(), element.getCity(),element.getSubUrb()));
 
         details.append(buildLine(element.getOpeningHours()));
         details.append(buildLine(element.getWebsite()));
@@ -102,6 +111,7 @@ public class MarkerDialog extends Dialog {
 
         this.tvDetails.setText(details);
 
+        //todo "keine infos gefunden/ fehlerhaftes tagging" meldung/ text im dialog wenn details leer bleibt -> kein besonderes tag ausgelesen
 
 //        element.getStreet()
 
@@ -154,5 +164,14 @@ public class MarkerDialog extends Dialog {
     @Override
     public void show() {
         super.show();
+    }
+
+    /**
+     * Warning beim Dialog close ist irrelevant (system intern)
+     * -> https://stackoverflow.com/questions/45272619/dismissing-a-alertdialog-gives-warning-attempted-to-finish-an-input-event-but-th
+     */
+    @Override
+    public void dismiss() {
+        super.dismiss();
     }
 }
