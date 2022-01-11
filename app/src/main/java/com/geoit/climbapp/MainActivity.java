@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.BitmapFactory;
+import android.graphics.Bitmap;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.app.ActivityCompat;
 import androidx.preference.PreferenceManager;
 
@@ -36,7 +37,9 @@ import com.mapbox.api.directions.v5.models.RouteOptions;
 import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
+import com.mapbox.mapboxsdk.camera.CameraUpdate;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
+import com.mapbox.mapboxsdk.geometry.LatLngBounds;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
@@ -77,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     View layout;
     private static final int PERMISSION_REQUEST_CODE = 1234;
     private static final String[] PERMISSIONS = {Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION};
-    public static final int DEFAULT_RADIUS = 25000; //m
+    public static final int DEFAULT_RADIUS = 10; //km
 
 
     private FloatingActionButton btnSearch, btnSettings, btnCenter;
@@ -100,8 +103,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     MapboxRouteLineOptions lineOptions;
 
 
-
-    //TODO meldung anzeigen "halte gedrückt um zu suchen" !
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,7 +133,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
 //                intent.addFlags(FLAG)
                 startActivity(intent);
-
 
 
             }
@@ -173,12 +173,16 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                     }
                 });
 
+                Bitmap bitmap_outdoor = UIUtils.drawableToBitmap(AppCompatResources.getDrawable(MainActivity.this, R.drawable.ic_outdoor));
+                Bitmap bitmap_indoor = UIUtils.drawableToBitmap(AppCompatResources.getDrawable(MainActivity.this, R.drawable.ic_indoor));
+                Bitmap bitmap_both = UIUtils.drawableToBitmap(AppCompatResources.getDrawable(MainActivity.this, R.drawable.ic_inout));
+
                 mapboxMap.setStyle(new Style.Builder().fromUri(Style.MAPBOX_STREETS)
 
                                 // Add the SymbolLayer icon image to the map style
-                                .withImage("marker_outdoor", BitmapFactory.decodeResource(getResources(), R.drawable.outdoor_bitmap))
-                                .withImage("marker_indoor", BitmapFactory.decodeResource(getResources(), R.drawable.indoor_bitmap))
-                                .withImage("marker_both", BitmapFactory.decodeResource(getResources(), R.drawable.inout_bitmap))
+                                .withImage("marker_outdoor", bitmap_outdoor)
+                                .withImage("marker_indoor", bitmap_indoor)
+                                .withImage("marker_both", bitmap_both)
 
 
                         , new Style.OnStyleLoaded() {
@@ -210,17 +214,17 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
 
                                             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-                                            boolean debug=sharedPreferences.getBoolean("debug",true);
-                                            if(debug){
+                                            boolean debug = sharedPreferences.getBoolean("debug", true);
+                                            if (debug) {
                                                 UIUtils.showToast(MainActivity.this, clicked.toFormattedString(), Toast.LENGTH_LONG);
                                             }
 
-                                            MarkerDialog dialog = new MarkerDialog(MainActivity.this, clicked, new MarkerDialogListener() {
+                                            MarkerDialog dialog = new MarkerDialog(MainActivity.this, clicked);
+                                            dialog.setListener(new MarkerDialogListener() {
                                                 @Override
                                                 public void onStartNavigationClick(LatLng markerPosition) {
                                                     startNavigation(markerPosition);
-                                                    //TODO bei erfolg den dialog schließen!
-
+                                                    dialog.dismiss();
 
                                                 }
                                             });
@@ -231,7 +235,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                     }
                                 });
 
-                                //TODO an gps position zoomen, wenn noch nicht da nach dt zoomen, wenn dann iwann doch da, erneut auf position zoomen
                                 CameraPosition position = new CameraPosition.Builder()
                                         .target(new com.mapbox.mapboxsdk.geometry.LatLng(49.0, 11.0)) // Sets the new camera position
                                         .zoom(4) // Sets the zoom
@@ -246,19 +249,18 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                     @Override
                                     public void onClick(View view) {
 
-                                        if (!locManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+
+                                        if (locManager == null || !locManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                                             UIUtils.showToast(MainActivity.this, getString(R.string.gps_disabled));
                                             return;
                                         }
 
                                         if (lastLocation != null) {
-                                            UIUtils.showToast(MainActivity.this, getString(R.string.center));
+                                            // Sets the new camera position and zoom
                                             CameraPosition position = new CameraPosition.Builder()
-                                                    .target(new com.mapbox.mapboxsdk.geometry.LatLng(lastLocation.getLatitude(), lastLocation.getLongitude())) // Sets the new camera position
-                                                    .zoom(15) // Sets the zoom
-//                                        .bearing(180) // Rotate the camera
-//                                        .tilt(30) // Set the camera tilt
-                                                    .build(); // Creates a CameraPosition from the builder
+                                                    .target(new com.mapbox.mapboxsdk.geometry.LatLng(lastLocation.getLatitude(), lastLocation.getLongitude()))
+                                                    .zoom(15)
+                                                    .build();
 
                                             mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 4000);
                                         } else {
@@ -277,31 +279,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
 
         requestPermission();
-
-
-//        testLocalXML(this.getApplicationContext(),"testabfrage2.xml");
-//        testLocalXML(this.getApplicationContext(),"australia.xml");
-//        testLocalXML(this.getApplicationContext(),"pyrenaen.xml");
-//        testLocalXML(this.getApplicationContext(),"portugal.xml");
-//        testLocalXML(this.getApplicationContext(),"southamerica.xml");
-
-//        InputStream stream= null;
-//        try {
-//
-//            stream = getApplicationContext().getAssets().open("testabfrage2.xml");
-//
-//            OverpassTask task=new OverpassTask(stream);
-//
-
-
-//
-//
-//
-//
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        UIUtils.showToast(this, getString(R.string.search_prompt), Toast.LENGTH_LONG);
 
 
     }
@@ -310,7 +288,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
 
         if (lastLocation == null) {
-            UIUtils.showToast(MainActivity.this, getString(R.string.gps_disabled)); //TODO tritt auch auf, wenn gps an ist aber keine position gefunden!
+            UIUtils.showToast(MainActivity.this, getString(R.string.gps_no_position));
             return;
         }
 
@@ -350,6 +328,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 //List<DirectionsRoute> list2 = new ArrayList<>(list);
                 //route.addRoutes(list2);
 
+                CameraPosition position = new CameraPosition.Builder()
+                        .target(new com.mapbox.mapboxsdk.geometry.LatLng(location.latitude(), location.longitude()))
+                        .build();
+                mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 2500);
 
             }
 
@@ -372,27 +354,26 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     private void sendRequest() {
 
-        Log.d("[Request]", "sending Overpass-Request");
-        LatLng latLng = DEFAULT_LOCATION;
+
         if (lastLocation != null) {
-            latLng = new LatLng(lastLocation.getLatitude(), lastLocation.getLongitude());
+            Log.d("[Request]", "sending Overpass-Request");
+            LatLng latLng = new LatLng(lastLocation.getLatitude(), lastLocation.getLongitude());
+            sendRequest(latLng);
+        } else {
+            UIUtils.showToast(MainActivity.this, getString(R.string.gps_no_position));
         }
-        //TODO latlng der click positionssuche
-
-
-        sendRequest(latLng);
 
     }
 
     private void sendRequest(LatLng latLng) {
 
-        System.out.println(executor.isRunning()); //TODo was wenn schon einer l#uft
+        System.out.println(executor.isRunning());
         if (executor.isRunning()) {
             UIUtils.showToast(this, getString(R.string.already_running_request));
             return;
         }
 
-        UIUtils.showToast(this, getString(R.string.request_starting), Toast.LENGTH_SHORT);
+
         loadingBar.setVisibility(View.VISIBLE);
 
         elementHashMap.clear();
@@ -407,8 +388,12 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         boolean showOutdoor = sharedPreferences.getBoolean("outdoor", true);
         boolean showFee = sharedPreferences.getBoolean("fee", true);
 
-
         Log.d("Overpass Request", "starting request for: " + api + ", radius: " + radius + latLng.toString());
+
+
+        double deg = (radius * 1000) / (111320 * Math.cos(Math.toRadians(latLng.getLatitude())));
+        final LatLngBounds bounds = LatLngBounds.from(latLng.getLatitude() + deg, latLng.getLongitude() + deg, latLng.getLatitude() - deg, latLng.getLongitude() - deg);
+
 
         executor.executeAsync(new OverpassTask(api, radius, latLng), new TaskExecutor.Callback<ArrayList<TaggedElement>>() {
             @Override
@@ -450,7 +435,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
             @Override
             public void onTimeout() {
-                UIUtils.showToast(MainActivity.this, getString(R.string.overpass_timeout), Toast.LENGTH_SHORT);
+                UIUtils.showToast(MainActivity.this, getString(R.string.overpass_timeout), Toast.LENGTH_LONG);
                 loadingBar.setVisibility(View.INVISIBLE);
             }
 
@@ -460,6 +445,21 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 loadingBar.setVisibility(View.INVISIBLE);
             }
         });
+        //disable user input while initial zoom animation is running
+        CameraUpdate fitToBounds = CameraUpdateFactory.newLatLngBounds(bounds, 100);
+
+        mapboxMap.getUiSettings().setAllGesturesEnabled(false);
+        mapboxMap.animateCamera(fitToBounds, 2500, new MapboxMap.CancelableCallback() {
+            @Override
+            public void onCancel() {
+                mapboxMap.getUiSettings().setAllGesturesEnabled(true);
+            }
+
+            @Override
+            public void onFinish() {
+                mapboxMap.getUiSettings().setAllGesturesEnabled(true);
+            }
+        });
     }
 
     private void addSymbolForElement(TaggedElement element) {
@@ -467,9 +467,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         try {
             Symbol symbol = symbolManager.create(new SymbolOptions()
                             .withLatLng(new com.mapbox.mapboxsdk.geometry.LatLng(element.getLatLng().getLatitude(), element.getLatLng().getLongitude()))
-                            .withIconImage((element.isIndoor()?(element.isOutdoor()?"marker_both":"marker_indoor"):"marker_outdoor"))
+                            .withIconImage((element.isIndoor() ? (element.isOutdoor() ? "marker_both" : "marker_indoor") : "marker_outdoor"))
                             .withIconAnchor(Property.ICON_ANCHOR_BOTTOM)
-                            .withIconSize(0.3f)
+//                            .withIconSize(0.8f)
 
 //                                        .withDraggable(true)
             );
@@ -532,8 +532,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         // Display a SnackBar with cda button to request the missing permission.
         if (!hasPermissions()) {
             System.out.println("haspermission is false");
-            Snackbar.make(layout, "permissions_required",
-                    Snackbar.LENGTH_INDEFINITE).setAction("permission_request_accept", new View.OnClickListener() {
+            Snackbar.make(layout, getString(R.string.permission_request),
+                    Snackbar.LENGTH_INDEFINITE).setAction(R.string.permission_request_accept, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     // Request the permission
@@ -567,7 +567,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 // Permission has been granted. Start location Activity.
                 System.out.println("permission_granted");
-                Snackbar.make(layout, "permissions_granted", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(layout, getString(R.string.permissions_granted), Snackbar.LENGTH_SHORT).show();
 
                 initLocator();
             } else {
@@ -624,26 +624,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         this.lastLocation = location;
     }
 
-    /**
-     * Called when the provider is enabled by the user.
-     *
-     * @param provider the name of the location provider that has become enabled
-     */
     @Override
     public void onProviderEnabled(@NonNull String provider) {
-
     }
-
-    /**
-     * Called when the provider is disabled by the user. If requestLocationUpdates
-     * is called on an already disabled provider, this method is called
-     * immediately.
-     *
-     * @param provider the name of the location provider that has become disabled
-     */
     @Override
     public void onProviderDisabled(@NonNull String provider) {
-
     }
 
     @Override
@@ -671,7 +656,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         mapView.onSaveInstanceState(outState);
     }

@@ -6,10 +6,6 @@
         <item>https://overpass-api.de/api/interpreter</item>
         <item>https://overpass.openstreetmap.fr/api/interpreter</item>
         <item>https://overpass.openstreetmap.ru/api/interpreter</item>
-<!--        <item>https://overpass.osm.ch/api/interpreter</item> schweiz geht auch nicht!-->
         <item>https://overpass.kumi.systems/api/interpreter</item>
-
-<!--        todo taiwan rausnehmen! ist offline -> testzwecke-->
-        <item>https://overpass.nchc.org.tw/api/interpreter</item>
     </string-array>
 </resources>

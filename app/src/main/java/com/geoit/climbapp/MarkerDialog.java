@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.core.content.res.ResourcesCompat;
 
+import com.geoit.climbapp.overpass.ClimbingStyles;
 import com.geoit.climbapp.overpass.TaggedElement;
 
 
@@ -26,11 +27,12 @@ public class MarkerDialog extends Dialog {
     TaggedElement element;
     MarkerDialogListener listener;
 
-    public MarkerDialog(Context context, TaggedElement marker, MarkerDialogListener listener) {
+    public MarkerDialog(Context context, TaggedElement marker) {
         super(context);
         this.element = marker;
+    }
+    public void setListener(MarkerDialogListener listener){
         this.listener = listener;
-
     }
 
     @Override
@@ -65,7 +67,8 @@ public class MarkerDialog extends Dialog {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onStartNavigationClick(element.getLatLng());
+                if(listener!=null)
+                    listener.onStartNavigationClick(element.getLatLng());
             }
         });
 
@@ -79,42 +82,88 @@ public class MarkerDialog extends Dialog {
     protected void onStart() {
         super.onStart();
 
-        if(element.getName().isEmpty()){
-            if(element.isSportsCenter()){
+        if (element.getName().isEmpty()) {
+            if (element.isSportsCenter()) {
                 this.tvName.setText(getContext().getResources().getString(R.string.element_no_name_center));
-            }else{
+            } else {
                 this.tvName.setText(getContext().getResources().getString(R.string.element_no_name_boulder));
             }
-        }else{
+        } else {
             this.tvName.setText(element.getName());
         }
 
         StringBuilder details = new StringBuilder("");
 
+        if (!element.getStreet().isEmpty()) {
+            StringBuilder address = new StringBuilder();
+
+            address.append(joinLine(element.getStreet(), element.getHouseNumber()));
+            if (!element.getPostcode().isEmpty() || !element.getCity().isEmpty() || !element.getSubUrb().isEmpty() || !element.getCountry().isEmpty()) {
+                address.append('\n');
+                address.append(joinLine(element.getPostcode(), element.getCity(), element.getSubUrb(), element.getCountry()));
+            }
+            details.append(address).append('\n');
+
+        }
+
         details.append(buildLine(element.getOperator()));
-
-        details.append(joinLine(element.getStreet(), element.getHouseNumber()));
-        details.append(joinLine(element.getPostcode(), element.getCity(),element.getSubUrb()));
-
         details.append(buildLine(element.getOpeningHours()));
         details.append(buildLine(element.getWebsite()));
         details.append(buildLine(element.getPhone()));
 
-        details.append(buildLine(element.getClimbingGradeUIAA())); //TODO UIAA: value anstatt nur value
-        details.append(buildLine(element.getClimbingGradeUIAAMax()));
-        details.append(buildLine(element.getClimbingGradeUIAAMean()));
-        details.append(buildLine(element.getClimbingGradeUIAAMin()));
+        details.append('\n');
 
-        details.append(buildLine(element.getRock())); //TODO Felsenart?!: value
-        details.append(buildLine(element.getLength(), "m")); //TODO Länge: value
-        details.append(buildLine(element.getElevation(), "m")); //TODO Elevation: value
+//        details.append(buildLine(getContext().getString((element.isFee()?R.string.dialog_has_fee:R.string.dialog_no_fee))));
+        if(element.isFee()){
+            details.append(buildLine(getContext().getString(R.string.dialog_has_fee)));
+
+        }
+
+        if(!element.isAccess()){
+            details.append(buildLine(getContext().getString(R.string.dialog_no_access)));
+        }
+
+
+        if (!element.getClimbingGradeUIAA().isEmpty() || !element.getClimbingGradeUIAAMax().isEmpty() || !element.getClimbingGradeUIAAMean().isEmpty() || !element.getClimbingGradeUIAAMin().isEmpty())
+            details.append("UIAA:\n");
+
+        if (!element.getClimbingGradeUIAA().isEmpty())
+            details.append(buildLine("Grade: " + element.getClimbingGradeUIAA()));
+
+        if (!element.getClimbingGradeUIAAMin().isEmpty())
+            details.append(buildLine("Min: " + element.getClimbingGradeUIAAMin()));
+
+        if (!element.getClimbingGradeUIAAMean().isEmpty())
+            details.append(buildLine("Mean: " + element.getClimbingGradeUIAA()));
+
+        if (!element.getClimbingGradeUIAAMax().isEmpty())
+            details.append(buildLine("Max: " + element.getClimbingGradeUIAA()));
+
+        if (!element.getRock().isEmpty())
+            details.append(buildLine(getContext().getString(R.string.dialog_rock, element.getRock())));
+
+        if (element.getLength() != -1)
+            details.append(buildLine(getContext().getString(R.string.dialog_length, element.getLength())));
+
+        if (element.getElevation() != -1f)
+            details.append(buildLine(getContext().getString(R.string.dialog_elevation, element.getElevation())));
+
+
+
+        if(element.getStyles().size()>0){
+            details.append(buildLine(getContext().getString(R.string.dialog_climbing_styles)));
+
+            for(ClimbingStyles style:element.getStyles()){
+                details.append('\t').append(buildLine(style.getValue()));
+            }
+        }
+
+
+        if(details.toString().trim().isEmpty()){
+            details.append(getContext().getString(R.string.dialog_no_info));
+        }
 
         this.tvDetails.setText(details);
-
-        //todo "keine infos gefunden/ fehlerhaftes tagging" meldung/ text im dialog wenn details leer bleibt -> kein besonderes tag ausgelesen
-
-//        element.getStreet()
-
 
     }
 
@@ -126,7 +175,7 @@ public class MarkerDialog extends Dialog {
 
             }
         }
-        return line + '\n';
+        return line;
 
     }
 
@@ -139,39 +188,4 @@ public class MarkerDialog extends Dialog {
         }
     }
 
-    private String buildLine(int value, String suffix) {
-        if (value != -1) {
-            return value + ' ' + suffix + '\n';
-        } else {
-            return "";
-        }
-    }
-
-    private String buildLine(float value, String suffix) {
-        if (value != -1f) {
-            return value + ' ' + suffix + '\n';
-        } else {
-            return "";
-        }
-    }
-
-    /**
-     * Start the dialog and display it on screen.  The window is placed in the
-     * application layer and opaque.  Note that you should not override this
-     * method to do initialization when the dialog is shown, instead implement
-     * that in {@link #onStart}.
-     */
-    @Override
-    public void show() {
-        super.show();
-    }
-
-    /**
-     * Warning beim Dialog close ist irrelevant (system intern)
-     * -> https://stackoverflow.com/questions/45272619/dismissing-a-alertdialog-gives-warning-attempted-to-finish-an-input-event-but-th
-     */
-    @Override
-    public void dismiss() {
-        super.dismiss();
-    }
 }

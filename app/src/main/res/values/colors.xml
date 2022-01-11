@@ -5,11 +5,15 @@
 
     <color name="secondary">#FF0396B2</color>
     <color name="secondaryVariant">#FF0194B0</color>
+    <color name="secondaryDark">#037186</color>
 
     <color name="accent">#FFa496B2</color>
 
     <color name="textLinkColor">#FF0040FF</color>
 
+    <color name="markerColor">#0C9DB9</color>
+    <color name="markerColor2">@color/secondary</color>
+    <color name="markerColor3">#1293AC</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>

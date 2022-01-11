@@ -38,6 +38,7 @@ public class ElementFactory {
                 } else if (baseElement instanceof TaggedElement) {
                     TaggedElement el = (TaggedElement) baseElement;
                     nodeElements.add(el);
+                    referenceMap.put(el.getId(),el.getLatLng());
 //                    Log.d("[NODE]",el.toString());
                 }
 

@@ -1,5 +1,7 @@
 package com.geoit.climbapp.overpass;
 
+import android.util.Log;
+
 import com.geoit.climbapp.LatLng;
 import com.geoit.climbapp.XMLUtils;
 
@@ -9,6 +11,7 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
@@ -25,7 +28,6 @@ public class OverpassTask implements Callable<ArrayList<TaggedElement>> {
     private URL requestURL = null;
 
     public OverpassTask(String api, int radius, LatLng position) {
-        //    private final String input;
 
         radius *= 1000;
 
@@ -57,17 +59,16 @@ public class OverpassTask implements Callable<ArrayList<TaggedElement>> {
     public ArrayList<TaggedElement> call() throws OverpassException, SocketTimeoutException {
         ArrayList<TaggedElement> elements = new ArrayList<>();
 
+        HttpURLConnection connection=null;
+        InputStream in=null;
 
-        InputStream in;
 
+        try {            //OSM Query as URL
 
-        try {
-            URLConnection connection = requestURL.openConnection();
-            //OSM Query as URL
-//            connection = ().openConnection();
-            assert connection != null;
+            connection = (HttpURLConnection) requestURL.openConnection();
+//
             System.out.println("Starte Verbindung ...");
-            connection.setConnectTimeout(7500);
+            connection.setConnectTimeout(5000);
             connection.setReadTimeout(12500);
             connection.connect();
 
@@ -78,9 +79,6 @@ public class OverpassTask implements Callable<ArrayList<TaggedElement>> {
 
 //            System.out.println("TESTING XML: "+input);
             Document doc = XMLUtils.loadDocument(in);
-
-            in.close();
-
 
             NodeList list = doc.getDocumentElement().getChildNodes();
             System.out.println("XML Response has " + list.getLength() + "child nodes!");
@@ -97,7 +95,20 @@ public class OverpassTask implements Callable<ArrayList<TaggedElement>> {
         } catch (IOException | SAXException | ParserConfigurationException e) {
             e.printStackTrace();
             throw new OverpassException("could not parse xml result!", e.getCause());
+
+        } finally {
+        //always close stream and connection
+        if (in != null) {
+            try {
+                in.close();
+            } catch (IOException ignored) {
+            }
         }
+        if (connection != null) {
+            connection.disconnect();
+        }
+
+    }
         return elements;
     }
 }

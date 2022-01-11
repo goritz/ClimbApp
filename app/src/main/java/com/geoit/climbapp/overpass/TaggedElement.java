@@ -27,12 +27,12 @@ public class TaggedElement extends BaseElement {
     private LatLng latLng;
 
 
-    //TODO access=no auslesen und anzeigen!
-    String name = ""; //TODO oldName auslesen und kleiner unter name anzeigen?
+    String name = "";
     String street = "";
     String houseNumber = "";
     String postcode = "";
     String city="";
+    String country="";
     String subUrb="";
     String openingHours = "";
     String website = "";
@@ -42,9 +42,11 @@ public class TaggedElement extends BaseElement {
 
     boolean isSportsCenter = false;
 
-    boolean hasIndoor = false; //TODO was wenn beides false? tritt auf jeden fall auf! (zb. Boulderfelsen Spielplatz Jablonskistraße)
+    boolean hasIndoor = false;
     boolean hasOutdoor = false;
     boolean hasFee = false;
+
+    boolean hasAccess=true;
     String natural = "";
 
     ArrayList<ClimbingStyles> styles = new ArrayList<>();
@@ -100,6 +102,9 @@ public class TaggedElement extends BaseElement {
                     break;
                 case "addr:city":
                     this.city=value;
+                    break;
+                case "addr:country":
+                    this.country=value;
                     break;
                 case "contact:website":
                 case "website":
@@ -166,6 +171,10 @@ public class TaggedElement extends BaseElement {
                         Log.w("[NFE]", "could not parse length: " + value);
 //                        nfe.printStackTrace();
                     }
+                    break;
+                case "access":
+                    if(!value.equals("yes"))
+                        hasAccess=false;
                     break;
 
                 //STYLES
@@ -336,6 +345,10 @@ public class TaggedElement extends BaseElement {
         return city;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
     public String getSubUrb() {
         return subUrb;
     }
@@ -371,6 +384,10 @@ public class TaggedElement extends BaseElement {
 
     public boolean isFee() {
         return hasFee;
+    }
+
+    public boolean isAccess() {
+        return hasAccess;
     }
 
     public String getNatural() {

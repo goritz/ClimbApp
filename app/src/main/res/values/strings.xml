@@ -1,14 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">ClimbApp</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="settings">Settings</string>
 
     <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoiYmV1dGgtc3R1ZGVudCIsImEiOiJjazJkazBvanowM2JoM25ydWF5bGQ1bHRnIn0.7ZceALC-VxdQcUCZmU-iRA</string>
     <string name="request_starting">Starte Overpass Abfrage…</string>
@@ -21,15 +13,22 @@
     <string name="gps_no_position">Es konnte keine Position ermittelt werden.</string>
     <string name="center">Zentrieren</string>
 
-    <string name="already_running_request">Es läuft gerade bereits eine Abfrage!!!</string>
+    <string name="already_running_request">Es läuft gerade bereits eine Abfrage!</string>
     <string name="overpass_error">Die Overpass Antwort war fehlerhaft</string>
-    <string name="overpass_timeout">Overpass antwortet nicht auf deine Anfrage :(</string>
+    <string name="overpass_timeout">Overpass antwortet nicht auf deine Anfrage. Du kannst den Overpass-Server in den Einstellungen ändern, wenn das Problem fortbesteht.</string>
 
+    <string name="permission_request">ClimpApp benötigt Zugriff auf deinen Standort</string>
+    <string name="permission_request_accept">Erteilen</string>
+    <string name="permissions_granted">Berechtigung wurde gewährt</string>
+
+    <string name="osm_attribution">© OpenStreetMap-Mitwirkende</string>
+
+    <string name="search_prompt">Punkt lange drücken um eine Suche zu starten!</string>
 
     <string name="title_activity_settings">Einstellungen</string>
 
 
-    <string name="default_overpass_mirror" translatable="false">https://lz4.overpass-api.de/api/interpreter</string>
+    <string name="default_overpass_mirror" translatable="false">https://overpass.openstreetmap.fr/api/interpreter</string>
 
     <!-- Preference Titles -->
     <string name="settings_header_filter">Filter</string>
@@ -63,14 +62,15 @@
     <string name="element_no_name_boulder">Unbekannter Kletterfelsen</string>
     <string name="element_no_name_center">Unbekannte Kletterhalle</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <string name="dialog_rock">Felsen: %1$s</string>
+    <string name="dialog_length">Länge: %1$d m</string>
+    <string name="dialog_elevation">Höhe: %1$.2f m</string>
 
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="dialog_no_access">Kein Zugang!</string>
+    <string name="dialog_no_fee">Zugang ist kostenlos</string>
+    <string name="dialog_has_fee">Zugang ist kostenpflichtig</string>
+
+    <string name="dialog_no_info">Keine Informationen gefunden!</string>
+    <string name="dialog_climbing_styles">Kletterstile:</string>
+
 </resources>
