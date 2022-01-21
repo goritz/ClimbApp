@@ -1,11 +1,13 @@
 package com.geoit.climbapp;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -15,6 +17,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -40,6 +45,11 @@ import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdate;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.geometry.LatLngBounds;
+import com.mapbox.mapboxsdk.location.LocationComponent;
+import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions;
+import com.mapbox.mapboxsdk.location.LocationComponentOptions;
+import com.mapbox.mapboxsdk.location.modes.CameraMode;
+import com.mapbox.mapboxsdk.location.modes.RenderMode;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
@@ -88,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     private MapView mapView;
     private MapboxMap mapboxMap;
+    private Style mapboxStyle;
     private NavigationMapRoute route;
     private SymbolManager symbolManager;
 
@@ -101,6 +112,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     MapboxRouteLineApi lineApi;
     MapboxRouteLineView lineView;
     MapboxRouteLineOptions lineOptions;
+
+    boolean isMapboxLocationActivated=false;
 
 
     @Override
@@ -173,9 +186,15 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                     }
                 });
 
+
+
+
+
                 Bitmap bitmap_outdoor = UIUtils.drawableToBitmap(AppCompatResources.getDrawable(MainActivity.this, R.drawable.ic_outdoor));
                 Bitmap bitmap_indoor = UIUtils.drawableToBitmap(AppCompatResources.getDrawable(MainActivity.this, R.drawable.ic_indoor));
                 Bitmap bitmap_both = UIUtils.drawableToBitmap(AppCompatResources.getDrawable(MainActivity.this, R.drawable.ic_inout));
+
+
 
                 mapboxMap.setStyle(new Style.Builder().fromUri(Style.MAPBOX_STREETS)
 
@@ -188,6 +207,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                         , new Style.OnStyleLoaded() {
                             @Override
                             public void onStyleLoaded(@NonNull Style style) {
+                                MainActivity.this.mapboxStyle=style;
 
                                 // Map is set up and the style has loaded. Now you can add additional data or make other map adjustments.
                                 // Set up a SymbolManager instance
@@ -198,6 +218,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                 }
 
                                 route = new NavigationMapRoute(null, mapView, mapboxMap, R.style.ClimbAppNavigationMapRoute);
+                                enableLocationMarker();
+
 
 
 //                                MainActivity.this.mapStyle=style;
@@ -263,9 +285,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                                                     .build();
 
                                             mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 4000);
+                                            enableLocationMarker();
                                         } else {
                                             UIUtils.showToast(MainActivity.this, getString(R.string.gps_no_position));
-
 
                                         }
 
@@ -501,6 +523,44 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         }
 
     }
+    @SuppressLint("MissingPermission")
+    private void enableLocationMarker(){
+        if(hasPermissions()&&!isMapboxLocationActivated){
+            LocationComponentOptions locationComponentOptions =
+                    LocationComponentOptions.builder(MainActivity.this)
+                            .pulseEnabled(true)
+                            .pulseColor(getColor(R.color.accent))
+                            .pulseAlpha(.4f)
+                            .pulseInterpolator(new DecelerateInterpolator())
+                            .build();
+
+            LocationComponentActivationOptions locationComponentActivationOptions = LocationComponentActivationOptions
+                    .builder(MainActivity.this, mapboxStyle)
+                    .locationComponentOptions(locationComponentOptions)
+                    .build();
+
+//                mapboxLocation = mapboxMap.getLocationComponent();
+
+
+
+
+            // Get an instance of the component
+            LocationComponent locationComponent = mapboxMap.getLocationComponent();
+
+            // Activate with a built LocationComponentActivationOptions object
+            locationComponent.activateLocationComponent(locationComponentActivationOptions);
+
+            // Enable to make component visible
+            locationComponent.setLocationComponentEnabled(true);
+
+            // Set the component's camera mode
+                locationComponent.setCameraMode(CameraMode.NONE);
+
+            // Set the component's render mode
+            locationComponent.setRenderMode(RenderMode.COMPASS);
+        }
+
+    }
 
     /**
      * checks whether or not the app has all permissions granted to be fully functional
@@ -570,6 +630,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 Snackbar.make(layout, getString(R.string.permissions_granted), Snackbar.LENGTH_SHORT).show();
 
                 initLocator();
+                if(mapboxStyle!=null){
+                    enableLocationMarker();
+                }
             } else {
                 // Permission request was denied.
                 System.out.println("permission was denied");
@@ -591,6 +654,13 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000L,
                         10.0f, this);
                 Location location = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+
+
+
+
+
+
 //                updateLocation(location);
                 if (location != null) {
                     System.out.println("last known location: " + location.toString());
