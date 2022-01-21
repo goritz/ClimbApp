@@ -13,7 +13,7 @@ public abstract class BaseElement{
 
 
 
-    public BaseElement(long id) {
+    protected BaseElement(long id) {
         this.id = id;
     }
 

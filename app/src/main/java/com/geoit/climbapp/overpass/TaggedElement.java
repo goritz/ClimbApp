@@ -69,7 +69,7 @@ public class TaggedElement extends BaseElement {
     float elevation = -1;
 
 
-    public TaggedElement(long id, ElementType type, Element osmElement) throws OverpassException {
+    protected TaggedElement(long id, ElementType type, Element osmElement) throws OverpassException {
         super(id);
         this.type = type;
 
