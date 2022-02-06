@@ -8,6 +8,5 @@
 
 ## Resources
 
-hallo das ist meine änderung
 
 Diese App entsteht im Rahmen des Moduls GeoIT Projekte an der Berliner Hochschule für Technik
